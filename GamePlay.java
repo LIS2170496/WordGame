@@ -31,7 +31,7 @@ public class GamePlay {
 
 
         
-        //Requirement 5ci & 5cii - 
+        //Requirement 5ci & 5cii - Instance of Person depending on fname or fname+lname
         if (nameDecision.equals("Y")) {
             System.out.println("Enter your last name: ");
             personLastName = scan.nextLine();
