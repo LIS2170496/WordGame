@@ -7,6 +7,13 @@ public class Person {
     private String lastName;
 
 
+    //Added new constructor without arguments 9.9.2026
+    public Person() {
+        firstName = "";
+        lastName = "";
+    }
+
+
     //Requirement 3d - two overloaded constructors
     public Person(String first) {
         firstName = first;
