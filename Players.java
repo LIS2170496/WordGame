@@ -11,7 +11,8 @@ public class Players extends Person {
     //Requirement 3d - constructor initializes $1000
     public Players() {
         piggyBank = 1000;
-        System.out.println("You have $1,000 in your piggy bank");
+        System.out.println("Welcome!");
+        System.out.println("Player 1, you have $1,000 in your piggy bank");
     }
 
 
