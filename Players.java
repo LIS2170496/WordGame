@@ -1,8 +1,11 @@
 //Requirement 3a - Players class extends Person
 public class Players extends Person {
 
-    //Requirement 3b - private money variable(s?)
+    //Requirement 3b - private money variable
     private int piggyBank;
+
+    //Requirement 6a.vi - variable for amount
+    public int betAmount = 10;
 
 
     //Requirement 3d - constructor initializes $1000
