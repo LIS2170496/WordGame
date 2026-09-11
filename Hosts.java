@@ -1,6 +1,10 @@
 public class Hosts extends Person {
     Numbers newNumber;
 
+    public Hosts(String first, String last) {
+        super(first, last);
+    }
+
     //Requirement 5a - instantiate Numbers.java and generate a random number
     public void randomizeNum() {
         Numbers newNumber = new Numbers();
