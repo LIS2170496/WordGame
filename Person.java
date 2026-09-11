@@ -1,8 +1,8 @@
-//Requirement 3a - new Person class
+//new Person class
 public class Person {
 
     
-    //Requirement 3b - two private instance variables
+    //two private instance variables
     private String firstName;
     private String lastName;
 
@@ -14,7 +14,7 @@ public class Person {
     }
 
 
-    //Requirement 3d - two overloaded constructors
+    //two overloaded constructors
     public Person(String first) {
         firstName = first;
         lastName = "";
@@ -25,7 +25,7 @@ public class Person {
     }
 
 
-    //Requirement 3c - public getters and setters for first/last name
+    //public getters and setters for first/last name
     public void setFirstName(String fn) {
         firstName = fn;
     }

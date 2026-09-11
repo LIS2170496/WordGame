@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class GamePlay {
 
-    //Requirement 5a - private Person field
+    //private Person field
     //Updated to create new Person at this level 9.9.2026  
     private Person person = new Person();
 
@@ -18,11 +18,11 @@ public class GamePlay {
         GamePlay myGame = new GamePlay();
 
 
-        //Requirement 5b - ask for person's name in main
+        //ask for person's name in main
         System.out.println("Player 1, enter your first name: ");
         personFirstName = scan.nextLine();
 
-        //Requirement 5c - ask if they want to add last name
+        //ask if they want to add last name
         System.out.println("Would you like to add your last name? (Y / N)");
         nameDecision = scan.nextLine();
         
@@ -35,7 +35,7 @@ public class GamePlay {
 
 
         
-        //Requirement 5ci & 5cii - Instance of Person depending on fname or fname+lname
+        //Instance of Person depending on fname or fname+lname
         //Updated player1 to myGame.person  9.9.2026
         if (nameDecision.equals("Y")) {
             System.out.println("Enter your last name: ");
@@ -53,11 +53,11 @@ public class GamePlay {
         System.out.println("Welcome, " + myGame.person.getFullName() );
 
 
-        //Requirement 5d - new Numbers instance that generates a random number
+        //new Numbers instance that generates a random number
         Numbers aRandomNumber = new Numbers();
         aRandomNumber.generateNumber();
 
-        //Requirement 5e - while loop to play the guessing game
+        //while loop to play the guessing game
         int playerGuess;
         boolean guessCorrect = false;
 
