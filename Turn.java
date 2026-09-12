@@ -15,6 +15,8 @@ public class Turn {
             playerName.getFullName() + ", guess my random number between 0 and 100");
         playerGuess = scan.nextInt();
 
+
+        
         if (hostName.verifyGuess(playerGuess)) {
 
             //Requirement 6a.iv - winning output and piggybank increase
