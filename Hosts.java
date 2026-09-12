@@ -14,4 +14,8 @@ public class Hosts extends Person {
     public Numbers getNumber() {
         return newNumber;
     }
+
+    public boolean verifyGuess(int someGuess) {
+        return newNumber.compareNumber(someGuess);
+    }
 }
