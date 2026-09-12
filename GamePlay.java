@@ -94,12 +94,38 @@ public class GamePlay {
         //}
 
 
-        //Requirement 7f - loop to takeTurn until game over
+        //Requirement 7f - loop to takeTurn until game over (what about if ran out of money)
         //while loop to play the guessing game
         boolean playerWins = false;
+        boolean playAgain = true;
+        String playAgainDecision;
 
-        while (!playerWins) {
-            playerWins = newTurn.takeTurn(myGame.player, bobBarker);
+
+        //Requirement 7g - outer loop for playAgain option
+        while (playAgain) {
+            playerWins = false;
+            playAgainDecision = "";
+
+            while (!playerWins) {
+                playerWins = newTurn.takeTurn(myGame.player, bobBarker);
+            }
+
+            //prevent invalid entry
+            while (!playAgainDecision.equals("Y")  &&  !playAgainDecision.equals("N")) {
+                System.out.println("Would you like to play again? (Y / N)");
+                playAgainDecision = scan.nextLine();
+            }
+
+            
+            if (playAgainDecision.equals("Y")) {
+                playAgain = true;
+                //Requirement 7g - generate new random number
+                bobBarker.randomizeNum();
+            }
+            else {
+                playAgain = false;
+            }
+
         }
 
         
