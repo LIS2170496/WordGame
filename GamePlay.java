@@ -115,7 +115,7 @@ public class GamePlay {
 
             //prevent invalid entry
             while (!playAgainDecision.equals("Y")  &&  !playAgainDecision.equals("N")) {
-                System.out.println("Would you like to play again? (Y / N)");
+                System.out.println("\nWould you like to play again? (Y / N)");
                 playAgainDecision = scan.nextLine();
             }
 
