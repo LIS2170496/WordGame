@@ -11,7 +11,7 @@ public class Turn {
 
         //Requirement 6a.iii - simulate host/player to prompt guess
         System.out.println(
-            "Host " + hostName.getFullName() + " says: " + 
+            "\nHost " + hostName.getFullName() + " says: " + 
             playerName.getFullName() + ", guess my random number between 0 and 100");
         playerGuess = scan.nextInt();
 

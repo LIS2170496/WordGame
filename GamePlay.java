@@ -63,7 +63,10 @@ public class GamePlay {
         //Welcome message to confirm what is stored in Person object
         //Updated player1 to myGame.person  9.9.2026
         //Updated myGame.person to myGame.player 9.11.2026
-        System.out.println("Welcome, " + myGame.player.getFullName() );
+        System.out.println("\nWelcome, " + myGame.player.getFullName() );
+        System.out.println("You have $1,000 in your piggy bank");
+        System.out.println("Each guess will bet $" + myGame.player.betAmount);
+        System.out.println("If you guess correctly, you will win $" + myGame.player.winAmount);
 
 
 
