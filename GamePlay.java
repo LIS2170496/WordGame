@@ -96,10 +96,10 @@ public class GamePlay {
 
         //Requirement 7f - loop to takeTurn until game over
         //while loop to play the guessing game
-        boolean keepPlaying = true;
+        boolean playerWins = false;
 
-        while (keepPlaying) {
-            newTurn.takeTurn(myGame.player, bobBarker);
+        while (!playerWins) {
+            playerWins = newTurn.takeTurn(myGame.player, bobBarker);
         }
 
         
