@@ -6,6 +6,7 @@ public class Players extends Person {
 
     //Requirement 6a.vi - variable for amount
     public int betAmount = 10;
+    public int winAmount = betAmount * 5;
 
 
     //Requirement 3d - constructor initializes $1000

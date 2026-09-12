@@ -16,13 +16,18 @@ public class Turn {
         playerGuess = scan.nextInt();
 
 
-        
-        if (hostName.verifyGuess(playerGuess)) {
+        //Updated per rubric to have Turn instantiate Numbers to check the guess
+        //Previously, my 'if' statement went through the Host using hostName.verifyGuess(playerGuess)
+        Numbers numbers = new Numbers();
+
+
+        //Fixed my 'if' statement to go directly to Numbers rather than through Host verifyGuess method
+        if (numbers.compareNumber(playerGuess)) {
 
             //Requirement 6a.iv - winning output and piggybank increase
             //If player wins, add 5 times the bet amount to their piggy bank
-            playerName.setPiggyBank(playerName.getPiggyBank() + (playerName.betAmount * 5));
-            //System.out.println("Congratulations, " + playerName.getFullName() + ", you win!");
+            playerName.setPiggyBank(playerName.getPiggyBank() + (playerName.winAmount));
+            System.out.println("Congratulations, " + playerName.getFullName() + ", you guessed the number!");
             System.out.println(playerName.toString());
             return true;
         }
@@ -37,4 +42,15 @@ public class Turn {
             return false;
         }
     }
+
+
+
+    //Not in requirements, but in rubric-
+    //takeTurn overloaded to accept only Player object, no Host
+    public boolean takeTurn(Players playerName) {
+        return true;
+        //FIXME - not sure what exactly to return
+    }
+
+
 }

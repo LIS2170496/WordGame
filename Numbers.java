@@ -25,7 +25,7 @@ public class Numbers {
     //method to compare guess to answer then return statement and boolean
     public boolean compareNumber(int guess) {
         if (guess == randomNum) {
-            System.out.println("Congratulations, you guessed the number!");
+            //System.out.println("Congratulations, you guessed the number!");
             return true;
         }
 
