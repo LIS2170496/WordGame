@@ -28,12 +28,9 @@ public class Players extends Person {
     //Requirement 3e - Override toString()
     @Override 
     public String toString() {
-        return "Player Name: " + getFullName() + "     Piggy Bank: " + getPiggyBank();
-        //FIXME idk if this will work as String object
-
-
-        //System.out.println("Player Name: " + getFullName());
-        //System.out.println("Piggy Bank: " + getPiggyBank());
+        String myString = new String();
+        myString = "Player Name: " + getFullName() + "     Piggy Bank: " + getPiggyBank();
+        return myString;
     }
 
 
