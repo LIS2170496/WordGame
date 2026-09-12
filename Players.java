@@ -28,9 +28,7 @@ public class Players extends Person {
     //Requirement 3e - Override toString()
     @Override 
     public String toString() {
-        String myString = new String();
-        myString = "Player Name: " + getFullName() + "     Piggy Bank: " + getPiggyBank();
-        return myString;
+        return "Player Name: " + getFullName() + "     Piggy Bank: " + getPiggyBank() + "\n";
     }
 
 
