@@ -8,6 +8,10 @@ public class GamePlay {
     private Players player = new Players();
 
 
+    //Requirement 3a - Array of 3 Players
+    Players[3] currentPlayers = new Players[3];
+
+
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
