@@ -5,7 +5,9 @@ public class GamePlay {
     //private Person field
     //Updated to create new Person at this level 9.9.2026  
     //Person person is now a Players player
+
     private Players player = new Players();
+    //FIXME - comment this out at the end so that Welcome! displays only once at start
 
 
     //Requirement 3a - Array of 3 Players
@@ -36,6 +38,9 @@ public class GamePlay {
 
         for (x = 0; x < 3; ++x) {
 
+            //instantiate player in array
+            myGame.currentPlayers[x] = new Players();
+
             //ask for player's name in main
             System.out.println("Player " + (x + 1) + ", enter your first name: ");
             playerFirstName = scan.nextLine();
@@ -55,11 +60,11 @@ public class GamePlay {
             if (nameDecision.equals("Y")) {
                 System.out.println("Enter your last name: ");
                 playerLastName = scan.nextLine();
-                myGame.currentPlayers[(x + 1)].setFirstName(playerFirstName);
-                myGame.currentPlayers[(x + 1)].setLastName(playerLastName);
+                myGame.currentPlayers[x].setFirstName(playerFirstName);
+                myGame.currentPlayers[x].setLastName(playerLastName);
             }
             else {
-                myGame.currentPlayers[(x + 1)].setFirstName(playerFirstName);
+                myGame.currentPlayers[x].setFirstName(playerFirstName);
             }
 
             
@@ -72,9 +77,9 @@ public class GamePlay {
 
         //Welcome message to confirm what is stored in objects
         System.out.println("\nWelcome, " + 
-            myGame.currentPlayers[1].getFullName() + ", " + 
-            myGame.currentPlayers[2].getFullName() + ", and " + 
-            myGame.currentPlayers[3].getFullName() 
+            myGame.currentPlayers[0].getFullName() + ", " + 
+            myGame.currentPlayers[1].getFullName() + ", and " + 
+            myGame.currentPlayers[2].getFullName() + "!\n"
         );
         System.out.println("You each have $1,000 in your piggy bank");
         System.out.println("Each guess will bet $" + myGame.player.betAmount);
@@ -112,16 +117,20 @@ public class GamePlay {
 
             //Requirement 3c - Ask for guess from each player until correct answer guessed
             while (!playerWins) {
-                while (!playerWins) {
-                    playerWins = newTurn.takeTurn(myGame.currentPlayers[1], bobBarker);
-                }
-                while (!playerWins) {
-                    playerWins = newTurn.takeTurn(myGame.currentPlayers[2], bobBarker);
-                }
-                while (!playerWins) {
-                    playerWins = newTurn.takeTurn(myGame.currentPlayers[3], bobBarker);
+                //For-each loop through array
+                for (Players c : myGame.currentPlayers) {
+                    playerWins = newTurn.takeTurn(c, bobBarker);
+                    
+                    //to get out after number guessed correctly
+                    if (playerWins) {
+                        break;
+                    }
                 }
             }
+
+            
+
+
 
             //prevent invalid entry
             while (!playAgainDecision.equals("Y")  &&  !playAgainDecision.equals("N")) {
