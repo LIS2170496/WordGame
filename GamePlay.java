@@ -4,7 +4,7 @@ public class GamePlay {
 
     //private Person field
     //Updated to create new Person at this level 9.9.2026  
-    //Requirement 7b - Person person is now a Players player
+    //Person person is now a Players player
     private Players player = new Players();
 
 
@@ -21,7 +21,7 @@ public class GamePlay {
         GamePlay myGame = new GamePlay();
 
 
-        //Requirement 7a - instantiate Host and generate random number
+        //Instantiate Host and generate random number
         Hosts bobBarker = new Hosts("Bob", "Barker");
         bobBarker.randomizeNum();
 
@@ -73,13 +73,13 @@ public class GamePlay {
         
 
 
-        //Requirement 7c - removed this section
-        //new Numbers instance that generates a random number
+        //Removed this section
+        //New Numbers instance that generates a random number
         //Numbers aRandomNumber = new Numbers();
         //aRandomNumber.generateNumber();
 
 
-        //Requirement 7d - instantiate Turn
+        //Instantiate Turn
         Turn newTurn = new Turn();
 
 
@@ -87,7 +87,7 @@ public class GamePlay {
         
 
 
-        //Requirement 7e - move this prompt to takeTurn method
+        //Move this prompt to takeTurn method
         //int playerGuess;
         //boolean guessCorrect = false;
         //while (!guessCorrect) {
@@ -97,14 +97,14 @@ public class GamePlay {
         //}
 
 
-        //Requirement 7f - loop to takeTurn until game over (what about if ran out of money)
+        //Loop to takeTurn until game over (what about if ran out of money)
         //while loop to play the guessing game
         boolean playerWins = false;
         boolean playAgain = true;
         String playAgainDecision;
 
 
-        //Requirement 7g - outer loop for playAgain option
+        //Outer loop for playAgain option
         while (playAgain) {
             playerWins = false;
             playAgainDecision = "";
@@ -122,7 +122,7 @@ public class GamePlay {
             
             if (playAgainDecision.equals("Y")) {
                 playAgain = true;
-                //Requirement 7g - generate new random number
+                //Generate new random number
                 bobBarker.randomizeNum();
             }
             else {

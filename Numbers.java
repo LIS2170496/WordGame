@@ -3,7 +3,7 @@ import java.util.Random;
 public class Numbers {
 
     //private integer randomNum
-    //Requirement 4 - randomNum is static now
+    //randomNum is static now
     private static int randomNum;
 
     //public getters and setters for randNum

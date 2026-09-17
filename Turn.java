@@ -5,11 +5,11 @@ public class Turn {
     Scanner scan = new Scanner(System.in);
 
 
-    //Requirement 6a.i - two parameters
-    //Requirement 6a.ii - return type boolean
+    //Two parameters
+    //Return type boolean
     public boolean takeTurn(Players playerName, Hosts hostName) {
 
-        //Requirement 6a.iii - simulate host/player to prompt guess
+        //Simulate host/player to prompt guess
         System.out.println(
             "\nHost " + hostName.getFullName() + " says: " + 
             playerName.getFullName() + ", guess my random number between 0 and 100");
@@ -24,7 +24,7 @@ public class Turn {
         //Fixed my 'if' statement to go directly to Numbers rather than through Host verifyGuess method
         if (numbers.compareNumber(playerGuess)) {
 
-            //Requirement 6a.iv - winning output and piggybank increase
+            //Winning output and piggybank increase
             //If player wins, add 5 times the bet amount to their piggy bank
             playerName.setPiggyBank(playerName.getPiggyBank() + (playerName.winAmount));
             System.out.println("Congratulations, " + playerName.getFullName() + ", you guessed the number!");
@@ -34,7 +34,7 @@ public class Turn {
 
         else {
 
-            //Requirement 6a.v - losing output and piggybank decrease
+            //Losing output and piggybank decrease
             //If player loses, subtract the bet amount from their piggy bank
             playerName.setPiggyBank(playerName.getPiggyBank() - playerName.betAmount);
             //System.out.println("I'm sorry, " + playerName.getFullName() + ", you lose.");
@@ -45,7 +45,7 @@ public class Turn {
 
 
 
-    //Not in requirements, but in rubric-
+    //Not in requirements list, but in rubric-
     //takeTurn overloaded to accept only Player object, no Host
     public boolean takeTurn(Players playerName) {
         return true;

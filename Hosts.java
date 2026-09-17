@@ -5,7 +5,7 @@ public class Hosts extends Person {
         super(first, last);
     }
 
-    //Requirement 5a - instantiate Numbers.java and generate a random number
+    //Instantiate Numbers.java and generate a random number
     public void randomizeNum() {
         newNumber = new Numbers();
         newNumber.generateNumber();
