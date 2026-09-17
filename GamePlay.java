@@ -9,7 +9,7 @@ public class GamePlay {
 
 
     //Requirement 3a - Array of 3 Players
-    Players[3] currentPlayers = new Players[3];
+    Players[] currentPlayers = new Players[3];
 
 
 
