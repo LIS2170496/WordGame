@@ -20,6 +20,7 @@ public class GamePlay {
         String playerFirstName;
         String playerLastName;
         String nameDecision;
+        int x;
 
         //New game 9.9.2026
         GamePlay myGame = new GamePlay();
@@ -30,38 +31,43 @@ public class GamePlay {
         bobBarker.randomizeNum();
 
 
+        //Requirement 3b - Player instantiation is now within a loop for multiplayer
+        //Requirement 3b - Players are now part of array currentPlayers
 
+        for (x = 0; x < 3; ++x) {
 
+            //ask for player's name in main
+            System.out.println("Player " + (x + 1) + ", enter your first name: ");
+            playerFirstName = scan.nextLine();
 
-        //ask for player's name in main
-        System.out.println("Player 1, enter your first name: ");
-        playerFirstName = scan.nextLine();
-
-        //ask if they want to add last name
-        System.out.println("Would you like to add your last name? (Y / N)");
-        nameDecision = scan.nextLine();
-        
-
-        //prevent invalid entry
-        while (!nameDecision.equals("Y")  &&  !nameDecision.equals("N")) {
+            //ask if they want to add last name
             System.out.println("Would you like to add your last name? (Y / N)");
             nameDecision = scan.nextLine();
+            
+            //prevent invalid entry
+            while (!nameDecision.equals("Y")  &&  !nameDecision.equals("N")) {
+                System.out.println("Would you like to add your last name? (Y / N)");
+                nameDecision = scan.nextLine();
+            }
+
+            //Constructor for Person depending on fname or fname+lname
+            //player is now part of array currentPlayers
+            if (nameDecision.equals("Y")) {
+                System.out.println("Enter your last name: ");
+                playerLastName = scan.nextLine();
+                myGame.currentPlayers[(x + 1)].setFirstName(playerFirstName);
+                myGame.currentPlayers[(x + 1)].setLastName(playerLastName);
+            }
+            else {
+                myGame.currentPlayers[(x + 1)].setFirstName(playerFirstName);
+            }
+
+            
         }
+
 
 
         
-        //Constructor for Person depending on fname or fname+lname
-        //Updated player1 to myGame.person  9.9.2026
-        //Updated myGame.person to myGame.player 9.11.2026
-        if (nameDecision.equals("Y")) {
-            System.out.println("Enter your last name: ");
-            playerLastName = scan.nextLine();
-            myGame.player.setFirstName(playerFirstName);
-            myGame.player.setLastName(playerLastName);
-        }
-        else {
-            myGame.player.setFirstName(playerFirstName);
-        }
         
 
         //Welcome message to confirm what is stored in Person object
