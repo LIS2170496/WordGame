@@ -70,11 +70,13 @@ public class GamePlay {
         
         
 
-        //Welcome message to confirm what is stored in Person object
-        //Updated player1 to myGame.person  9.9.2026
-        //Updated myGame.person to myGame.player 9.11.2026
-        System.out.println("\nWelcome, " + myGame.player.getFullName() );
-        System.out.println("You have $1,000 in your piggy bank");
+        //Welcome message to confirm what is stored in objects
+        System.out.println("\nWelcome, " + 
+            myGame.currentPlayers[1].getFullName() + ", " + 
+            myGame.currentPlayers[2].getFullName() + ", and " + 
+            myGame.currentPlayers[3].getFullName() 
+        );
+        System.out.println("You each have $1,000 in your piggy bank");
         System.out.println("Each guess will bet $" + myGame.player.betAmount);
         System.out.println("If you guess correctly, you will win $" + myGame.player.winAmount);
 
@@ -82,11 +84,6 @@ public class GamePlay {
 
         
 
-
-        //Removed this section
-        //New Numbers instance that generates a random number
-        //Numbers aRandomNumber = new Numbers();
-        //aRandomNumber.generateNumber();
 
 
         //Instantiate Turn
@@ -97,14 +94,7 @@ public class GamePlay {
         
 
 
-        //Move this prompt to takeTurn method
-        //int playerGuess;
-        //boolean guessCorrect = false;
-        //while (!guessCorrect) {
-        //    System.out.println(myGame.player.getFullName() + ", guess my random number between 0 and 100");
-        //    playerGuess = scan.nextInt();
-        //    guessCorrect = aRandomNumber.compareNumber(playerGuess);
-        //}
+        
 
 
         //Loop to takeTurn until game over (what about if ran out of money)
@@ -119,8 +109,18 @@ public class GamePlay {
             playerWins = false;
             playAgainDecision = "";
 
+
+            //Requirement 3c - Ask for guess from each player until correct answer guessed
             while (!playerWins) {
-                playerWins = newTurn.takeTurn(myGame.player, bobBarker);
+                while (!playerWins) {
+                    playerWins = newTurn.takeTurn(myGame.currentPlayers[1], bobBarker);
+                }
+                while (!playerWins) {
+                    playerWins = newTurn.takeTurn(myGame.currentPlayers[2], bobBarker);
+                }
+                while (!playerWins) {
+                    playerWins = newTurn.takeTurn(myGame.currentPlayers[3], bobBarker);
+                }
             }
 
             //prevent invalid entry
