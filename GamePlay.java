@@ -83,9 +83,11 @@ public class GamePlay {
         );
         System.out.println("You each have $1,000 in your piggy bank");
 
-        //FIXME - Bet amounts moved from Players.java to Money.java
-        //System.out.println("Each guess will bet $" + myGame.player.betAmount);
-        //System.out.println("If you guess correctly, you will win $" + myGame.player.winAmount);
+        
+        System.out.println("Each guess will bet $" + Money.betAmount);
+
+        //FIXME - winning could be money or physical prize now
+        //System.out.println("If you guess correctly, you will win $" + Money.winAmount);
 
 
 
