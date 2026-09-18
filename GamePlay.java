@@ -6,8 +6,8 @@ public class GamePlay {
     //Updated to create new Person at this level 9.9.2026  
     //Person person is now a Players player
 
-    private Players player = new Players();
-    //FIXME - comment this out at the end so that Welcome! displays only once at start
+    //Removed- no longer used, replaced with array below
+    //private Players player = new Players();
 
 
     //Requirement 3a - Array of 3 Players
@@ -82,8 +82,10 @@ public class GamePlay {
             myGame.currentPlayers[2].getFullName() + "!\n"
         );
         System.out.println("You each have $1,000 in your piggy bank");
-        System.out.println("Each guess will bet $" + myGame.player.betAmount);
-        System.out.println("If you guess correctly, you will win $" + myGame.player.winAmount);
+
+        //FIXME - Bet amounts moved from Players.java to Money.java
+        //System.out.println("Each guess will bet $" + myGame.player.betAmount);
+        //System.out.println("If you guess correctly, you will win $" + myGame.player.winAmount);
 
 
 
