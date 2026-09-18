@@ -16,7 +16,9 @@ public class Physical implements Award {
         int randomPrize;
 
         Random random = new Random();
-        randomPrize = random.nextInt(6);
+
+        //Bound 5 creates random int 0, 1, 2, 3, or 4
+        randomPrize = random.nextInt(5);
 
         return randomPrize;
     }
@@ -30,14 +32,14 @@ public class Physical implements Award {
         //Requirement 6c.i - parameter true, win a prize
         if (guessCorrect) {
             System.out.println("Congratulations, " + playerPlayers.getFullName() + " you guessed the number!");
-            System.out.println("You have won a " + prizes[getRandomPrize() - 1] + "!");
+            System.out.println("You have won a " + prizes[getRandomPrize()] + "!");
             return 0;
         }
 
         //Requirement 6c.ii - parameter false, win nothing
         else {
             System.out.println("I'm sorry, " + playerPlayers.getFullName() + " you did not guess the number.");
-            System.out.println("You could have won a " + prizes[getRandomPrize() - 1] + ".");
+            System.out.println("You could have won a " + prizes[getRandomPrize()] + ".");
             return 0;
         }
     }
