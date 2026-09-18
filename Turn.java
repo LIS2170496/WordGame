@@ -21,7 +21,6 @@ public class Turn {
         Numbers numbers = new Numbers();
 
 
-        //Fixed my 'if' statement to go directly to Numbers rather than through Host verifyGuess method
         if (numbers.compareNumber(playerGuess)) {
 
             //Winning output and piggybank increase
