@@ -4,9 +4,6 @@ public class Players extends Person {
     //Private money variable
     private int piggyBank;
 
-    //Variable for amount
-    public int betAmount = 10;
-    public int winAmount = betAmount * 5;
 
 
     //Constructor initializes $1000
