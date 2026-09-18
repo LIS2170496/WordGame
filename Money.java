@@ -2,8 +2,8 @@ public class Money implements Award {
     
     //Requirement 5a - Bet amounts moved from Players.java to Money.java
     //Variable for amount
-    public int betAmount = 10;
-    public int winAmount = betAmount * 5;
+    public static int betAmount = 10;
+    public static int winAmount = betAmount * 5;
 
 
     //Requirement 5b - Implement the abstract method from Award
@@ -14,7 +14,7 @@ public class Money implements Award {
             System.out.println("Congratulations, " + playerPlayers.getFullName() + " you guessed the number!");
             return winAmount;
         }
-        
+
         //Requirement 5b.ii - parameter false, lose money
         else {
             System.out.println("I'm sorry, " + playerPlayers.getFullName() + " you did not guess the number.");
