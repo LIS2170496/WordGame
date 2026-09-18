@@ -83,11 +83,11 @@ public class GamePlay {
         );
         System.out.println("You each have $1,000 in your piggy bank");
 
-        
-        System.out.println("Each guess will bet $" + Money.betAmount);
+        //Now guessing incorrectly on a possible Physical prize loses $0 instead of $10?
+        //System.out.println("Each guess will bet $" + Money.betAmount);
 
-        //FIXME - winning could be money or physical prize now
-        //System.out.println("If you guess correctly, you will win $" + Money.winAmount);
+        System.out.println("If you guess correctly, you will win $" + Money.winAmount + 
+            " or a random physical prize.");
 
 
 
