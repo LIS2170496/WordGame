@@ -15,7 +15,16 @@ public class Hosts extends Person {
         return newNumber;
     }
 
-    public boolean verifyGuess(int someGuess) {
-        return newNumber.compareNumber(someGuess);
+    //Requirement 6a - This method will no longer be used
+    //public boolean verifyGuess(int someGuess) {
+    //    return newNumber.compareNumber(someGuess);
+    //}
+
+    //Requirement 6a - Send Host's chosen phrase to Phrases.java
+    public void sendPhrase(String gamePhrase) {
+        Phrases playingPhrase = new Phrases(gamePhrase);
     }
+
+
+    
 }
