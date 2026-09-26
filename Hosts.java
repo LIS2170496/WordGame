@@ -1,19 +1,21 @@
 public class Hosts extends Person {
-    Numbers newNumber;
+    //Numbers newNumber;
 
     public Hosts(String first, String last) {
         super(first, last);
     }
 
+    //Requirement 6a - This method will no longer be used
     //Instantiate Numbers.java and generate a random number
-    public void randomizeNum() {
-        newNumber = new Numbers();
-        newNumber.generateNumber();
-    }
+    //public void randomizeNum() {
+    //    newNumber = new Numbers();
+    //    newNumber.generateNumber();
+    //}
 
-    public Numbers getNumber() {
-        return newNumber;
-    }
+    //Requirement 6a - This method will no longer be used
+    //public Numbers getNumber() {
+    //    return newNumber;
+    //}
 
     //Requirement 6a - This method will no longer be used
     //public boolean verifyGuess(int someGuess) {
@@ -26,5 +28,5 @@ public class Hosts extends Person {
     }
 
 
-    
+
 }
