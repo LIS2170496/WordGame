@@ -10,7 +10,7 @@ public class GamePlay {
     //private Players player = new Players();
 
 
-    //Requirement 3a - Array of 3 Players
+    //Array of 3 Players
     Players[] currentPlayers = new Players[3];
 
 
@@ -33,8 +33,8 @@ public class GamePlay {
         bobBarker.randomizeNum();
 
 
-        //Requirement 3b - Player instantiation is now within a loop for multiplayer
-        //Requirement 3b - Players are now part of array currentPlayers
+        //Player instantiation is now within a loop for multiplayer
+        //Players are now part of array currentPlayers
 
         for (x = 0; x < 3; ++x) {
 
@@ -119,7 +119,7 @@ public class GamePlay {
             playAgainDecision = "";
 
 
-            //Requirement 3c - Ask for guess from each player until correct answer guessed
+            //Ask for guess from each player until correct answer guessed
             while (!playerWins) {
                 //For-each loop through array
                 for (Players c : myGame.currentPlayers) {

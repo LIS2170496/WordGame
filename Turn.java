@@ -22,7 +22,7 @@ public class Turn {
 
 
 
-        //Requirement 7b - random number to determine money or physical prize
+        //Random number to determine money or physical prize
         //Bound 2 creates random int 0 or 1
         //0 will be Money, 1 will be Physical
         int moneyOrPhysical;
@@ -30,7 +30,7 @@ public class Turn {
         moneyOrPhysical = random.nextInt(2);
 
 
-        //Requirement 7b.i - Money prize instantiates Money object
+        //Money prize instantiates Money object
         if (moneyOrPhysical == 0) {
             Money cashPrize = new Money();
 
@@ -55,7 +55,7 @@ public class Turn {
             }
         }
 
-        //Requirement 7b.ii - Physical prize instantiates Physical object
+        //Physical prize instantiates Physical object
         else {
             Physical physicalPrize = new Physical();
 
