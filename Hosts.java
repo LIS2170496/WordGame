@@ -2,7 +2,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Hosts extends Person {
-    //Numbers newNumber;
+    Phrases winningPhrase;
 
     public Hosts(String first, String last) {
         super(first, last);
@@ -11,7 +11,7 @@ public class Hosts extends Person {
         //                 players to guess. This instantiates Phrases.java
         Scanner scan = new Scanner(System.in);
         System.out.println("Host, please enter a phrase for the players to guess: ");
-        Phrases winningPhrase = new Phrases(scan.nextLine());
+        winningPhrase = new Phrases(scan.nextLine());
         //Close scanner to get rid of problem alert in vscode
         scan.close(); 
     }
