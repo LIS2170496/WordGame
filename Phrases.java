@@ -16,6 +16,9 @@ public class Phrases {
     //Requirement 6. - New Phrases class should work similarly to Numbers
     public Phrases(String phrase) {
         gamePhrase = phrase.toUpperCase();
+
+        //FIXME- test this, it's new and might not work
+        playingPhraseToUnderscore();
     }
 
     //Requirement 6b pt 2 - Method to make playingPhrase replace letter with underscore
@@ -78,8 +81,7 @@ public class Phrases {
         }
         //if gamePhrase does not contain guessCharacter
         else {
-            return false;
-            //FIXME - add display text for guessed character not in phrase 
+            return false; 
         }
 
         //extra return of false boolean for exceptions
