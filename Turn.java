@@ -2,6 +2,7 @@ import java.util.*;
 
 public class Turn {
     int playerGuess;
+    String playerGuessString;
     Scanner scan = new Scanner(System.in);
 
 
@@ -12,13 +13,42 @@ public class Turn {
         //Simulate host/player to prompt guess
         System.out.println(
             "\nHost " + hostName.getFullName() + " says: " + 
-            playerName.getFullName() + ", guess my random number between 0 and 100");
-        playerGuess = scan.nextInt();
+            playerName.getFullName() + 
+            //", guess my random number between 0 and 100");
+        //playerGuess = scan.nextInt();
 
+        //Requirement 8 - Ask the player for one letter instead of an integer
+            ", guess a letter");
+        playerGuessString = scan.nextLine();
 
+        //No longer using Numbers
         //Updated per rubric to have Turn instantiate Numbers to check the guess
         //Previously, my 'if' statement went through the Host using hostName.verifyGuess(playerGuess)
-        Numbers numbers = new Numbers();
+        //Numbers numbers = new Numbers();
+
+        //Requirement 8 - Try/Catch block for findLetters and exception handling
+        boolean tryAgain = false;
+
+        while (!tryAgain) {
+            try {
+                hostName.sendPhrase(playerGuessString);
+            }
+            catch(MultipleLettersException mle) {
+                //FIXME - add error messages later
+                System.out.println("MultipleLettersException TEXT HERE, TRY AGAIN");
+                tryAgain = true;
+                //FIXME - is this needed?
+                scan.nextLine();
+            }
+            catch(InputMismatchException ime) {
+                System.out.println("InputMismatchException TEXT HERE, TRY AGAIN");
+                tryAgain = true;
+                //FIXME - is this needed?
+                scan.nextLine();
+            }
+
+            
+        }
 
 
 
