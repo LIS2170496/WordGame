@@ -37,8 +37,15 @@ public class Hosts extends Person {
 
     //Requirement 6a - Send Host's chosen phrase to Phrases.java
     //Requirement 8 - in between method for Try/Catch block for findLetters
-    public void sendPhrase(String gamePhrase) throws MultipleLettersException, InputMismatchException {
-        winningPhrase.findLetters(gamePhrase);
+    public boolean sendPhrase(String gamePhrase) throws MultipleLettersException, InputMismatchException {
+
+        if (winningPhrase.findLetters(gamePhrase)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+        
     }
 
 
