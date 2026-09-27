@@ -47,6 +47,11 @@ public class Hosts extends Person {
         
     }
 
+    //Add method to see if phrase has been solved
+    public boolean phraseSolved() {
+        return winningPhrase.phraseSolved;
+    }
+
     
 
     
