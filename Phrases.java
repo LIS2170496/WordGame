@@ -55,7 +55,7 @@ public class Phrases {
 
         //Requirement 8 - Catch and handle the possibility of the user 
         //                entering numbers or symbols instead of letters
-        else if (! Character.isLetter(guessChar)) {
+        if (! Character.isLetter(guessChar)) {
             //System.out.println("in the else if for InputMismatchException, you entered guessString: " + guessString);
             throw(new InputMismatchException());
         }
