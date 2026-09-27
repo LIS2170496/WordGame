@@ -8,14 +8,18 @@ public class Phrases {
     //This would be better than a String
     StringBuilder playingPhraseStringBuilder;
 
+    int underscoresLeft = 0;
+
+
     //Requirement 6. - New Phrases class can throw MultipleLettersException
     public Phrases(String phrase) throws MultipleLettersException {
-        gamePhrase = phrase;
+        gamePhrase = phrase.toUpperCase();
+    }
 
-        //FIXME - figure out how to replace any isLetter=true with underscore
-        // maybe have to loop through len of string?
-        playingPhraseStringBuilder = gamePhrase.replace('a','_');
-        playingPhrase = playingPhraseStringBuilder.toString();
+    //Requirement 6b pt 2 - Method to make playingPhrase replace letter with underscore
+    public void playingPhraseToUnderscore() {
+        playingPhrase = gamePhrase.replaceAll("\\S", "_");
+        playingPhraseStringBuilder = new StringBuilder(playingPhrase);
     }
 
     //Requirement 6. - Set up Phrases to function similarly to Numbers.java
@@ -23,6 +27,42 @@ public class Phrases {
     //FIXME - finish this method later
     public boolean compareCharacter(char guess) {
         return true;
+    }
+
+    
+
+    //Requirement 6c - New method that accepts String as parameter
+    public void findLetters(String guessString) {
+        int x;
+        
+        //Requirement 6c - If string longer than 1 letter, throw multi letter exception
+        if (guessString.length() != 1) {
+            throw(new MultipleLettersException());
+        }
+
+
+        //Requirement 6c - Find guessed letter in answer and swap underscore with that letter
+        else {
+            char guessChar = guessString.toUpperCase().charAt(0);
+            for (x = 0; x < gamePhrase.length(); ++x) {
+                if (gamePhrase.charAt(x) == guessChar)  {
+                    playingPhraseStringBuilder.setCharAt(x, guessChar);
+                };
+            }
+            playingPhrase = playingPhraseStringBuilder.toString();
+        }
+
+
+        //Requirement 6c - If no more underscores, then player won
+        for (x = 0; x < playingPhrase.length(); ++x) {
+            if (playingPhrase.charAt(x) == '_') {
+                underscoresLeft = underscoresLeft + 1;
+            }
+        }
+        if (underscoresLeft == 0) {
+            System.out.println("You won! Answer: " + playingPhrase);
+        }
+
     }
 
 
