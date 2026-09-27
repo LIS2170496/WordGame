@@ -30,14 +30,8 @@ public class Phrases {
         playingPhraseStringBuilder = new StringBuilder(playingPhrase);
     }
 
-    //Requirement 6. - Set up Phrases to function similarly to Numbers.java
-    //               - compare guess to answer then return statement and boolean
-    //FIXME - finish this method later
-    public boolean compareCharacter(char guess) {
-        return true;
-    }
 
-    
+
 
     //Requirement 6c - New method that accepts String as parameter
     public boolean findLetters(String guessString) throws MultipleLettersException, InputMismatchException {
@@ -66,7 +60,8 @@ public class Phrases {
             throw(new InputMismatchException());
         }
 
-        
+        //Requirement 6. - Set up Phrases to function similarly to Numbers.java
+        //               - compare guess to answer then return statement and boolean
 
         //if gamePhrase contains guessCharacter
         else if (gamePhrase.indexOf(guessChar) != -1) {
