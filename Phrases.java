@@ -10,10 +10,11 @@ public class Phrases {
     //This would be better than a String
     StringBuilder playingPhraseStringBuilder;
 
-    //FIXME- not needed?
-    int underscoresLeft;
-
     char underscoreChar = '_';
+
+    boolean phraseSolved = false;
+
+
 
 
     //Requirement 6. - New Phrases class should work similarly to Numbers
@@ -58,7 +59,7 @@ public class Phrases {
             throw(new InputMismatchException());
         }
 
-        //FIXME - add if statement for if phrase contains guess character
+        
 
         //if gamePhrase contains guessCharacter
         else if (gamePhrase.indexOf(guessChar) != -1) {
@@ -76,11 +77,13 @@ public class Phrases {
             //Requirement 6c - If no more underscores, then player won
             //if playingPhrase contains an underscore, keep playing
             if (playingPhrase.indexOf(underscoreChar) != -1) {
+                System.out.println("There are still more guesses to make");
                 return true;
             }
             //if playingPhrase NOT contains an underscore, game over
             else if (!(playingPhrase.indexOf(underscoreChar) != -1)) {
                 System.out.println("You won! Answer: " + playingPhrase);
+                phraseSolved = true;
                 return true;
             }
 
