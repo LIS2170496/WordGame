@@ -9,7 +9,7 @@ public class Players extends Person {
     //Constructor initializes $1000
     public Players() {
         piggyBank = 1000;
-        System.out.println("Welcome!");
+        System.out.println("\nWelcome!");
     }
 
 
