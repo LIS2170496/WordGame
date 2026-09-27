@@ -1,3 +1,5 @@
+import java.util.InputMismatchException;
+
 public class Phrases {
     //Requirement 6a - String gamePhrase which is set on instantiation
     String gamePhrase = new String();
@@ -32,8 +34,9 @@ public class Phrases {
     
 
     //Requirement 6c - New method that accepts String as parameter
-    public void findLetters(String guessString) {
+    public void findLetters(String guessString) throws MultipleLettersException, InputMismatchException {
         int x;
+        char guessChar = guessString.toUpperCase().charAt(0);
         
         //Requirement 6c - If string longer than 1 letter, throw multi letter exception
         if (guessString.length() != 1) {
@@ -41,9 +44,15 @@ public class Phrases {
         }
 
 
+        //Requirement 8 - Catch and handle the possibility of the user 
+        //                entering numbers or symbols instead of letters
+        else if (! Character.isLetter(guessChar)) {
+            throw(new InputMismatchException());
+        }
+
+
         //Requirement 6c - Find guessed letter in answer and swap underscore with that letter
         else {
-            char guessChar = guessString.toUpperCase().charAt(0);
             for (x = 0; x < gamePhrase.length(); ++x) {
                 if (gamePhrase.charAt(x) == guessChar)  {
                     playingPhraseStringBuilder.setCharAt(x, guessChar);
@@ -62,6 +71,7 @@ public class Phrases {
         if (underscoresLeft == 0) {
             System.out.println("You won! Answer: " + playingPhrase);
         }
+        
 
     }
 
