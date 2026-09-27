@@ -1,9 +1,21 @@
+import java.util.Scanner;
+
 public class Hosts extends Person {
     //Numbers newNumber;
 
     public Hosts(String first, String last) {
         super(first, last);
+
+        //Requirement 7a - Upon instantiation, host will enter a phrase for
+        //                 players to guess. This instantiates Phrases.java
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Host, please enter a phrase for the players to guess: ");
+        Phrases winningPhrase = new Phrases(scan.nextLine());
+        //Close scanner to get rid of problem alert in vscode
+        scan.close(); 
     }
+
+
 
     //Requirement 6a - This method will no longer be used
     //Instantiate Numbers.java and generate a random number
