@@ -11,13 +11,13 @@ public class Money implements Award {
         
         //Parameter true, win money 
         if (guessCorrect) {
-            System.out.println("Congratulations, " + playerPlayers.getFullName() + " you guessed the number!");
+            System.out.println("Congratulations, " + playerPlayers.getFullName() + " that letter is in the phrase!");
             return winAmount;
         }
 
         //Parameter false, lose money
         else {
-            System.out.println("I'm sorry, " + playerPlayers.getFullName() + " you did not guess the number.");
+            System.out.println("I'm sorry, " + playerPlayers.getFullName() + " that letter is not in the phrase.");
             return (betAmount * -1);
         }
 
