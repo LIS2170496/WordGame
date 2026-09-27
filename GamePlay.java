@@ -49,12 +49,12 @@ public class GamePlay {
 
             //ask if they want to add last name
             System.out.println("Would you like to add your last name? (Y / N)");
-            nameDecision = scan.nextLine();
+            nameDecision = scan.nextLine().toUpperCase();
             
             //prevent invalid entry
             while (!nameDecision.equals("Y")  &&  !nameDecision.equals("N")) {
                 System.out.println("Would you like to add your last name? (Y / N)");
-                nameDecision = scan.nextLine();
+                nameDecision = scan.nextLine().toUpperCase();
             }
 
             //Constructor for Person depending on fname or fname+lname
