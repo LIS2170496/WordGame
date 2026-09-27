@@ -2,7 +2,7 @@ import java.util.InputMismatchException;
 
 public class Phrases {
     //Requirement 6a - String gamePhrase which is set on instantiation
-    String gamePhrase = new String();
+    static String gamePhrase = new String();
 
     //Requirement 6b - String playingPhrase sets letters as underscores to mask
     String playingPhrase = new String();
