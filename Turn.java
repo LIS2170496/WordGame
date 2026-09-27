@@ -10,6 +10,8 @@ public class Turn {
     //Two parameters
     //Return type boolean
     public boolean takeTurn(Players playerName, Hosts hostName) {
+        
+        System.out.println("\nThe phrase to guess is: " + hostName.winningPhrase.playingPhraseStringBuilder);
 
         //Simulate host/player to prompt guess
         System.out.println(
@@ -37,17 +39,17 @@ public class Turn {
             }
             catch(MultipleLettersException mle) {
                 //FIXME - add error messages later
-                System.out.println("MultipleLettersException TEXT HERE, TRY AGAIN");
+                mle.getMessage();
+                System.out.println("Please try again (MLE)");
                 tryAgain = true;
-                //FIXME - is this needed?
-                scan.nextLine();
             }
             catch(InputMismatchException ime) {
-                System.out.println("InputMismatchException TEXT HERE, TRY AGAIN");
+                ime.getMessage();
+                System.out.println("Please try again (IME)");
                 tryAgain = true;
-                //FIXME - is this needed?
-                scan.nextLine();
             }
+            //scan.nextLine();
+
 
             
         }
