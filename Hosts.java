@@ -12,8 +12,7 @@ public class Hosts extends Person {
         Scanner scan = new Scanner(System.in);
         System.out.println("Host, please enter a phrase for the players to guess: ");
         winningPhrase = new Phrases(scan.nextLine());
-        //Close scanner to get rid of problem alert in vscode
-        scan.close(); 
+        
     }
 
 
@@ -48,6 +47,10 @@ public class Hosts extends Person {
         
     }
 
+    
+
+    
 
 
 }
+
