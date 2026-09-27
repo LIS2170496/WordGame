@@ -13,8 +13,8 @@ public class Phrases {
     int underscoresLeft = 0;
 
 
-    //Requirement 6. - New Phrases class can throw MultipleLettersException
-    public Phrases(String phrase) throws MultipleLettersException {
+    //Requirement 6. - New Phrases class should work similarly to Numbers
+    public Phrases(String phrase) {
         gamePhrase = phrase.toUpperCase();
     }
 
