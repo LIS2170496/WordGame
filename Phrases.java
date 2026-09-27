@@ -42,13 +42,21 @@ public class Phrases {
     //Requirement 6c - New method that accepts String as parameter
     public boolean findLetters(String guessString) throws MultipleLettersException, InputMismatchException {
         int x;
-        char guessChar = guessString.toUpperCase().charAt(0);
-        
+
+
+        if (guessString.length() <= 0) {
+            //System.out.println("guessString length = " + guessString.length());
+            throw(new InputMismatchException());
+        }
+
+    
         //Requirement 6c - If string longer than 1 letter, throw multi letter exception
-        if (guessString.length() != 1) {
+        if (guessString.length() > 1) {
             //System.out.println("guessString length = " + guessString.length());
             throw(new MultipleLettersException());
         }
+
+        char guessChar = guessString.toUpperCase().charAt(0);
 
 
         //Requirement 8 - Catch and handle the possibility of the user 
