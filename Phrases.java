@@ -21,7 +21,6 @@ public class Phrases {
     public Phrases(String phrase) {
         gamePhrase = phrase.toUpperCase();
 
-        //FIXME- test this, it's new and might not work
         playingPhraseToUnderscore();
     }
 
