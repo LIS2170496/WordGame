@@ -34,7 +34,7 @@ public class Phrases {
     
 
     //Requirement 6c - New method that accepts String as parameter
-    public void findLetters(String guessString) throws MultipleLettersException, InputMismatchException {
+    public boolean findLetters(String guessString) throws MultipleLettersException, InputMismatchException {
         int x;
         char guessChar = guessString.toUpperCase().charAt(0);
         
@@ -50,28 +50,40 @@ public class Phrases {
             throw(new InputMismatchException());
         }
 
+        //FIXME - add if statement for if phrase contains guess character
 
-        //Requirement 6c - Find guessed letter in answer and swap underscore with that letter
-        else {
+        //if gamePhrase contains guessCharacter
+        if (gamePhrase.indexOf(guessChar) != -1) {
+            
+            //Requirement 6c - Find guessed letter in answer and swap underscore with that letter
+            
             for (x = 0; x < gamePhrase.length(); ++x) {
                 if (gamePhrase.charAt(x) == guessChar)  {
                     playingPhraseStringBuilder.setCharAt(x, guessChar);
                 };
             }
+            
             playingPhrase = playingPhraseStringBuilder.toString();
-        }
-
-
-        //Requirement 6c - If no more underscores, then player won
-        for (x = 0; x < playingPhrase.length(); ++x) {
-            if (playingPhrase.charAt(x) == '_') {
-                underscoresLeft = underscoresLeft + 1;
+            
+            //Requirement 6c - If no more underscores, then player won
+            for (x = 0; x < playingPhrase.length(); ++x) {
+                if (playingPhrase.charAt(x) == '_') {
+                    underscoresLeft = underscoresLeft + 1;
+                }
             }
+            if (underscoresLeft == 0) {
+                System.out.println("You won! Answer: " + playingPhrase);
+            }
+
         }
-        if (underscoresLeft == 0) {
-            System.out.println("You won! Answer: " + playingPhrase);
+        //if gamePhrase does not contain guessCharacter
+        else {
+            return false;
+            //FIXME - add display text for guessed character not in phrase 
         }
-        
+
+        //extra return of false boolean for exceptions
+        return false; 
 
     }
 
