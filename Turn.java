@@ -4,6 +4,7 @@ public class Turn {
     int playerGuess;
     String playerGuessString;
     Scanner scan = new Scanner(System.in);
+    boolean guessWasRight;
 
 
     //Two parameters
@@ -28,10 +29,11 @@ public class Turn {
 
         //Requirement 8 - Try/Catch block for findLetters and exception handling
         boolean tryAgain = false;
+        
 
         while (!tryAgain) {
             try {
-                hostName.sendPhrase(playerGuessString);
+                guessWasRight = hostName.sendPhrase(playerGuessString);
             }
             catch(MultipleLettersException mle) {
                 //FIXME - add error messages later
@@ -65,7 +67,11 @@ public class Turn {
             Money cashPrize = new Money();
 
             //moved guesses to inside this if statement
-            if (numbers.compareNumber(playerGuess)) {
+            //swapped compareNumber for sendPhrase
+            //if (numbers.compareNumber(playerGuess)) {
+            if (guessWasRight) {
+
+                //
                 //Winning output and piggybank increase
                 //If player wins, add 5 times the bet amount to their piggy bank
                 playerName.setPiggyBank(playerName.getPiggyBank() + 
@@ -89,7 +95,9 @@ public class Turn {
         else {
             Physical physicalPrize = new Physical();
 
-            if (numbers.compareNumber(playerGuess)) {
+            //swapped compareNumber for sendPhrase
+            //if (numbers.compareNumber(playerGuess)) {
+            if (guessWasRight) {
                 //Winning output for physical prize
                 playerName.setPiggyBank(playerName.getPiggyBank() + 
                     physicalPrize.displayWinnings(playerName, true));
