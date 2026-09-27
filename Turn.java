@@ -77,7 +77,9 @@ public class Turn {
                 playerName.setPiggyBank(playerName.getPiggyBank() + 
                     cashPrize.displayWinnings(playerName, guessWasRight));
                 System.out.println(playerName.toString());
-                return false;
+
+                //return false;
+                return hostName.phraseSolved();
             }
             else {
                 //Losing output and piggybank decrease
@@ -85,7 +87,8 @@ public class Turn {
                 playerName.setPiggyBank(playerName.getPiggyBank() + 
                     cashPrize.displayWinnings(playerName, guessWasRight));
                 System.out.println(playerName.toString());
-                return false;
+                //return false;
+                return hostName.phraseSolved();
             }
         }
 
@@ -101,7 +104,8 @@ public class Turn {
                     physicalPrize.displayWinnings(playerName, guessWasRight));
                 //System.out.println("Congratulations, " + playerName.getFullName() + ", you guessed the number!");
                 System.out.println(playerName.toString());
-                return false;
+                //return false;
+                return hostName.phraseSolved();
             }
             else {
                 //Losing output for physical prize
@@ -109,7 +113,8 @@ public class Turn {
                     physicalPrize.displayWinnings(playerName, guessWasRight));
                 //System.out.println("I'm sorry, " + playerName.getFullName() + ", you lose.");
                 System.out.println(playerName.toString());
-                return false;
+                //return false;
+                return hostName.phraseSolved();
             }
         } 
     }
