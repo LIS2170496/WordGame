@@ -30,7 +30,9 @@ public class GamePlay {
 
         //Instantiate Host and generate random number
         Hosts bobBarker = new Hosts("Bob", "Barker");
-        bobBarker.randomizeNum();
+        
+        //randomize number no longer used
+        //bobBarker.randomizeNum();
 
 
         //Player instantiation is now within a loop for multiplayer
@@ -146,7 +148,15 @@ public class GamePlay {
             if (playAgainDecision.equals("Y")) {
                 playAgain = true;
                 //Generate new random number
-                bobBarker.randomizeNum();
+
+                //randomize number no longer used
+                //bobBarker.randomizeNum();
+
+                //Requirement 7b - If players play again, host enters a new phrase
+                //I think I can do this by creating a new Host object and setting it under existing host variable
+                bobBarker = new Hosts("Bob", "Barker");
+
+
             }
             else {
                 playAgain = false;
