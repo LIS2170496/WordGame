@@ -10,7 +10,10 @@ public class Phrases {
     //This would be better than a String
     StringBuilder playingPhraseStringBuilder;
 
-    int underscoresLeft = 0;
+    //FIXME- not needed?
+    int underscoresLeft;
+
+    char underscoreChar = '_';
 
 
     //Requirement 6. - New Phrases class should work similarly to Numbers
@@ -43,6 +46,7 @@ public class Phrases {
         
         //Requirement 6c - If string longer than 1 letter, throw multi letter exception
         if (guessString.length() != 1) {
+            //System.out.println("guessString length = " + guessString.length());
             throw(new MultipleLettersException());
         }
 
@@ -50,13 +54,14 @@ public class Phrases {
         //Requirement 8 - Catch and handle the possibility of the user 
         //                entering numbers or symbols instead of letters
         else if (! Character.isLetter(guessChar)) {
+            //System.out.println("in the else if for InputMismatchException, you entered guessString: " + guessString);
             throw(new InputMismatchException());
         }
 
         //FIXME - add if statement for if phrase contains guess character
 
         //if gamePhrase contains guessCharacter
-        if (gamePhrase.indexOf(guessChar) != -1) {
+        else if (gamePhrase.indexOf(guessChar) != -1) {
             
             //Requirement 6c - Find guessed letter in answer and swap underscore with that letter
             
@@ -69,13 +74,33 @@ public class Phrases {
             playingPhrase = playingPhraseStringBuilder.toString();
             
             //Requirement 6c - If no more underscores, then player won
-            for (x = 0; x < playingPhrase.length(); ++x) {
-                if (playingPhrase.charAt(x) == '_') {
-                    underscoresLeft = underscoresLeft + 1;
-                }
+            //if playingPhrase contains an underscore, keep playing
+            if (playingPhrase.indexOf(underscoreChar) != -1) {
+                return true;
             }
-            if (underscoresLeft == 0) {
+            //if playingPhrase NOT contains an underscore, game over
+            else if (!(playingPhrase.indexOf(underscoreChar) != -1)) {
                 System.out.println("You won! Answer: " + playingPhrase);
+                return true;
+            }
+
+            //for (x = 0; x < playingPhrase.length(); ++x) {
+            //    if (playingPhrase.charAt(x) == '_') {
+            //        underscoresLeft = underscoresLeft + 1;
+            //    }
+            //}
+            //System.out.print("There are __" + underscoresLeft + "__ remaining spaces to guess");
+            //if (underscoresLeft == 0) {
+            //    System.out.println("You won! Answer: " + playingPhrase);
+            //    return true;
+            //}
+
+
+
+
+            
+            else {
+                return true;
             }
 
         }
@@ -85,7 +110,7 @@ public class Phrases {
         }
 
         //extra return of false boolean for exceptions
-        return false; 
+        //return false; 
 
     }
 
