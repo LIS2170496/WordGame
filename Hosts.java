@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Hosts extends Person {
@@ -35,8 +36,9 @@ public class Hosts extends Person {
     //}
 
     //Requirement 6a - Send Host's chosen phrase to Phrases.java
-    public void sendPhrase(String gamePhrase) {
-        Phrases playingPhrase = new Phrases(gamePhrase);
+    //Requirement 8 - in between method for Try/Catch block for findLetters
+    public void sendPhrase(String gamePhrase) throws MultipleLettersException, InputMismatchException {
+        winningPhrase.findLetters(gamePhrase);
     }
 
 
