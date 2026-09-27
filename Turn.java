@@ -22,7 +22,7 @@ public class Turn {
 
         //Requirement 8 - Ask the player for one letter instead of an integer
             ", guess a letter");
-        playerGuessString = scan.nextLine();
+        //playerGuessString = scan.nextLine(); <--moved to inside while !continuePlaying
 
         //No longer using Numbers
         //Updated per rubric to have Turn instantiate Numbers to check the guess
@@ -30,23 +30,21 @@ public class Turn {
         //Numbers numbers = new Numbers();
 
         //Requirement 8 - Try/Catch block for findLetters and exception handling
-        boolean tryAgain = false;
+        boolean continuePlaying = false;
         
-
-        while (!tryAgain) {
+        while (!continuePlaying) {
             try {
+                playerGuessString = scan.nextLine();
                 guessWasRight = hostName.sendPhrase(playerGuessString);
+                continuePlaying = true;
             }
             catch(MultipleLettersException mle) {
-                //FIXME - add error messages later
-                mle.getMessage();
-                System.out.println("Please try again (MLE)");
-                tryAgain = true;
+                System.out.println(mle.getMessage() + ", please try again.");
+                //scan.nextLine();
             }
             catch(InputMismatchException ime) {
-                ime.getMessage();
-                System.out.println("Please try again (IME)");
-                tryAgain = true;
+                System.out.println("Input should be a letter character, please try again.");
+                //scan.nextLine();
             }
             //scan.nextLine();
 
@@ -77,17 +75,15 @@ public class Turn {
                 //Winning output and piggybank increase
                 //If player wins, add 5 times the bet amount to their piggy bank
                 playerName.setPiggyBank(playerName.getPiggyBank() + 
-                    cashPrize.displayWinnings(playerName, true));
-                //System.out.println("Congratulations, " + playerName.getFullName() + ", you guessed the number!");
+                    cashPrize.displayWinnings(playerName, guessWasRight));
                 System.out.println(playerName.toString());
-                return true;
+                return false;
             }
             else {
                 //Losing output and piggybank decrease
                 //If player loses, subtract the bet amount from their piggy bank
                 playerName.setPiggyBank(playerName.getPiggyBank() + 
-                    cashPrize.displayWinnings(playerName, false));
-                //System.out.println("I'm sorry, " + playerName.getFullName() + ", you lose.");
+                    cashPrize.displayWinnings(playerName, guessWasRight));
                 System.out.println(playerName.toString());
                 return false;
             }
@@ -102,15 +98,15 @@ public class Turn {
             if (guessWasRight) {
                 //Winning output for physical prize
                 playerName.setPiggyBank(playerName.getPiggyBank() + 
-                    physicalPrize.displayWinnings(playerName, true));
+                    physicalPrize.displayWinnings(playerName, guessWasRight));
                 //System.out.println("Congratulations, " + playerName.getFullName() + ", you guessed the number!");
                 System.out.println(playerName.toString());
-                return true;
+                return false;
             }
             else {
                 //Losing output for physical prize
                 playerName.setPiggyBank(playerName.getPiggyBank() + 
-                    physicalPrize.displayWinnings(playerName, false));
+                    physicalPrize.displayWinnings(playerName, guessWasRight));
                 //System.out.println("I'm sorry, " + playerName.getFullName() + ", you lose.");
                 System.out.println(playerName.toString());
                 return false;
