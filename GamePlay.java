@@ -79,8 +79,16 @@ public class GamePlay {
             
         }
 
+        //Requirement 4b - Set JLabel to list current players
+        gameWindow.currentPlayersLabel.setText("Current Players: " + 
+            myGame.currentPlayers[0].getFullName() + ", " + 
+            myGame.currentPlayers[1].getFullName() + ", " + 
+            myGame.currentPlayers[2].getFullName()
+        );
 
 
+        //Requirement 4d - Set JLavel to display current host full name
+        gameWindow.currentHostLabel.setText("Current Host: " + bobBarker.getFullName());
         
         
 
