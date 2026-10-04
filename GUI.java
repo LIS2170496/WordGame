@@ -39,6 +39,13 @@ public class GUI extends JFrame implements ItemListener{
         //Requirement 4g - Button that starts the player turns when clicked
         JButton startTurn = new JButton();
 
+        add(currentPlayers);
+        add(addNewPlayer);
+        add(currentHost);
+        add(openHostPhrasePane);
+        add(playingPhraseLabel);
+        add(startTurn);
+
     }
 
   
