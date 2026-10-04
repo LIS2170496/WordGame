@@ -16,6 +16,13 @@ public class GamePlay {
 
 
     public static void main(String[] args) {
+
+
+        //Requirement 4a - New JFrame via GUI
+        GUI gameWindow = new GUI();
+
+
+
         Scanner scan = new Scanner(System.in);
 
         //Change variables to refer to player instead of person
