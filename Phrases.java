@@ -1,10 +1,10 @@
 import java.util.InputMismatchException;
 
 public class Phrases {
-    //Requirement 6a - String gamePhrase which is set on instantiation
+    //String gamePhrase which is set on instantiation
     static String gamePhrase = new String();
 
-    //Requirement 6b - String playingPhrase sets letters as underscores to mask
+    //String playingPhrase sets letters as underscores to mask
     String playingPhrase = new String();
 
     //This would be better than a String
@@ -17,14 +17,14 @@ public class Phrases {
 
 
 
-    //Requirement 6. - New Phrases class should work similarly to Numbers
+    //New Phrases class should work similarly to Numbers
     public Phrases(String phrase) {
         gamePhrase = phrase.toUpperCase();
 
         playingPhraseToUnderscore();
     }
 
-    //Requirement 6b pt 2 - Method to make playingPhrase replace letter with underscore
+    //Method to make playingPhrase replace letter with underscore
     public void playingPhraseToUnderscore() {
         playingPhrase = gamePhrase.replaceAll("\\S", "_");
         playingPhraseStringBuilder = new StringBuilder(playingPhrase);
@@ -33,7 +33,7 @@ public class Phrases {
 
 
 
-    //Requirement 6c - New method that accepts String as parameter
+    //New method that accepts String as parameter
     public boolean findLetters(String guessString) throws MultipleLettersException, InputMismatchException {
         int x;
 
@@ -44,7 +44,7 @@ public class Phrases {
         }
 
     
-        //Requirement 6c - If string longer than 1 letter, throw multi letter exception
+        //If string longer than 1 letter, throw multi letter exception
         if (guessString.length() > 1) {
             //System.out.println("guessString length = " + guessString.length());
             throw(new MultipleLettersException());
@@ -53,20 +53,20 @@ public class Phrases {
         char guessChar = guessString.toUpperCase().charAt(0);
 
 
-        //Requirement 8 - Catch and handle the possibility of the user 
+        //Catch and handle the possibility of the user 
         //                entering numbers or symbols instead of letters
         if (! Character.isLetter(guessChar)) {
             //System.out.println("in the else if for InputMismatchException, you entered guessString: " + guessString);
             throw(new InputMismatchException());
         }
 
-        //Requirement 6. - Set up Phrases to function similarly to Numbers.java
+        //Set up Phrases to function similarly to Numbers.java
         //               - compare guess to answer then return statement and boolean
 
         //if gamePhrase contains guessCharacter
         else if (gamePhrase.indexOf(guessChar) != -1) {
             
-            //Requirement 6c - Find guessed letter in answer and swap underscore with that letter
+            //Find guessed letter in answer and swap underscore with that letter
             
             for (x = 0; x < gamePhrase.length(); ++x) {
                 if (gamePhrase.charAt(x) == guessChar)  {
@@ -76,7 +76,7 @@ public class Phrases {
             
             playingPhrase = playingPhraseStringBuilder.toString();
             
-            //Requirement 6c - If no more underscores, then player won
+            //If no more underscores, then player won
             //if playingPhrase contains an underscore, keep playing
             if (playingPhrase.indexOf(underscoreChar) != -1) {
                 System.out.println("There are still more guesses to make");

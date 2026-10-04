@@ -20,7 +20,7 @@ public class Turn {
             //", guess my random number between 0 and 100");
         //playerGuess = scan.nextInt();
 
-        //Requirement 8 - Ask the player for one letter instead of an integer
+        //Ask the player for one letter instead of an integer
             ", guess a letter");
         //playerGuessString = scan.nextLine(); <--moved to inside while !continuePlaying
 
@@ -29,7 +29,7 @@ public class Turn {
         //Previously, my 'if' statement went through the Host using hostName.verifyGuess(playerGuess)
         //Numbers numbers = new Numbers();
 
-        //Requirement 8 - Try/Catch block for findLetters and exception handling
+        //Try/Catch block for findLetters and exception handling
         boolean continuePlaying = false;
         
         while (!continuePlaying) {
@@ -125,7 +125,6 @@ public class Turn {
     //takeTurn overloaded to accept only Player object, no Host
     public boolean takeTurn(Players playerName) {
         return true;
-        //FIXME - not sure what exactly to return
     }
 
 

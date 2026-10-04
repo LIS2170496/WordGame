@@ -152,7 +152,7 @@ public class GamePlay {
                 //randomize number no longer used
                 //bobBarker.randomizeNum();
 
-                //Requirement 7b - If players play again, host enters a new phrase
+                //If players play again, host enters a new phrase
                 //I think I can do this by creating a new Host object and setting it under existing host variable
                 bobBarker = new Hosts("Bob", "Barker");
 
