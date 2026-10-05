@@ -1,55 +1,57 @@
 import java.util.Scanner;
-import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 
 public class GamePlay extends GUI implements ActionListener{
+    //plopping GUI stuff in here instead of GUI.java
+    String addPlayer1String = "Add Player1";
+    String addPlayer2String = "Add Player2";
+    String addPlayer3String = "Add Player3";
+
+
+    //Requirement 4b - New JLabel for list of players
+    JLabel currentPlayersLabel = new JLabel("Current Players: ");
+
+    //Requirement 4c - Button to add new player
+    JButton addNewPlayerButton = new JButton(addPlayer1String);
+
+    //Requirment 4d - Label that lists the current host
+    JLabel currentHostLabel = new JLabel("Current Host: ");
+
+    //Requirement 4e - Button to open pane to enter host name and gamePhrase
+    JButton openHostPhrasePaneButton = new JButton("Open Host Phrase Pane");
+
+    //Requirement 4f - Label to display current playingPhrase with underelines
+    JLabel playingPhraseLabel = new JLabel("Playing Phrase: ");
+
+    //Requirement 4g - Button that starts the player turns when clicked
+    JButton startTurnButton = new JButton("Start Turn");
+
+    int dialogChoice;
+
+    String player1FirstName;
+    String player1LastName = "";
+    boolean player1NameDecision;
+
+    String player2FirstName;
+    String player2LastName = "";
+    boolean player2NameDecision;
+
+    String player3FirstName;
+    String player3LastName = "";
+    boolean player3NameDecision;
+
+    boolean allPlayersAdded = false;
+
+    String hostFirstName;
+    String hostLastName = "";
+    String phraseToWin;
+
+
 
     public GamePlay() {
 
-        //plopping GUI stuff in here instead of GUI.java
-        String addPlayer1String = "Add Player1";
-        String addPlayer2String = "Add Player2";
-        String addPlayer3String = "Add Player3";
-
-
-        //Requirement 4b - New JLabel for list of players
-        JLabel currentPlayersLabel = new JLabel("Current Players: ");
-
-        //Requirement 4c - Button to add new player
-        JButton addNewPlayerButton = new JButton(addPlayer1String);
-
-        //Requirment 4d - Label that lists the current host
-        JLabel currentHostLabel = new JLabel("Current Host: ");
-
-        //Requirement 4e - Button to open pane to enter host name and gamePhrase
-        JButton openHostPhrasePaneButton = new JButton("Open Host Phrase Pane");
-
-        //Requirement 4f - Label to display current playingPhrase with underelines
-        JLabel playingPhraseLabel = new JLabel("Playing Phrase: ");
-
-        //Requirement 4g - Button that starts the player turns when clicked
-        JButton startTurnButton = new JButton("Start Turn");
-
-        int dialogChoice;
-
-        String player1FirstName;
-        String player1LastName = "";
-        boolean player1NameDecision;
-
-        String player2FirstName;
-        String player2LastName = "";
-        boolean player2NameDecision;
-
-        String player3FirstName;
-        String player3LastName = "";
-        boolean player3NameDecision;
-
-        boolean allPlayersAdded = false;
-
-        String hostFirstName;
-        String hostLastName = "";
-        String phraseToWin;
+        
 
         //plopping GUI stuff here instead of GUI.java
 
@@ -204,49 +206,19 @@ public class GamePlay extends GUI implements ActionListener{
 
         GamePlay myGame = new GamePlay();
 
-        //Requirement 4a - New JFrame via GUI
-        //FIXME - remove if not needed
-        //GUI gameWindow = new GUI();
-
-
-        
-
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         Scanner scan = new Scanner(System.in);
 
 
         
-
-
-        Hosts bobBarker = new Hosts("Bob", "Barker");
+        //Hosts bobBarker = new Hosts("Bob", "Barker");
         
 
 
 
         //Requirement 4b - Set JLabel to list current players
-        currentPlayersLabel.setText("Current Players: " + 
+        myGame.currentPlayersLabel.setText("Current Players: " + 
             currentPlayers[0].getFullName() + ", " + 
             currentPlayers[1].getFullName() + ", " + 
             currentPlayers[2].getFullName()
@@ -254,7 +226,7 @@ public class GamePlay extends GUI implements ActionListener{
 
 
         //Requirement 4d - Set JLavel to display current host full name
-        currentHostLabel.setText("Current Host: " + bobBarker.getFullName());
+        myGame.currentHostLabel.setText("Current Host: " + currentHost.getFullName());
         
         
 
@@ -307,7 +279,7 @@ public class GamePlay extends GUI implements ActionListener{
             while (!playerWins) {
                 //For-each loop through array
                 for (Players c : currentPlayers) {
-                    playerWins = newTurn.takeTurn(c, bobBarker);
+                    playerWins = newTurn.takeTurn(c, currentHost);
                     
                     //to get out after number guessed correctly
                     if (playerWins) {
@@ -336,7 +308,7 @@ public class GamePlay extends GUI implements ActionListener{
 
                 //If players play again, host enters a new phrase
                 //I think I can do this by creating a new Host object and setting it under existing host variable
-                bobBarker = new Hosts("Bob", "Barker");
+                currentHost = new Hosts("Bob", "Barker");
 
 
             }
