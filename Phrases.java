@@ -24,6 +24,10 @@ public class Phrases {
         playingPhraseToUnderscore();
     }
 
+    public String getPlayingPhrase() {
+        return playingPhrase;
+    }
+
     //Method to make playingPhrase replace letter with underscore
     public void playingPhraseToUnderscore() {
         playingPhrase = gamePhrase.replaceAll("\\S", "_");
