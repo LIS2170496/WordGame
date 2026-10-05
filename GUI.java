@@ -34,15 +34,15 @@ public class GUI extends JFrame implements ActionListener{
     int dialogChoice;
 
     String player1FirstName;
-    String player1LastName;
+    String player1LastName = "";
     boolean player1NameDecision;
 
     String player2FirstName;
-    String player2LastName;
+    String player2LastName = "";
     boolean player2NameDecision;
 
     String player3FirstName;
-    String player3LastName;
+    String player3LastName = "";
     boolean player3NameDecision;
 
     boolean allPlayersAdded = false;
@@ -95,6 +95,7 @@ public class GUI extends JFrame implements ActionListener{
                 if (player1NameDecision) {
                     player1LastName = JOptionPane.showInputDialog(null, "Enter your last name: ");
                 }
+                GamePlay.addNewPlayer(0, player1FirstName, player1LastName);
                 addNewPlayerButton.setText(addPlayer2String);
             }
 
@@ -111,6 +112,7 @@ public class GUI extends JFrame implements ActionListener{
                 if (player2NameDecision) {
                     player2LastName = JOptionPane.showInputDialog(null, "Enter your last name: ");
                 }
+                GamePlay.addNewPlayer(1, player2FirstName, player2LastName);
                 addNewPlayerButton.setText(addPlayer3String);
             }
 
@@ -127,9 +129,10 @@ public class GUI extends JFrame implements ActionListener{
                 if (player3NameDecision) {
                     player3LastName = JOptionPane.showInputDialog(null, "Enter your last name: ");
                 }
+                GamePlay.addNewPlayer(2, player3FirstName, player3LastName);
                 allPlayersAdded = true;
                 addNewPlayerButton.setEnabled(false);
-                //addNewPlayerButton.setVisible(false);
+                addNewPlayerButton.setVisible(false);
             }
 
             //extra else
