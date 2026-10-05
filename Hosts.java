@@ -9,9 +9,9 @@ public class Hosts extends Person {
 
         //Upon instantiation, host will enter a phrase for
         //                 players to guess. This instantiates Phrases.java
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Host, please enter a phrase for the players to guess: ");
-        winningPhrase = new Phrases(scan.nextLine());
+        //Scanner scan = new Scanner(System.in);
+        //System.out.println("Host, please enter a phrase for the players to guess: ");
+        //winningPhrase = new Phrases(scan.nextLine());
         
     }
 
@@ -45,6 +45,10 @@ public class Hosts extends Person {
             return false;
         }
         
+    }
+
+    public String getGetPlayingPhrase() {
+        return winningPhrase.getPlayingPhrase();
     }
 
     //Add method to see if phrase has been solved
