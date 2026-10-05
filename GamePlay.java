@@ -24,6 +24,9 @@ public class GamePlay extends GUI implements ActionListener{
     //Requirement 4f - Label to display current playingPhrase with underelines
     JLabel playingPhraseLabel = new JLabel("Playing Phrase: ");
 
+    //FIXME - add button for Start Game that should appear after players/host instantiated and disappear when came starts
+    // when game starts, disappear and make Start Turn button show ?? or is start turn the game start button
+
     //Requirement 4g - Button that starts the player turns when clicked
     JButton startTurnButton = new JButton("Start Turn");
 
@@ -55,12 +58,23 @@ public class GamePlay extends GUI implements ActionListener{
 
         //plopping GUI stuff here instead of GUI.java
 
-        add(currentPlayersLabel);
+        
         add(addNewPlayerButton);
-        add(currentHostLabel);
+        add(currentPlayersLabel);
+
         add(openHostPhrasePaneButton);
+        add(currentHostLabel);
+        
+
+        
         add(playingPhraseLabel);
         add(startTurnButton);
+        
+
+        openHostPhrasePaneButton.setEnabled(false);
+        openHostPhrasePaneButton.setVisible(false);
+        startTurnButton.setEnabled(false);
+        startTurnButton.setVisible(false);
 
         //Requirement ??
         addNewPlayerButton.addActionListener(this);
@@ -83,6 +97,8 @@ public class GamePlay extends GUI implements ActionListener{
             //Adding Player1
             if (addPlayer1String.equals(addNewPlayerButton.getText())) {
                 player1FirstName = JOptionPane.showInputDialog(null, "Enter your first name: ");
+                
+                //Requirement 4b - Set JLabel to list current players
                 currentPlayersLabel.setText(currentPlayersLabel.getText() + player1FirstName);
 
                 dialogChoice = JOptionPane.showConfirmDialog(
@@ -96,6 +112,8 @@ public class GamePlay extends GUI implements ActionListener{
 
                 if (player1NameDecision) {
                     player1LastName = JOptionPane.showInputDialog(null, "Enter your last name: ");
+
+                    //Requirement 4b - Set JLabel to list current players
                     currentPlayersLabel.setText(currentPlayersLabel.getText() + " " + player1LastName);
                 }
                 GamePlay.addNewPlayer(0, player1FirstName, player1LastName);
@@ -106,6 +124,8 @@ public class GamePlay extends GUI implements ActionListener{
             //Adding Player2
             else if (addPlayer2String.equals(addNewPlayerButton.getText())) {
                 player2FirstName = JOptionPane.showInputDialog(null, "Enter your first name: ");
+
+                //Requirement 4b - Set JLabel to list current players
                 currentPlayersLabel.setText(currentPlayersLabel.getText() + ", " + player2FirstName);
 
                 dialogChoice = JOptionPane.showConfirmDialog(
@@ -117,6 +137,7 @@ public class GamePlay extends GUI implements ActionListener{
                 player2NameDecision = (dialogChoice == JOptionPane.YES_OPTION);
                 if (player2NameDecision) {
                     player2LastName = JOptionPane.showInputDialog(null, "Enter your last name: ");
+                    //Requirement 4b - Set JLabel to list current players
                     currentPlayersLabel.setText(currentPlayersLabel.getText() + " " + player2LastName);
                 }
                 GamePlay.addNewPlayer(1, player2FirstName, player2LastName);
@@ -126,6 +147,7 @@ public class GamePlay extends GUI implements ActionListener{
             //Adding Player3
             else if (addPlayer3String.equals(addNewPlayerButton.getText())) {
                 player3FirstName = JOptionPane.showInputDialog(null, "Enter your first name: ");
+                //Requirement 4b - Set JLabel to list current players
                 currentPlayersLabel.setText(currentPlayersLabel.getText() + ", " + player3FirstName);
 
                 dialogChoice = JOptionPane.showConfirmDialog(
@@ -137,12 +159,16 @@ public class GamePlay extends GUI implements ActionListener{
                 player3NameDecision = (dialogChoice == JOptionPane.YES_OPTION);
                 if (player3NameDecision) {
                     player3LastName = JOptionPane.showInputDialog(null, "Enter your last name: ");
+                    //Requirement 4b - Set JLabel to list current players
                     currentPlayersLabel.setText(currentPlayersLabel.getText() + " " + player3LastName);
                 }
                 GamePlay.addNewPlayer(2, player3FirstName, player3LastName);
                 allPlayersAdded = true;
                 addNewPlayerButton.setEnabled(false);
                 addNewPlayerButton.setVisible(false);
+
+                openHostPhrasePaneButton.setEnabled(true);
+                openHostPhrasePaneButton.setVisible(true);
             }
 
             //extra else
@@ -159,10 +185,14 @@ public class GamePlay extends GUI implements ActionListener{
             hostLastName = JOptionPane.showInputDialog(null, "Enter your last name: ");
             phraseToWin = JOptionPane.showInputDialog(null, "Enter the winning phrase: ");
             GamePlay.addNewHost(hostFirstName, hostLastName, phraseToWin);
+            //Requirement 4d - Set JLavel to display current host full name
             currentHostLabel.setText(currentHostLabel.getText() + hostFirstName + " " + hostLastName);
-            playingPhraseLabel.setText(GamePlay.currentHost.getGetPlayingPhrase());
+            playingPhraseLabel.setText(playingPhraseLabel.getText() + GamePlay.currentHost.getGetPlayingPhrase());
             openHostPhrasePaneButton.setEnabled(false);
             openHostPhrasePaneButton.setVisible(false);
+
+            startTurnButton.setEnabled(true);
+            startTurnButton.setVisible(true);
 
         }
 
@@ -218,25 +248,25 @@ public class GamePlay extends GUI implements ActionListener{
 
 
         //Requirement 4b - Set JLabel to list current players
-        myGame.currentPlayersLabel.setText("Current Players: " + 
-            currentPlayers[0].getFullName() + ", " + 
-            currentPlayers[1].getFullName() + ", " + 
-            currentPlayers[2].getFullName()
-        );
+        //myGame.currentPlayersLabel.setText("Current Players: " + 
+            //currentPlayers[0].getFullName() + ", " + 
+            //currentPlayers[1].getFullName() + ", " + 
+            //currentPlayers[2].getFullName()
+        //);
 
 
         //Requirement 4d - Set JLavel to display current host full name
-        myGame.currentHostLabel.setText("Current Host: " + currentHost.getFullName());
+        //myGame.currentHostLabel.setText("Current Host: " + currentHost.getFullName());
         
         
 
 
         //Welcome message to confirm what is stored in objects
-        System.out.println("\nWelcome, " + 
-            currentPlayers[0].getFullName() + ", " + 
-            currentPlayers[1].getFullName() + ", and " + 
-            currentPlayers[2].getFullName() + "!\n"
-        );
+        //System.out.println("\nWelcome, " + 
+            //currentPlayers[0].getFullName() + ", " + 
+            //currentPlayers[1].getFullName() + ", and " + 
+            //currentPlayers[2].getFullName() + "!\n"
+        //);
         System.out.println("You each have $1,000 in your piggy bank");
 
         //Now guessing incorrectly on a possible Physical prize loses $0 instead of $10?
