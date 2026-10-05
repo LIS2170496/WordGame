@@ -2,88 +2,40 @@ import java.util.Scanner;
 
 public class GamePlay {
 
-    //private Person field
-    //Updated to create new Person at this level 9.9.2026  
-    //Person person is now a Players player
 
-    //Removed- no longer used, replaced with array below
-    //private Players player = new Players();
+    public static Players[] currentPlayers = new Players[3];
 
-
-    //Array of 3 Players
-    Players[] currentPlayers = new Players[3];
+    public static void addNewPlayer(int i, String fname, String lname) {
+        //Player creation now part of new method
+        currentPlayers[i] = new Players();
+        currentPlayers[i].setFirstName(fname);
+        currentPlayers[i].setLastName(lname);
+    }
 
 
 
     public static void main(String[] args) {
 
-
         //Requirement 4a - New JFrame via GUI
         GUI gameWindow = new GUI();
 
 
-
         Scanner scan = new Scanner(System.in);
 
-        //Change variables to refer to player instead of person
-        String playerFirstName;
-        String playerLastName;
-        String nameDecision;
-        int x;
 
-        //New game 9.9.2026
         GamePlay myGame = new GamePlay();
 
 
-        //Instantiate Host and generate random number
         Hosts bobBarker = new Hosts("Bob", "Barker");
         
-        //randomize number no longer used
-        //bobBarker.randomizeNum();
 
 
-        //Player instantiation is now within a loop for multiplayer
-        //Players are now part of array currentPlayers
-
-        for (x = 0; x < 3; ++x) {
-
-            //instantiate player in array
-            myGame.currentPlayers[x] = new Players();
-
-            //ask for player's name in main
-            System.out.println("Player " + (x + 1) + ", enter your first name: ");
-            playerFirstName = scan.nextLine();
-
-            //ask if they want to add last name
-            System.out.println("Would you like to add your last name? (Y / N)");
-            nameDecision = scan.nextLine().toUpperCase();
-            
-            //prevent invalid entry
-            while (!nameDecision.equals("Y")  &&  !nameDecision.equals("N")) {
-                System.out.println("Would you like to add your last name? (Y / N)");
-                nameDecision = scan.nextLine().toUpperCase();
-            }
-
-            //Constructor for Person depending on fname or fname+lname
-            //player is now part of array currentPlayers
-            if (nameDecision.equals("Y")) {
-                System.out.println("Enter your last name: ");
-                playerLastName = scan.nextLine();
-                myGame.currentPlayers[x].setFirstName(playerFirstName);
-                myGame.currentPlayers[x].setLastName(playerLastName);
-            }
-            else {
-                myGame.currentPlayers[x].setFirstName(playerFirstName);
-            }
-
-            
-        }
 
         //Requirement 4b - Set JLabel to list current players
         gameWindow.currentPlayersLabel.setText("Current Players: " + 
-            myGame.currentPlayers[0].getFullName() + ", " + 
-            myGame.currentPlayers[1].getFullName() + ", " + 
-            myGame.currentPlayers[2].getFullName()
+            currentPlayers[0].getFullName() + ", " + 
+            currentPlayers[1].getFullName() + ", " + 
+            currentPlayers[2].getFullName()
         );
 
 
@@ -92,11 +44,12 @@ public class GamePlay {
         
         
 
+
         //Welcome message to confirm what is stored in objects
         System.out.println("\nWelcome, " + 
-            myGame.currentPlayers[0].getFullName() + ", " + 
-            myGame.currentPlayers[1].getFullName() + ", and " + 
-            myGame.currentPlayers[2].getFullName() + "!\n"
+            currentPlayers[0].getFullName() + ", " + 
+            currentPlayers[1].getFullName() + ", and " + 
+            currentPlayers[2].getFullName() + "!\n"
         );
         System.out.println("You each have $1,000 in your piggy bank");
 
@@ -139,7 +92,7 @@ public class GamePlay {
             //Ask for guess from each player until correct answer guessed
             while (!playerWins) {
                 //For-each loop through array
-                for (Players c : myGame.currentPlayers) {
+                for (Players c : currentPlayers) {
                     playerWins = newTurn.takeTurn(c, bobBarker);
                     
                     //to get out after number guessed correctly
