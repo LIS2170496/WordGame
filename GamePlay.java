@@ -3,6 +3,8 @@ import javax.swing.*;
 import java.awt.event.*;
 
 public class GamePlay extends GUI implements ActionListener{
+    Scanner scan = new Scanner(System.in);
+
     //plopping GUI stuff in here instead of GUI.java
     String addPlayer1String = "Add Player1";
     String addPlayer2String = "Add Player2";
@@ -24,8 +26,8 @@ public class GamePlay extends GUI implements ActionListener{
     //Requirement 4f - Label to display current playingPhrase with underelines
     JLabel playingPhraseLabel = new JLabel("Playing Phrase: ");
 
-    //FIXME - add button for Start Game that should appear after players/host instantiated and disappear when came starts
-    // when game starts, disappear and make Start Turn button show ?? or is start turn the game start button
+
+    JButton startGameButton = new JButton("Start Game");
 
     //Requirement 4g - Button that starts the player turns when clicked
     JButton startTurnButton = new JButton("Start Turn");
@@ -52,6 +54,16 @@ public class GamePlay extends GUI implements ActionListener{
 
 
 
+
+    //Gameplay variables
+    //Instantiate Turn
+    Turn newTurn = new Turn();
+    boolean playerWins = false;
+    boolean playAgain = true;
+    String playAgainDecision;
+
+
+
     public GamePlay() {
 
         
@@ -66,8 +78,9 @@ public class GamePlay extends GUI implements ActionListener{
         add(currentHostLabel);
         
 
-        
         add(playingPhraseLabel);
+
+        add(startGameButton);
         add(startTurnButton);
         
 
@@ -75,6 +88,8 @@ public class GamePlay extends GUI implements ActionListener{
         openHostPhrasePaneButton.setVisible(false);
         startTurnButton.setEnabled(false);
         startTurnButton.setVisible(false);
+        startGameButton.setEnabled(false);
+        startGameButton.setVisible(false);
 
         //Requirement ??
         addNewPlayerButton.addActionListener(this);
@@ -191,9 +206,72 @@ public class GamePlay extends GUI implements ActionListener{
             openHostPhrasePaneButton.setEnabled(false);
             openHostPhrasePaneButton.setVisible(false);
 
+            
+
+            startGameButton.setEnabled(true);
+            startGameButton.setVisible(true);
+
+        }
+
+        if(source == startGameButton) {
+            System.out.println("You each have $1,000 in your piggy bank");
+            //Now guessing incorrectly on a possible Physical prize loses $0 instead of $10?
+            //System.out.println("Each guess will bet $" + Money.betAmount);
+            System.out.println("If you guess correctly, you will win $" + Money.winAmount + 
+                " or a random physical prize.");
+
+            
+
             startTurnButton.setEnabled(true);
             startTurnButton.setVisible(true);
 
+
+            //Loop to takeTurn until game over (what about if ran out of money)
+        
+            //Outer loop for playAgain option
+            while (playAgain) {
+                playerWins = false;
+                playAgainDecision = "";
+
+                //while loop to play the guessing game
+                //Ask for guess from each player until correct answer guessed
+                while (!playerWins) {
+                    //For-each loop through array
+                    for (Players c : currentPlayers) {
+                        playerWins = newTurn.takeTurn(c, currentHost);
+                        
+                        //to get out after number guessed correctly
+                        if (playerWins) {
+                            break;
+                        }
+                    }
+                }
+
+            
+                //prevent invalid entry
+                while (!playAgainDecision.equals("Y")  &&  !playAgainDecision.equals("N")) {
+                    System.out.println("\nWould you like to play again? (Y / N)");
+                    playAgainDecision = scan.nextLine();
+                }
+
+                
+                if (playAgainDecision.equals("Y")) {
+                    playAgain = true;
+
+                    //If players play again, host enters a new phrase
+                    //I think I can do this by creating a new Host object and setting it under existing host variable
+                    currentHost = new Hosts("Bob", "Barker");
+                }
+                else {
+                    playAgain = false;
+                }
+
+            }
+        }
+
+
+        if(source == startTurnButton) {
+            ;
         }
 
     }
@@ -232,140 +310,18 @@ public class GamePlay extends GUI implements ActionListener{
 
 
 
+
+
+
     public static void main(String[] args) {
 
         GamePlay myGame = new GamePlay();
 
-
-
-        Scanner scan = new Scanner(System.in);
-
-
         
-        //Hosts bobBarker = new Hosts("Bob", "Barker");
-        
-
-
-
-        //Requirement 4b - Set JLabel to list current players
-        //myGame.currentPlayersLabel.setText("Current Players: " + 
-            //currentPlayers[0].getFullName() + ", " + 
-            //currentPlayers[1].getFullName() + ", " + 
-            //currentPlayers[2].getFullName()
-        //);
-
-
-        //Requirement 4d - Set JLavel to display current host full name
-        //myGame.currentHostLabel.setText("Current Host: " + currentHost.getFullName());
-        
-        
-
-
-        //Welcome message to confirm what is stored in objects
-        //System.out.println("\nWelcome, " + 
-            //currentPlayers[0].getFullName() + ", " + 
-            //currentPlayers[1].getFullName() + ", and " + 
-            //currentPlayers[2].getFullName() + "!\n"
-        //);
-        System.out.println("You each have $1,000 in your piggy bank");
-
-        //Now guessing incorrectly on a possible Physical prize loses $0 instead of $10?
-        //System.out.println("Each guess will bet $" + Money.betAmount);
-
-        System.out.println("If you guess correctly, you will win $" + Money.winAmount + 
-            " or a random physical prize.");
-
-
-
-        
-
-
-
-        //Instantiate Turn
-        Turn newTurn = new Turn();
-
-
-        
-        
-
-
-        
-
-
-        //Loop to takeTurn until game over (what about if ran out of money)
-        //while loop to play the guessing game
-        boolean playerWins = false;
-        boolean playAgain = true;
-        String playAgainDecision;
-
-
-        //Outer loop for playAgain option
-        while (playAgain) {
-            playerWins = false;
-            playAgainDecision = "";
-
-
-            //Ask for guess from each player until correct answer guessed
-            while (!playerWins) {
-                //For-each loop through array
-                for (Players c : currentPlayers) {
-                    playerWins = newTurn.takeTurn(c, currentHost);
-                    
-                    //to get out after number guessed correctly
-                    if (playerWins) {
-                        break;
-                    }
-                }
-            }
-
-            
-
-
-
-            //prevent invalid entry
-            while (!playAgainDecision.equals("Y")  &&  !playAgainDecision.equals("N")) {
-                System.out.println("\nWould you like to play again? (Y / N)");
-                playAgainDecision = scan.nextLine();
-            }
-
-            
-            if (playAgainDecision.equals("Y")) {
-                playAgain = true;
-                //Generate new random number
-
-                //randomize number no longer used
-                //bobBarker.randomizeNum();
-
-                //If players play again, host enters a new phrase
-                //I think I can do this by creating a new Host object and setting it under existing host variable
-                currentHost = new Hosts("Bob", "Barker");
-
-
-            }
-            else {
-                playAgain = false;
-            }
-
-        }
-
-        
-
-
         System.out.println("Thanks for playing!");
 
 
-
-
-
-
-
-
-
-        //Close scanner to get rid of problem alert in vscode
-        scan.close(); 
-
     }
 
-    
 
 }
