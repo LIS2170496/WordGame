@@ -1,6 +1,183 @@
 import java.util.Scanner;
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
 
-public class GamePlay {
+public class GamePlay extends GUI implements ActionListener{
+
+    public GamePlay() {
+
+        //plopping GUI stuff in here instead of GUI.java
+        String addPlayer1String = "Add Player1";
+        String addPlayer2String = "Add Player2";
+        String addPlayer3String = "Add Player3";
+
+
+        //Requirement 4b - New JLabel for list of players
+        JLabel currentPlayersLabel = new JLabel("Current Players: ");
+
+        //Requirement 4c - Button to add new player
+        JButton addNewPlayerButton = new JButton(addPlayer1String);
+
+        //Requirment 4d - Label that lists the current host
+        JLabel currentHostLabel = new JLabel("Current Host: ");
+
+        //Requirement 4e - Button to open pane to enter host name and gamePhrase
+        JButton openHostPhrasePaneButton = new JButton("Open Host Phrase Pane");
+
+        //Requirement 4f - Label to display current playingPhrase with underelines
+        JLabel playingPhraseLabel = new JLabel("Playing Phrase: ");
+
+        //Requirement 4g - Button that starts the player turns when clicked
+        JButton startTurnButton = new JButton("Start Turn");
+
+        int dialogChoice;
+
+        String player1FirstName;
+        String player1LastName = "";
+        boolean player1NameDecision;
+
+        String player2FirstName;
+        String player2LastName = "";
+        boolean player2NameDecision;
+
+        String player3FirstName;
+        String player3LastName = "";
+        boolean player3NameDecision;
+
+        boolean allPlayersAdded = false;
+
+        String hostFirstName;
+        String hostLastName = "";
+        String phraseToWin;
+
+        //plopping GUI stuff here instead of GUI.java
+
+        add(currentPlayersLabel);
+        add(addNewPlayerButton);
+        add(currentHostLabel);
+        add(openHostPhrasePaneButton);
+        add(playingPhraseLabel);
+        add(startTurnButton);
+
+        //Requirement ??
+        addNewPlayerButton.addActionListener(this);
+        openHostPhrasePaneButton.addActionListener(this);
+
+        
+    }
+
+
+
+    @Override
+    public void actionPerformed(ActionEvent event) {
+
+        Object source = event.getSource();
+
+
+        //IF Add Player button was pressed
+        if(source == addNewPlayerButton) {
+        
+            //Adding Player1
+            if (addPlayer1String.equals(addNewPlayerButton.getText())) {
+                player1FirstName = JOptionPane.showInputDialog(null, "Enter your first name: ");
+                currentPlayersLabel.setText(currentPlayersLabel.getText() + player1FirstName);
+
+                dialogChoice = JOptionPane.showConfirmDialog(
+                    null, 
+                    "Add last name?",
+                    "Select an Option",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE);
+
+                player1NameDecision = (dialogChoice == JOptionPane.YES_OPTION);
+
+                if (player1NameDecision) {
+                    player1LastName = JOptionPane.showInputDialog(null, "Enter your last name: ");
+                    currentPlayersLabel.setText(currentPlayersLabel.getText() + " " + player1LastName);
+                }
+                GamePlay.addNewPlayer(0, player1FirstName, player1LastName);
+                
+                addNewPlayerButton.setText(addPlayer2String);
+            }
+
+            //Adding Player2
+            else if (addPlayer2String.equals(addNewPlayerButton.getText())) {
+                player2FirstName = JOptionPane.showInputDialog(null, "Enter your first name: ");
+                currentPlayersLabel.setText(currentPlayersLabel.getText() + ", " + player2FirstName);
+
+                dialogChoice = JOptionPane.showConfirmDialog(
+                    null, 
+                    "Add last name?",
+                    "Select an Option",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE);
+                player2NameDecision = (dialogChoice == JOptionPane.YES_OPTION);
+                if (player2NameDecision) {
+                    player2LastName = JOptionPane.showInputDialog(null, "Enter your last name: ");
+                    currentPlayersLabel.setText(currentPlayersLabel.getText() + " " + player2LastName);
+                }
+                GamePlay.addNewPlayer(1, player2FirstName, player2LastName);
+                addNewPlayerButton.setText(addPlayer3String);
+            }
+
+            //Adding Player3
+            else if (addPlayer3String.equals(addNewPlayerButton.getText())) {
+                player3FirstName = JOptionPane.showInputDialog(null, "Enter your first name: ");
+                currentPlayersLabel.setText(currentPlayersLabel.getText() + ", " + player3FirstName);
+
+                dialogChoice = JOptionPane.showConfirmDialog(
+                    null, 
+                    "Add last name?",
+                    "Select an Option",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE);
+                player3NameDecision = (dialogChoice == JOptionPane.YES_OPTION);
+                if (player3NameDecision) {
+                    player3LastName = JOptionPane.showInputDialog(null, "Enter your last name: ");
+                    currentPlayersLabel.setText(currentPlayersLabel.getText() + " " + player3LastName);
+                }
+                GamePlay.addNewPlayer(2, player3FirstName, player3LastName);
+                allPlayersAdded = true;
+                addNewPlayerButton.setEnabled(false);
+                addNewPlayerButton.setVisible(false);
+            }
+
+            //extra else
+            else {
+                System.out.println("Problem in GUI class at ActionPerformed on Add Player button");
+            }
+
+        }
+
+
+        //IF Open Host Phrase Pane button was pressed
+        if(source == openHostPhrasePaneButton) {
+            hostFirstName = JOptionPane.showInputDialog(null, "Enter your first name: ");
+            hostLastName = JOptionPane.showInputDialog(null, "Enter your last name: ");
+            phraseToWin = JOptionPane.showInputDialog(null, "Enter the winning phrase: ");
+            GamePlay.addNewHost(hostFirstName, hostLastName, phraseToWin);
+            currentHostLabel.setText(currentHostLabel.getText() + hostFirstName + " " + hostLastName);
+            playingPhraseLabel.setText(GamePlay.currentHost.getGetPlayingPhrase());
+            openHostPhrasePaneButton.setEnabled(false);
+            openHostPhrasePaneButton.setVisible(false);
+
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     public static Players[] currentPlayers = new Players[3];
@@ -25,14 +202,42 @@ public class GamePlay {
 
     public static void main(String[] args) {
 
+        GamePlay myGame = new GamePlay();
+
         //Requirement 4a - New JFrame via GUI
-        GUI gameWindow = new GUI();
+        //FIXME - remove if not needed
+        //GUI gameWindow = new GUI();
+
+
+        
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         Scanner scan = new Scanner(System.in);
 
 
-        GamePlay myGame = new GamePlay();
+        
 
 
         Hosts bobBarker = new Hosts("Bob", "Barker");
@@ -41,7 +246,7 @@ public class GamePlay {
 
 
         //Requirement 4b - Set JLabel to list current players
-        gameWindow.currentPlayersLabel.setText("Current Players: " + 
+        currentPlayersLabel.setText("Current Players: " + 
             currentPlayers[0].getFullName() + ", " + 
             currentPlayers[1].getFullName() + ", " + 
             currentPlayers[2].getFullName()
@@ -49,7 +254,7 @@ public class GamePlay {
 
 
         //Requirement 4d - Set JLavel to display current host full name
-        gameWindow.currentHostLabel.setText("Current Host: " + bobBarker.getFullName());
+        currentHostLabel.setText("Current Host: " + bobBarker.getFullName());
         
         
 
@@ -158,5 +363,7 @@ public class GamePlay {
         scan.close(); 
 
     }
+
+    
 
 }
