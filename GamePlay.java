@@ -12,6 +12,15 @@ public class GamePlay {
         currentPlayers[i].setLastName(lname);
     }
 
+    public static Hosts currentHost;
+
+
+    public static void addNewHost(String fname, String lname, String a) {
+        currentHost = new Hosts(fname, lname);
+        Phrases currentHostsPhrase = new Phrases(a);
+        currentHost.winningPhrase = currentHostsPhrase;
+    }
+
 
 
     public static void main(String[] args) {
