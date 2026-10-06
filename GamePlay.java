@@ -38,25 +38,25 @@ public class GamePlay extends GUI implements ActionListener{
 
     int dialogChoice;
 
-    String player1FirstName;
+    String player1FirstName = "";
     String player1LastName = "";
     boolean player1NameDecision;
 
-    String player2FirstName;
+    String player2FirstName = "";
     String player2LastName = "";
     boolean player2NameDecision;
 
-    String player3FirstName;
+    String player3FirstName = "";
     String player3LastName = "";
     boolean player3NameDecision;
 
     boolean allPlayersAdded = false;
 
-    String hostFirstName;
+    String hostFirstName = "";
     String hostLastName = "";
-    String phraseToWin;
+    String phraseToWin = "";
 
-    boolean readyToPlay = false;
+    
 
 
 
@@ -118,7 +118,13 @@ public class GamePlay extends GUI implements ActionListener{
         
             //Adding Player1
             if (addPlayer1String.equals(addNewPlayerButton.getText())) {
-                player1FirstName = JOptionPane.showInputDialog(null, "Enter your first name: ");
+                while (player1FirstName == null  ||  player1FirstName.equals("")) {
+                    player1FirstName = JOptionPane.showInputDialog(null, "Enter your first name: ");
+
+                    if (player1FirstName == null) {
+                        return;
+                    }
+                }
                 
                 //Requirement 4b - Set JLabel to list current players
                 currentPlayersLabel.setText(currentPlayersLabel.getText() + player1FirstName);
@@ -135,6 +141,10 @@ public class GamePlay extends GUI implements ActionListener{
                 if (player1NameDecision) {
                     player1LastName = JOptionPane.showInputDialog(null, "Enter your last name: ");
 
+                    if (player1LastName == null) {
+                        player1LastName = "";
+                    }
+
                     //Requirement 4b - Set JLabel to list current players
                     currentPlayersLabel.setText(currentPlayersLabel.getText() + " " + player1LastName);
                 }
@@ -145,7 +155,13 @@ public class GamePlay extends GUI implements ActionListener{
 
             //Adding Player2
             else if (addPlayer2String.equals(addNewPlayerButton.getText())) {
-                player2FirstName = JOptionPane.showInputDialog(null, "Enter your first name: ");
+                while (player2FirstName == null  ||  player2FirstName.equals("")) {
+                    player2FirstName = JOptionPane.showInputDialog(null, "Enter your first name: ");
+
+                    if (player2FirstName == null) {
+                        return;
+                    }
+                }
 
                 //Requirement 4b - Set JLabel to list current players
                 currentPlayersLabel.setText(currentPlayersLabel.getText() + ", " + player2FirstName);
@@ -159,6 +175,9 @@ public class GamePlay extends GUI implements ActionListener{
                 player2NameDecision = (dialogChoice == JOptionPane.YES_OPTION);
                 if (player2NameDecision) {
                     player2LastName = JOptionPane.showInputDialog(null, "Enter your last name: ");
+                    if (player2LastName == null) {
+                        player2LastName = "";
+                    }
                     //Requirement 4b - Set JLabel to list current players
                     currentPlayersLabel.setText(currentPlayersLabel.getText() + " " + player2LastName);
                 }
@@ -168,7 +187,14 @@ public class GamePlay extends GUI implements ActionListener{
 
             //Adding Player3
             else if (addPlayer3String.equals(addNewPlayerButton.getText())) {
-                player3FirstName = JOptionPane.showInputDialog(null, "Enter your first name: ");
+                while (player3FirstName == null  ||  player3FirstName.equals("")) {
+                    player3FirstName = JOptionPane.showInputDialog(null, "Enter your first name: ");
+
+                    if (player3FirstName == null) {
+                        return;
+                    }
+                }
+
                 //Requirement 4b - Set JLabel to list current players
                 currentPlayersLabel.setText(currentPlayersLabel.getText() + ", " + player3FirstName);
 
@@ -181,6 +207,9 @@ public class GamePlay extends GUI implements ActionListener{
                 player3NameDecision = (dialogChoice == JOptionPane.YES_OPTION);
                 if (player3NameDecision) {
                     player3LastName = JOptionPane.showInputDialog(null, "Enter your last name: ");
+                    if (player3LastName == null) {
+                        player3LastName = "";
+                    }
                     //Requirement 4b - Set JLabel to list current players
                     currentPlayersLabel.setText(currentPlayersLabel.getText() + " " + player3LastName);
                 }
@@ -205,7 +234,13 @@ public class GamePlay extends GUI implements ActionListener{
 
         //IF Open Host Phrase Pane button was pressed
         if(source == openHostPhrasePaneButton) {
-            hostFirstName = JOptionPane.showInputDialog(null, "Enter your first name: ");
+            while (hostFirstName == null  ||  hostFirstName.equals("")) {
+                hostFirstName = JOptionPane.showInputDialog(null, "Enter your first name: ");
+
+                if (hostFirstName == null) {
+                    return;
+                }
+            }
 
             dialogChoice = JOptionPane.showConfirmDialog(
                     null, 
@@ -216,12 +251,21 @@ public class GamePlay extends GUI implements ActionListener{
             
             if(dialogChoice == JOptionPane.YES_OPTION) {
                 hostLastName = JOptionPane.showInputDialog(null, "Enter your last name: ");
+                if (hostLastName == null) {
+                        hostLastName = "";
+                    }
             }
             else {
                 hostLastName = "";
             }
             
-            phraseToWin = JOptionPane.showInputDialog(null, "Enter the winning phrase: ");
+            while (phraseToWin == null  || phraseToWin.equals("")) {
+                phraseToWin = JOptionPane.showInputDialog(null, "Enter the winning phrase: ");
+
+                if (phraseToWin == null) {
+                    return;
+                }
+            }
 
            
             GamePlay.addNewHost(hostFirstName, hostLastName, phraseToWin);
@@ -255,7 +299,7 @@ public class GamePlay extends GUI implements ActionListener{
             else if (currentPlayers[2] == null) {
                 JOptionPane.showMessageDialog(null,"Cannot play without Player3!");
             }
-            else if (phraseToWin.equals("")) {
+            else if (phraseToWin == null  ||  phraseToWin.equals("")) {
                 JOptionPane.showMessageDialog(null,"Cannot play without a winning phrase!");
             }
 
