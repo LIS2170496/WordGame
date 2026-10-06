@@ -3,6 +3,10 @@ import javax.swing.*;
 import java.awt.event.*;
 
 public class GamePlay extends GUI implements ActionListener{
+
+    GamePlay myGame = new GamePlay();
+
+    
     Scanner scan = new Scanner(System.in);
 
     //plopping GUI stuff in here instead of GUI.java
@@ -24,7 +28,7 @@ public class GamePlay extends GUI implements ActionListener{
     JButton openHostPhrasePaneButton = new JButton("Open Host Phrase Pane");
 
     //Requirement 4f - Label to display current playingPhrase with underelines
-    JLabel playingPhraseLabel = new JLabel("Playing Phrase: ");
+    public static JLabel playingPhraseLabel = new JLabel("Playing Phrase: ");
 
 
     JButton startGameButton = new JButton("Start Game");
@@ -94,6 +98,7 @@ public class GamePlay extends GUI implements ActionListener{
         //Requirement ??
         addNewPlayerButton.addActionListener(this);
         openHostPhrasePaneButton.addActionListener(this);
+        startGameButton.addActionListener(this);
 
         
     }
@@ -202,7 +207,7 @@ public class GamePlay extends GUI implements ActionListener{
             GamePlay.addNewHost(hostFirstName, hostLastName, phraseToWin);
             //Requirement 4d - Set JLavel to display current host full name
             currentHostLabel.setText(currentHostLabel.getText() + hostFirstName + " " + hostLastName);
-            playingPhraseLabel.setText(playingPhraseLabel.getText() + GamePlay.currentHost.getGetPlayingPhrase());
+            playingPhraseLabel.setText("Playing Phrase: " + currentHost.winningPhrase.playingPhraseStringBuilder);
             openHostPhrasePaneButton.setEnabled(false);
             openHostPhrasePaneButton.setVisible(false);
 
@@ -237,9 +242,13 @@ public class GamePlay extends GUI implements ActionListener{
                 //Ask for guess from each player until correct answer guessed
                 while (!playerWins) {
                     //For-each loop through array
+
+                    
+                    
+
                     for (Players c : currentPlayers) {
                         playerWins = newTurn.takeTurn(c, currentHost);
-                        
+
                         //to get out after number guessed correctly
                         if (playerWins) {
                             break;
@@ -263,11 +272,13 @@ public class GamePlay extends GUI implements ActionListener{
                     currentHost = new Hosts("Bob", "Barker");
                 }
                 else {
+                    System.out.println("Thanks for playing!");
                     playAgain = false;
                 }
 
             }
         }
+
 
 
         if(source == startTurnButton) {
@@ -314,12 +325,6 @@ public class GamePlay extends GUI implements ActionListener{
 
 
     public static void main(String[] args) {
-
-        GamePlay myGame = new GamePlay();
-
-        
-        System.out.println("Thanks for playing!");
-
 
     }
 
