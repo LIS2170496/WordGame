@@ -1,11 +1,10 @@
 import java.util.*;
-
 import javax.swing.JOptionPane;
 
 public class Turn {
     int playerGuess;
     String playerGuessString;
-    Scanner scan = new Scanner(System.in);
+    //Scanner scan = new Scanner(System.in);
     boolean guessWasRight;
 
 
@@ -13,23 +12,22 @@ public class Turn {
     //Return type boolean
     public boolean takeTurn(Players playerName, Hosts hostName) {
         
-        //System.out.println("\nThe phrase to guess is: " + hostName.winningPhrase.playingPhraseStringBuilder);
-               
-        
-
-        //Simulate host/player to prompt guess
-        //System.out.println(
-            //"\nHost " + hostName.getFullName() + " says: " + 
-            //playerName.getFullName() + ", guess a letter");
-        //playerGuessString = scan.nextLine(); <--moved to inside while !continuePlaying
-
-
         //Try/Catch block for findLetters and exception handling
         boolean continuePlaying = false;
         
         while (!continuePlaying) {
             try {
-                playerGuessString = JOptionPane.showInputDialog(null, playerName.getFullName() + ", enter your guess: ");
+                playerGuessString = null;
+
+                while (playerGuessString == null  ||  playerGuessString.equals("")) {
+
+                    playerGuessString = JOptionPane.showInputDialog(null, playerName.getFullName() + ", enter your guess: ");
+                    
+                    if (playerGuessString == null) {
+                        return false;
+                    }
+                }
+                
                 guessWasRight = hostName.sendPhrase(playerGuessString);
 
             
