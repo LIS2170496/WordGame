@@ -366,12 +366,25 @@ public class GamePlay extends GUI implements ActionListener{
                         if(dialogChoice == JOptionPane.YES_OPTION) {
                             playAgainDecision = "Y";
                             playAgain = true;
-                            phraseToWin = JOptionPane.showInputDialog(null, "Enter the winning phrase: ");
 
-            
+                            phraseToWin = null;
+                            openHostPhrasePaneButton.setEnabled(true);
+                            openHostPhrasePaneButton.setVisible(true);
+
+                            while (phraseToWin == null  || phraseToWin.equals("")) {
+                                phraseToWin = JOptionPane.showInputDialog(null, "Enter the winning phrase: ");
+
+                                if (phraseToWin == null) {
+                                    return;
+                                }
+                            }
+                            
                             GamePlay.addNewHost(hostFirstName, hostLastName, phraseToWin);
                             playingPhraseLabel.setText("Playing Phrase: " + currentHost.winningPhrase.playingPhraseStringBuilder);
-                            
+                            openHostPhrasePaneButton.setEnabled(false);
+                            openHostPhrasePaneButton.setVisible(false);
+
+
                         }
                         else {
                             playAgainDecision = "N";
