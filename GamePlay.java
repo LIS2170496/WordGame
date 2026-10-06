@@ -1,4 +1,4 @@
-import java.util.Scanner;
+//import java.util.Scanner;
 import javax.swing.*;
 import java.awt.event.*;
 
@@ -7,7 +7,7 @@ public class GamePlay extends GUI implements ActionListener{
     
 
 
-    Scanner scan = new Scanner(System.in);
+    //Scanner scan = new Scanner(System.in);
 
     //plopping GUI stuff in here instead of GUI.java
     String addPlayer1String = "Add Player1";
