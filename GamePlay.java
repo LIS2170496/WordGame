@@ -4,9 +4,9 @@ import java.awt.event.*;
 
 public class GamePlay extends GUI implements ActionListener{
 
-    GamePlay myGame = new GamePlay();
-
     
+
+
     Scanner scan = new Scanner(System.in);
 
     //plopping GUI stuff in here instead of GUI.java
@@ -319,12 +319,17 @@ public class GamePlay extends GUI implements ActionListener{
         currentHost.winningPhrase = currentHostsPhrase;
     }
 
+    public static void setPlayingPhraseLabel() {
+        playingPhraseLabel.setText("Playing Phrase FROM METHOD: " + currentHost.winningPhrase.playingPhraseStringBuilder);
+    }
+
 
 
 
 
 
     public static void main(String[] args) {
+        GamePlay myGame = new GamePlay();
 
     }
 
