@@ -1,7 +1,7 @@
 import java.awt.*;
 import javax.swing.*;
 
-
+//Requirement 4a - new GUI.java class
 public class GUI extends JFrame {
 
     int frameWidth = 500;
