@@ -236,10 +236,16 @@ public class GamePlay extends GUI implements ActionListener{
         }
 
         if(source == startGameButton) {
-            System.out.println("You each have $1,000 in your piggy bank");
+            //System.out.println("You each have $1,000 in your piggy bank");
+            JOptionPane.showMessageDialog(null,"You each have $1,000 in your piggy bank");
+
+
             //Now guessing incorrectly on a possible Physical prize loses $0 instead of $10?
             //System.out.println("Each guess will bet $" + Money.betAmount);
-            System.out.println("If you guess correctly, you will win $" + Money.winAmount + 
+            //System.out.println("If you guess correctly, you will win $" + Money.winAmount + " or a random physical prize.");
+            JOptionPane.showMessageDialog(null,
+                "If you guess correctly, you will win $" + 
+                Money.winAmount + 
                 " or a random physical prize.");
 
             
@@ -275,30 +281,30 @@ public class GamePlay extends GUI implements ActionListener{
             
                 //prevent invalid entry
                 while (!playAgainDecision.equals("Y")  &&  !playAgainDecision.equals("N")) {
-                    System.out.println("\nWould you like to play again? (Y / N)");
-                    playAgainDecision = scan.nextLine();
-                }
+                    //System.out.println("\nWould you like to play again? (Y / N)");
+                    //playAgainDecision = scan.nextLine();
 
-                
-                if (playAgainDecision.equals("Y")) {
-                    playAgain = true;
-
-                    //If players play again, host enters a new phrase
-                    //I think I can do this by creating a new Host object and setting it under existing host variable
-                    currentHost = new Hosts(currentHost.getFirstName(), currentHost.getLastName());
+                    dialogChoice = JOptionPane.showConfirmDialog(
+                        null, 
+                        "Would you like to play again?",
+                        "Select an Option",
+                        JOptionPane.YES_NO_OPTION,
+                        JOptionPane.QUESTION_MESSAGE);
+            
+                    if(dialogChoice == JOptionPane.YES_OPTION) {
+                        playAgainDecision = "Y";
+                        playAgain = true;
+                        //currentHost = new Hosts(currentHost.getFirstName(), currentHost.getLastName());
+                    }
+                    else {
+                        playAgainDecision = "N";
+                        //System.out.println("Thanks for playing!");
+                        playAgain = false;
+                        JOptionPane.showMessageDialog(null,"Thanks for playing!");
+                    }
                 }
-                else {
-                    System.out.println("Thanks for playing!");
-                    playAgain = false;
-                }
-
             }
         }
-
-
-
-        
-
     }
 
 
