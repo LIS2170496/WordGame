@@ -12,6 +12,10 @@ public class Turn {
     public boolean takeTurn(Players playerName, Hosts hostName) {
         
         System.out.println("\nThe phrase to guess is: " + hostName.winningPhrase.playingPhraseStringBuilder);
+        //FIXME - add here update JLabel with phrasestringbuilder
+        //This might work
+        GamePlay.playingPhraseLabel.setText("Playing Phrase: " + hostName.winningPhrase.playingPhraseStringBuilder);
+        
 
         //Simulate host/player to prompt guess
         System.out.println(
