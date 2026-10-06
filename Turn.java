@@ -1,5 +1,7 @@
 import java.util.*;
 
+import javax.swing.JOptionPane;
+
 public class Turn {
     int playerGuess;
     String playerGuessString;
@@ -12,36 +14,25 @@ public class Turn {
     public boolean takeTurn(Players playerName, Hosts hostName) {
         
         System.out.println("\nThe phrase to guess is: " + hostName.winningPhrase.playingPhraseStringBuilder);
-        //FIXME - add here update JLabel with phrasestringbuilder
-        //This might work
-        //GamePlay.playingPhraseLabel.setText("Playing Phrase: " + hostName.winningPhrase.playingPhraseStringBuilder);
-        GamePlay.setPlayingPhraseLabel();
-        
+               
         
 
         //Simulate host/player to prompt guess
         System.out.println(
             "\nHost " + hostName.getFullName() + " says: " + 
-            playerName.getFullName() + 
-            //", guess my random number between 0 and 100");
-        //playerGuess = scan.nextInt();
-
-        //Ask the player for one letter instead of an integer
-            ", guess a letter");
+            playerName.getFullName() + ", guess a letter");
         //playerGuessString = scan.nextLine(); <--moved to inside while !continuePlaying
 
-        //No longer using Numbers
-        //Updated per rubric to have Turn instantiate Numbers to check the guess
-        //Previously, my 'if' statement went through the Host using hostName.verifyGuess(playerGuess)
-        //Numbers numbers = new Numbers();
 
         //Try/Catch block for findLetters and exception handling
         boolean continuePlaying = false;
         
         while (!continuePlaying) {
             try {
-                playerGuessString = scan.nextLine();
+                playerGuessString = JOptionPane.showInputDialog(null, playerName.getFullName() + ", enter your guess: ");
                 guessWasRight = hostName.sendPhrase(playerGuessString);
+
+            
                 continuePlaying = true;
             }
             catch(MultipleLettersException mle) {
@@ -53,6 +44,8 @@ public class Turn {
                 //scan.nextLine();
             }
             //scan.nextLine();
+            //FIXME- add requirement # for setting playing phrase label after each turn 
+            GamePlay.setPlayingPhraseLabel();
 
 
             
@@ -82,7 +75,8 @@ public class Turn {
                 //If player wins, add 5 times the bet amount to their piggy bank
                 playerName.setPiggyBank(playerName.getPiggyBank() + 
                     cashPrize.displayWinnings(playerName, guessWasRight));
-                System.out.println(playerName.toString());
+                //System.out.println(playerName.toString());
+                JOptionPane.showMessageDialog(null, playerName.toString());
 
                 //return false;
                 return hostName.phraseSolved();
@@ -92,7 +86,8 @@ public class Turn {
                 //If player loses, subtract the bet amount from their piggy bank
                 playerName.setPiggyBank(playerName.getPiggyBank() + 
                     cashPrize.displayWinnings(playerName, guessWasRight));
-                System.out.println(playerName.toString());
+                //System.out.println(playerName.toString());
+                JOptionPane.showMessageDialog(null, playerName.toString());
                 //return false;
                 return hostName.phraseSolved();
             }
@@ -109,7 +104,8 @@ public class Turn {
                 playerName.setPiggyBank(playerName.getPiggyBank() + 
                     physicalPrize.displayWinnings(playerName, guessWasRight));
                 //System.out.println("Congratulations, " + playerName.getFullName() + ", you guessed the number!");
-                System.out.println(playerName.toString());
+                //System.out.println(playerName.toString());
+                JOptionPane.showMessageDialog(null, playerName.toString());
                 //return false;
                 return hostName.phraseSolved();
             }
@@ -118,7 +114,8 @@ public class Turn {
                 playerName.setPiggyBank(playerName.getPiggyBank() + 
                     physicalPrize.displayWinnings(playerName, guessWasRight));
                 //System.out.println("I'm sorry, " + playerName.getFullName() + ", you lose.");
-                System.out.println(playerName.toString());
+                //System.out.println(playerName.toString());
+                JOptionPane.showMessageDialog(null, playerName.toString());
                 //return false;
                 return hostName.phraseSolved();
             }
