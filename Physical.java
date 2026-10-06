@@ -1,5 +1,7 @@
 import java.util.Random;
 
+import javax.swing.JOptionPane;
+
 public class Physical implements Award {
     
     //String array of 5 prizes
@@ -33,15 +35,21 @@ public class Physical implements Award {
 
         //Parameter true, win a prize
         if (guessCorrect) {
-            System.out.println("Congratulations, " + playerPlayers.getFullName() + " that letter is in the phrase!");
-            System.out.println("You have won a " + prizes[getRandomPrize()] + "!");
+            //System.out.println("Congratulations, " + playerPlayers.getFullName() + " that letter is in the phrase!");
+            //System.out.println("You have won a " + prizes[getRandomPrize()] + "!");
+            JOptionPane.showMessageDialog(null,
+                "Congratulations, " + playerPlayers.getFullName() + " that letter is in the phrase!" + 
+                "\nYou have won a " + prizes[getRandomPrize()] + "!");
             return 0;
         }
 
         //Parameter false, win nothing
         else {
-            System.out.println("I'm sorry, " + playerPlayers.getFullName() + " that letter is not in the phrase.");
-            System.out.println("You could have won a " + prizes[getRandomPrize()] + ".");
+            //System.out.println("I'm sorry, " + playerPlayers.getFullName() + " that letter is not in the phrase.");
+            //System.out.println("You could have won a " + prizes[getRandomPrize()] + ".");
+            JOptionPane.showMessageDialog(null,
+                "I'm sorry, " + playerPlayers.getFullName() + " that letter is not in the phrase." + 
+                "\nYou could have won a " + prizes[getRandomPrize()] + ".");
             return 0;
         }
     }
