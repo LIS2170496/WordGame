@@ -192,7 +192,9 @@ public class GamePlay extends GUI implements ActionListener{
 
             //extra else
             else {
-                System.out.println("Problem in GUI class at ActionPerformed on Add Player button");
+                //System.out.println("Problem in GUI class at ActionPerformed on Add Player button");
+                JOptionPane.showMessageDialog(null,
+                    "Problem in GUI class at ActionPerformed on Add Player button");
             }
 
         }
