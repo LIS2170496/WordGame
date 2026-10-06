@@ -13,14 +13,14 @@ public class Turn {
     //Return type boolean
     public boolean takeTurn(Players playerName, Hosts hostName) {
         
-        System.out.println("\nThe phrase to guess is: " + hostName.winningPhrase.playingPhraseStringBuilder);
+        //System.out.println("\nThe phrase to guess is: " + hostName.winningPhrase.playingPhraseStringBuilder);
                
         
 
         //Simulate host/player to prompt guess
-        System.out.println(
-            "\nHost " + hostName.getFullName() + " says: " + 
-            playerName.getFullName() + ", guess a letter");
+        //System.out.println(
+            //"\nHost " + hostName.getFullName() + " says: " + 
+            //playerName.getFullName() + ", guess a letter");
         //playerGuessString = scan.nextLine(); <--moved to inside while !continuePlaying
 
 
@@ -36,11 +36,13 @@ public class Turn {
                 continuePlaying = true;
             }
             catch(MultipleLettersException mle) {
-                System.out.println(mle.getMessage() + ", please try again.");
+                //System.out.println(mle.getMessage() + ", please try again.");
+                JOptionPane.showMessageDialog(null, mle.getMessage() + ", please try again.");
                 //scan.nextLine();
             }
             catch(InputMismatchException ime) {
-                System.out.println("Input should be a letter character, please try again.");
+                //System.out.println("Input should be a letter character, please try again.");
+                JOptionPane.showMessageDialog(null, "Input should be a letter character, please try again.");
                 //scan.nextLine();
             }
             //scan.nextLine();
