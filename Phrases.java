@@ -1,5 +1,7 @@
 import java.util.InputMismatchException;
 
+import javax.swing.JOptionPane;
+
 public class Phrases {
     //String gamePhrase which is set on instantiation
     static String gamePhrase = new String();
@@ -83,12 +85,17 @@ public class Phrases {
             //If no more underscores, then player won
             //if playingPhrase contains an underscore, keep playing
             if (playingPhrase.indexOf(underscoreChar) != -1) {
-                System.out.println("There are still more guesses to make");
+                //System.out.println("There are still more guesses to make");
+                //JOptionPane.showMessageDialog(null, "There are still more guesses to make");
+                GamePlay.setPlayingPhraseLabel();
                 return true;
             }
             //if playingPhrase NOT contains an underscore, game over
             else if (!(playingPhrase.indexOf(underscoreChar) != -1)) {
-                System.out.println("You won! Answer: " + playingPhrase);
+                GamePlay.setPlayingPhraseLabel();
+                
+                //System.out.println("You won! Answer: " + playingPhrase);
+                JOptionPane.showMessageDialog(null, "You won! Answer: " + playingPhrase);
                 phraseSolved = true;
                 return true;
             }
