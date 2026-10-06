@@ -78,6 +78,10 @@ public class Turn {
                 playerName.setPiggyBank(playerName.getPiggyBank() + 
                     cashPrize.displayWinnings(playerName, guessWasRight));
                 //System.out.println(playerName.toString());
+
+                //Requirement 4h  -JOptionPane to give player the message of 
+                // whether they were correct and/or won any prizes, 
+                // how much money they currently have, etc.
                 JOptionPane.showMessageDialog(null, playerName.toString());
 
                 //return false;
@@ -89,6 +93,10 @@ public class Turn {
                 playerName.setPiggyBank(playerName.getPiggyBank() + 
                     cashPrize.displayWinnings(playerName, guessWasRight));
                 //System.out.println(playerName.toString());
+
+                //Requirement 4h  -JOptionPane to give player the message of 
+                // whether they were correct and/or won any prizes, 
+                // how much money they currently have, etc.
                 JOptionPane.showMessageDialog(null, playerName.toString());
                 //return false;
                 return hostName.phraseSolved();
@@ -107,6 +115,10 @@ public class Turn {
                     physicalPrize.displayWinnings(playerName, guessWasRight));
                 //System.out.println("Congratulations, " + playerName.getFullName() + ", you guessed the number!");
                 //System.out.println(playerName.toString());
+
+                //Requirement 4h  -JOptionPane to give player the message of 
+                // whether they were correct and/or won any prizes, 
+                // how much money they currently have, etc.
                 JOptionPane.showMessageDialog(null, playerName.toString());
                 //return false;
                 return hostName.phraseSolved();
@@ -117,6 +129,10 @@ public class Turn {
                     physicalPrize.displayWinnings(playerName, guessWasRight));
                 //System.out.println("I'm sorry, " + playerName.getFullName() + ", you lose.");
                 //System.out.println(playerName.toString());
+
+                //Requirement 4h  -JOptionPane to give player the message of 
+                // whether they were correct and/or won any prizes, 
+                // how much money they currently have, etc.
                 JOptionPane.showMessageDialog(null, playerName.toString());
                 //return false;
                 return hostName.phraseSolved();

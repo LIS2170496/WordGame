@@ -2,6 +2,7 @@
 import javax.swing.*;
 import java.awt.event.*;
 
+//Requirement 4a - main application uses GUI as exension of JFrame
 public class GamePlay extends GUI implements ActionListener{
 
     
@@ -273,6 +274,7 @@ public class GamePlay extends GUI implements ActionListener{
             
             //Requirement 4d - Set JLavel to display current host full name
             currentHostLabel.setText(currentHostLabel.getText() + hostFirstName + " " + hostLastName);
+            //Requirement 4f - Set JLabel to display playingPhrase
             playingPhraseLabel.setText("Playing Phrase: " + currentHost.winningPhrase.playingPhraseStringBuilder);
             openHostPhrasePaneButton.setEnabled(false);
             openHostPhrasePaneButton.setVisible(false);
@@ -285,6 +287,8 @@ public class GamePlay extends GUI implements ActionListener{
         }
 
         if(source == startGameButton) {
+
+            //Requirement 4g - Button that starts the player turns when clicked
 
             if (currentHost == null) {
                 JOptionPane.showMessageDialog(null,"Cannot play without a host!");
@@ -356,6 +360,7 @@ public class GamePlay extends GUI implements ActionListener{
                         //System.out.println("\nWould you like to play again? (Y / N)");
                         //playAgainDecision = scan.nextLine();
 
+                        //Requirement 4i - JOptionPane with Yes/No to let the user decide if they want to play again
                         dialogChoice = JOptionPane.showConfirmDialog(
                             null, 
                             "Would you like to play again?",
@@ -380,6 +385,7 @@ public class GamePlay extends GUI implements ActionListener{
                             }
                             
                             GamePlay.addNewHost(hostFirstName, hostLastName, phraseToWin);
+                            //Requirement 4f - Set JLabel to display playingPhrase
                             playingPhraseLabel.setText("Playing Phrase: " + currentHost.winningPhrase.playingPhraseStringBuilder);
                             openHostPhrasePaneButton.setEnabled(false);
                             openHostPhrasePaneButton.setVisible(false);
@@ -431,6 +437,7 @@ public class GamePlay extends GUI implements ActionListener{
     }
 
     public static void setPlayingPhraseLabel() {
+        //Requirement 4f - Set JLabel to display playingPhrase
         playingPhraseLabel.setText("Playing Phrase: " + currentHost.winningPhrase.playingPhraseStringBuilder);
     }
 
