@@ -30,11 +30,11 @@ public class GamePlay extends GUI implements ActionListener{
     //Requirement 4f - Label to display current playingPhrase with underelines
     public static JLabel playingPhraseLabel = new JLabel("Playing Phrase: ");
 
-
+    //Requirement 4g - Button that starts the player turns when clicked
     JButton startGameButton = new JButton("Start Game");
 
-    //Requirement 4g - Button that starts the player turns when clicked
-    JButton startTurnButton = new JButton("Start Turn");
+    
+
 
     int dialogChoice;
 
@@ -85,13 +85,12 @@ public class GamePlay extends GUI implements ActionListener{
         add(playingPhraseLabel);
 
         add(startGameButton);
-        add(startTurnButton);
+
         
 
         openHostPhrasePaneButton.setEnabled(false);
         openHostPhrasePaneButton.setVisible(false);
-        startTurnButton.setEnabled(false);
-        startTurnButton.setVisible(false);
+
         startGameButton.setEnabled(false);
         startGameButton.setVisible(false);
 
@@ -202,9 +201,27 @@ public class GamePlay extends GUI implements ActionListener{
         //IF Open Host Phrase Pane button was pressed
         if(source == openHostPhrasePaneButton) {
             hostFirstName = JOptionPane.showInputDialog(null, "Enter your first name: ");
-            hostLastName = JOptionPane.showInputDialog(null, "Enter your last name: ");
+
+            dialogChoice = JOptionPane.showConfirmDialog(
+                    null, 
+                    "Add last name?",
+                    "Select an Option",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE);
+            
+            if(dialogChoice == JOptionPane.YES_OPTION) {
+                hostLastName = JOptionPane.showInputDialog(null, "Enter your last name: ");
+            }
+            else {
+                hostLastName = "";
+            }
+            
             phraseToWin = JOptionPane.showInputDialog(null, "Enter the winning phrase: ");
+
+           
             GamePlay.addNewHost(hostFirstName, hostLastName, phraseToWin);
+            
+            
             //Requirement 4d - Set JLavel to display current host full name
             currentHostLabel.setText(currentHostLabel.getText() + hostFirstName + " " + hostLastName);
             playingPhraseLabel.setText("Playing Phrase: " + currentHost.winningPhrase.playingPhraseStringBuilder);
@@ -227,8 +244,7 @@ public class GamePlay extends GUI implements ActionListener{
 
             
 
-            startTurnButton.setEnabled(true);
-            startTurnButton.setVisible(true);
+
 
 
             //Loop to takeTurn until game over (what about if ran out of money)
@@ -269,7 +285,7 @@ public class GamePlay extends GUI implements ActionListener{
 
                     //If players play again, host enters a new phrase
                     //I think I can do this by creating a new Host object and setting it under existing host variable
-                    currentHost = new Hosts("Bob", "Barker");
+                    currentHost = new Hosts(currentHost.getFirstName(), currentHost.getLastName());
                 }
                 else {
                     System.out.println("Thanks for playing!");
@@ -281,9 +297,7 @@ public class GamePlay extends GUI implements ActionListener{
 
 
 
-        if(source == startTurnButton) {
-            ;
-        }
+        
 
     }
 
@@ -320,7 +334,7 @@ public class GamePlay extends GUI implements ActionListener{
     }
 
     public static void setPlayingPhraseLabel() {
-        playingPhraseLabel.setText("Playing Phrase FROM METHOD: " + currentHost.winningPhrase.playingPhraseStringBuilder);
+        playingPhraseLabel.setText("Playing Phrase: " + currentHost.winningPhrase.playingPhraseStringBuilder);
     }
 
 
