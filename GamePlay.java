@@ -56,6 +56,8 @@ public class GamePlay extends GUI implements ActionListener{
     String hostLastName = "";
     String phraseToWin;
 
+    boolean readyToPlay = false;
+
 
 
 
@@ -65,6 +67,7 @@ public class GamePlay extends GUI implements ActionListener{
     boolean playerWins = false;
     boolean playAgain = true;
     String playAgainDecision;
+
 
 
 
@@ -239,79 +242,99 @@ public class GamePlay extends GUI implements ActionListener{
 
         if(source == startGameButton) {
 
-            startGameButton.setEnabled(false);
-            startGameButton.setVisible(false);
+            if (currentHost == null) {
+                JOptionPane.showMessageDialog(null,"Cannot play without a host!");
+            }
 
-            //System.out.println("You each have $1,000 in your piggy bank");
-            JOptionPane.showMessageDialog(null,"You each have $1,000 in your piggy bank");
+            else if (currentPlayers[0] == null) {
+                JOptionPane.showMessageDialog(null,"Cannot play without Player1!");
+            }
+            else if (currentPlayers[1] == null) {
+                JOptionPane.showMessageDialog(null,"Cannot play without Player2!");
+            }
+            else if (currentPlayers[2] == null) {
+                JOptionPane.showMessageDialog(null,"Cannot play without Player3!");
+            }
+            else if (phraseToWin.equals("")) {
+                JOptionPane.showMessageDialog(null,"Cannot play without a winning phrase!");
+            }
+
+            else {
+
+                startGameButton.setEnabled(false);
+                startGameButton.setVisible(false);
+
+                //System.out.println("You each have $1,000 in your piggy bank");
+                JOptionPane.showMessageDialog(null,"You each have $1,000 in your piggy bank");
 
 
-            //Now guessing incorrectly on a possible Physical prize loses $0 instead of $10?
-            //System.out.println("Each guess will bet $" + Money.betAmount);
-            //System.out.println("If you guess correctly, you will win $" + Money.winAmount + " or a random physical prize.");
-            JOptionPane.showMessageDialog(null,
-                "If you guess correctly, you will win $" + 
-                Money.winAmount + 
-                " or a random physical prize.");
+                //Now guessing incorrectly on a possible Physical prize loses $0 instead of $10?
+                //System.out.println("Each guess will bet $" + Money.betAmount);
+                //System.out.println("If you guess correctly, you will win $" + Money.winAmount + " or a random physical prize.");
+                JOptionPane.showMessageDialog(null,
+                    "If you guess correctly, you will win $" + 
+                    Money.winAmount + 
+                    " or a random physical prize.");
 
+                
+
+
+
+
+                //Loop to takeTurn until game over (what about if ran out of money)
             
+                //Outer loop for playAgain option
+                while (playAgain) {
+                    playerWins = false;
+                    playAgainDecision = "";
 
+                    //while loop to play the guessing game
+                    //Ask for guess from each player until correct answer guessed
+                    while (!playerWins) {
+                        //For-each loop through array
 
+                        
+                        
 
+                        for (Players c : currentPlayers) {
+                            playerWins = newTurn.takeTurn(c, currentHost);
 
-            //Loop to takeTurn until game over (what about if ran out of money)
-        
-            //Outer loop for playAgain option
-            while (playAgain) {
-                playerWins = false;
-                playAgainDecision = "";
-
-                //while loop to play the guessing game
-                //Ask for guess from each player until correct answer guessed
-                while (!playerWins) {
-                    //For-each loop through array
-
-                    
-                    
-
-                    for (Players c : currentPlayers) {
-                        playerWins = newTurn.takeTurn(c, currentHost);
-
-                        //to get out after number guessed correctly
-                        if (playerWins) {
-                            break;
+                            //to get out after number guessed correctly
+                            if (playerWins) {
+                                break;
+                            }
                         }
                     }
-                }
+
+                
+                    //prevent invalid entry
+                    while (!playAgainDecision.equals("Y")  &&  !playAgainDecision.equals("N")) {
+                        //System.out.println("\nWould you like to play again? (Y / N)");
+                        //playAgainDecision = scan.nextLine();
+
+                        dialogChoice = JOptionPane.showConfirmDialog(
+                            null, 
+                            "Would you like to play again?",
+                            "Select an Option",
+                            JOptionPane.YES_NO_OPTION,
+                            JOptionPane.QUESTION_MESSAGE);
+                
+                        if(dialogChoice == JOptionPane.YES_OPTION) {
+                            playAgainDecision = "Y";
+                            playAgain = true;
+                            phraseToWin = JOptionPane.showInputDialog(null, "Enter the winning phrase: ");
 
             
-                //prevent invalid entry
-                while (!playAgainDecision.equals("Y")  &&  !playAgainDecision.equals("N")) {
-                    //System.out.println("\nWould you like to play again? (Y / N)");
-                    //playAgainDecision = scan.nextLine();
-
-                    dialogChoice = JOptionPane.showConfirmDialog(
-                        null, 
-                        "Would you like to play again?",
-                        "Select an Option",
-                        JOptionPane.YES_NO_OPTION,
-                        JOptionPane.QUESTION_MESSAGE);
-            
-                    if(dialogChoice == JOptionPane.YES_OPTION) {
-                        playAgainDecision = "Y";
-                        playAgain = true;
-                        phraseToWin = JOptionPane.showInputDialog(null, "Enter the winning phrase: ");
-
-           
-                        GamePlay.addNewHost(hostFirstName, hostLastName, phraseToWin);
-                        playingPhraseLabel.setText("Playing Phrase: " + currentHost.winningPhrase.playingPhraseStringBuilder);
-                        
-                    }
-                    else {
-                        playAgainDecision = "N";
-                        //System.out.println("Thanks for playing!");
-                        playAgain = false;
-                        JOptionPane.showMessageDialog(null,"Thanks for playing!");
+                            GamePlay.addNewHost(hostFirstName, hostLastName, phraseToWin);
+                            playingPhraseLabel.setText("Playing Phrase: " + currentHost.winningPhrase.playingPhraseStringBuilder);
+                            
+                        }
+                        else {
+                            playAgainDecision = "N";
+                            //System.out.println("Thanks for playing!");
+                            playAgain = false;
+                            JOptionPane.showMessageDialog(null,"Thanks for playing!");
+                        }
                     }
                 }
             }
