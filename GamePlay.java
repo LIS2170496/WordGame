@@ -236,6 +236,10 @@ public class GamePlay extends GUI implements ActionListener{
         }
 
         if(source == startGameButton) {
+
+            startGameButton.setEnabled(false);
+            startGameButton.setVisible(false);
+
             //System.out.println("You each have $1,000 in your piggy bank");
             JOptionPane.showMessageDialog(null,"You each have $1,000 in your piggy bank");
 
@@ -294,7 +298,12 @@ public class GamePlay extends GUI implements ActionListener{
                     if(dialogChoice == JOptionPane.YES_OPTION) {
                         playAgainDecision = "Y";
                         playAgain = true;
-                        //currentHost = new Hosts(currentHost.getFirstName(), currentHost.getLastName());
+                        phraseToWin = JOptionPane.showInputDialog(null, "Enter the winning phrase: ");
+
+           
+                        GamePlay.addNewHost(hostFirstName, hostLastName, phraseToWin);
+                        playingPhraseLabel.setText("Playing Phrase: " + currentHost.winningPhrase.playingPhraseStringBuilder);
+                        
                     }
                     else {
                         playAgainDecision = "N";
