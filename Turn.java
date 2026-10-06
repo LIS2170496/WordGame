@@ -4,7 +4,6 @@ import javax.swing.JOptionPane;
 public class Turn {
     int playerGuess;
     String playerGuessString;
-    //Scanner scan = new Scanner(System.in);
     boolean guessWasRight;
 
 
@@ -36,14 +35,11 @@ public class Turn {
             catch(MultipleLettersException mle) {
                 //System.out.println(mle.getMessage() + ", please try again.");
                 JOptionPane.showMessageDialog(null, mle.getMessage() + ", please try again.");
-                //scan.nextLine();
             }
             catch(InputMismatchException ime) {
                 //System.out.println("Input should be a letter character, please try again.");
                 JOptionPane.showMessageDialog(null, "Input should be a letter character, please try again.");
-                //scan.nextLine();
             }
-            //scan.nextLine();
             //Requirement 4f - Set playingPhraseLabel each time playingPhrase updates
             GamePlay.setPlayingPhraseLabel();
 
