@@ -46,7 +46,7 @@ public class Turn {
                 //scan.nextLine();
             }
             //scan.nextLine();
-            //FIXME- add requirement # for setting playing phrase label after each turn 
+            //Requirement 4f - Set playingPhraseLabel each time playingPhrase updates
             GamePlay.setPlayingPhraseLabel();
 
 
