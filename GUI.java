@@ -28,6 +28,23 @@ public class GUI extends JFrame {
         //Requirement 4a - Add a Menu Bar
         JMenuBar menuBar = new JMenuBar();
 
+        //Requirement 4b - Create a Menu called Game and 
+        //FIXME - make it so that the user can use Alt-G to access that menu
+        JMenu gameMenu = new JMenu("Game");
+
+        //Requirement 4c - Add Player and Add Host buttons are menu items under the Game menu 
+        //FIXME - instead of buttons
+        JMenuItem addPlayerMenuItem = new JMenuItem("Add Player");
+        JMenuItem addHostMenuItem = new JMenuItem("Add Host");
+
+        gameMenu.add(addPlayerMenuItem);
+        gameMenu.add(addHostMenuItem);
+
+        menuBar.add(gameMenu);
+
+
+
+
         add(addNewPlayerButton);
         add(currentPlayersLabel);
         add(openHostPhrasePaneButton);
