@@ -36,7 +36,6 @@ public class GUI extends JFrame {
         add(startGameButton);
         setVisible(true);
 
-
         openHostPhrasePaneButton.setEnabled(false);
         openHostPhrasePaneButton.setVisible(false);
 
