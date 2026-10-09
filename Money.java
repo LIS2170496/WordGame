@@ -14,7 +14,7 @@ public class Money implements Award {
         //Parameter true, win money 
         if (guessCorrect) {
 
-            //Requirement 4h  -JOptionPane to give player the message of 
+            //JOptionPane to give player the message of 
             // whether they were correct and/or won any prizes, 
             // how much money they currently have, etc.
             JOptionPane.showMessageDialog(null, 
@@ -28,7 +28,7 @@ public class Money implements Award {
         //Parameter false, lose money
         else {
         
-            //Requirement 4h  -JOptionPane to give player the message of 
+            //JOptionPane to give player the message of 
             // whether they were correct and/or won any prizes, 
             // how much money they currently have, etc.
             JOptionPane.showMessageDialog(null, 

@@ -38,7 +38,7 @@ public class Turn {
             catch(InputMismatchException ime) {
                 JOptionPane.showMessageDialog(null, "Input should be a letter character, please try again.");
             }
-            //Requirement 4f - Set playingPhraseLabel each time playingPhrase updates
+            //Set playingPhraseLabel each time playingPhrase updates
             GamePlay.setPlayingPhraseLabel();
 
 
@@ -70,7 +70,7 @@ public class Turn {
                 playerName.setPiggyBank(playerName.getPiggyBank() + 
                     cashPrize.displayWinnings(playerName, guessWasRight));
 
-                //Requirement 4h  -JOptionPane to give player the message of 
+                //JOptionPane to give player the message of 
                 // whether they were correct and/or won any prizes, 
                 // how much money they currently have, etc.
                 JOptionPane.showMessageDialog(null, playerName.toString());
@@ -84,7 +84,7 @@ public class Turn {
                 playerName.setPiggyBank(playerName.getPiggyBank() + 
                     cashPrize.displayWinnings(playerName, guessWasRight));
 
-                //Requirement 4h  -JOptionPane to give player the message of 
+                //JOptionPane to give player the message of 
                 // whether they were correct and/or won any prizes, 
                 // how much money they currently have, etc.
                 JOptionPane.showMessageDialog(null, playerName.toString());
@@ -104,7 +104,7 @@ public class Turn {
                 playerName.setPiggyBank(playerName.getPiggyBank() + 
                     physicalPrize.displayWinnings(playerName, guessWasRight));
 
-                //Requirement 4h  -JOptionPane to give player the message of 
+                //JOptionPane to give player the message of 
                 // whether they were correct and/or won any prizes, 
                 // how much money they currently have, etc.
                 JOptionPane.showMessageDialog(null, playerName.toString());
@@ -116,7 +116,7 @@ public class Turn {
                 playerName.setPiggyBank(playerName.getPiggyBank() + 
                     physicalPrize.displayWinnings(playerName, guessWasRight));
 
-                //Requirement 4h  -JOptionPane to give player the message of 
+                //JOptionPane to give player the message of 
                 // whether they were correct and/or won any prizes, 
                 // how much money they currently have, etc.
                 JOptionPane.showMessageDialog(null, playerName.toString());

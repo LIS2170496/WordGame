@@ -25,7 +25,8 @@ public class GUI extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new FlowLayout());
 
-        
+        //Requirement 4a - Add a Menu Bar
+        JMenuBar menuBar = new JMenuBar();
 
         add(addNewPlayerButton);
         add(currentPlayersLabel);

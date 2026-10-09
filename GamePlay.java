@@ -1,8 +1,7 @@
-//import java.util.Scanner;
 import javax.swing.*;
 import java.awt.event.*;
 
-//Requirement 4a - main application uses GUI as exension of JFrame
+//main application uses GUI as exension of JFrame
 public class GamePlay extends GUI implements ActionListener{
 
     
@@ -73,7 +72,7 @@ public class GamePlay extends GUI implements ActionListener{
                     }
                 }
                 
-                //Requirement 4b - Set JLabel to list current players
+                //Set JLabel to list current players
                 currentPlayersLabel.setText(currentPlayersLabel.getText() + player1FirstName);
 
                 dialogChoice = JOptionPane.showConfirmDialog(
@@ -92,7 +91,7 @@ public class GamePlay extends GUI implements ActionListener{
                         player1LastName = "";
                     }
 
-                    //Requirement 4b - Set JLabel to list current players
+                    //Set JLabel to list current players
                     currentPlayersLabel.setText(currentPlayersLabel.getText() + " " + player1LastName);
                 }
                 GamePlay.addNewPlayer(0, player1FirstName, player1LastName);
@@ -110,7 +109,7 @@ public class GamePlay extends GUI implements ActionListener{
                     }
                 }
 
-                //Requirement 4b - Set JLabel to list current players
+                //Set JLabel to list current players
                 currentPlayersLabel.setText(currentPlayersLabel.getText() + ", " + player2FirstName);
 
                 dialogChoice = JOptionPane.showConfirmDialog(
@@ -125,7 +124,7 @@ public class GamePlay extends GUI implements ActionListener{
                     if (player2LastName == null) {
                         player2LastName = "";
                     }
-                    //Requirement 4b - Set JLabel to list current players
+                    //Set JLabel to list current players
                     currentPlayersLabel.setText(currentPlayersLabel.getText() + " " + player2LastName);
                 }
                 GamePlay.addNewPlayer(1, player2FirstName, player2LastName);
@@ -142,7 +141,7 @@ public class GamePlay extends GUI implements ActionListener{
                     }
                 }
 
-                //Requirement 4b - Set JLabel to list current players
+                //Set JLabel to list current players
                 currentPlayersLabel.setText(currentPlayersLabel.getText() + ", " + player3FirstName);
 
                 dialogChoice = JOptionPane.showConfirmDialog(
@@ -157,7 +156,7 @@ public class GamePlay extends GUI implements ActionListener{
                     if (player3LastName == null) {
                         player3LastName = "";
                     }
-                    //Requirement 4b - Set JLabel to list current players
+                    //Set JLabel to list current players
                     currentPlayersLabel.setText(currentPlayersLabel.getText() + " " + player3LastName);
                 }
                 GamePlay.addNewPlayer(2, player3FirstName, player3LastName);
@@ -216,9 +215,9 @@ public class GamePlay extends GUI implements ActionListener{
             GamePlay.addNewHost(hostFirstName, hostLastName, phraseToWin);
             
             
-            //Requirement 4d - Set JLavel to display current host full name
+            //Set JLavel to display current host full name
             currentHostLabel.setText(currentHostLabel.getText() + hostFirstName + " " + hostLastName);
-            //Requirement 4f - Set JLabel to display playingPhrase
+            //Set JLabel to display playingPhrase
             playingPhraseLabel.setText("Playing Phrase: " + currentHost.winningPhrase.playingPhraseStringBuilder);
             openHostPhrasePaneButton.setEnabled(false);
             openHostPhrasePaneButton.setVisible(false);
@@ -232,7 +231,7 @@ public class GamePlay extends GUI implements ActionListener{
 
         if(source == startGameButton) {
 
-            //Requirement 4g - Button that starts the player turns when clicked
+            //Button that starts the player turns when clicked
 
             if (currentHost == null) {
                 JOptionPane.showMessageDialog(null,"Cannot play without a host!");
@@ -299,7 +298,7 @@ public class GamePlay extends GUI implements ActionListener{
                     //prevent invalid entry
                     while (!playAgainDecision.equals("Y")  &&  !playAgainDecision.equals("N")) {
 
-                        //Requirement 4i - JOptionPane with Yes/No to let the user decide if they want to play again
+                        //JOptionPane with Yes/No to let the user decide if they want to play again
                         dialogChoice = JOptionPane.showConfirmDialog(
                             null, 
                             "Would you like to play again?",
@@ -324,7 +323,7 @@ public class GamePlay extends GUI implements ActionListener{
                             }
                             
                             GamePlay.addNewHost(hostFirstName, hostLastName, phraseToWin);
-                            //Requirement 4f - Set JLabel to display playingPhrase
+                            //Set JLabel to display playingPhrase
                             playingPhraseLabel.setText("Playing Phrase: " + currentHost.winningPhrase.playingPhraseStringBuilder);
                             openHostPhrasePaneButton.setEnabled(false);
                             openHostPhrasePaneButton.setVisible(false);
@@ -375,7 +374,7 @@ public class GamePlay extends GUI implements ActionListener{
     }
 
     public static void setPlayingPhraseLabel() {
-        //Requirement 4f - Set JLabel to display playingPhrase
+        //Set JLabel to display playingPhrase
         playingPhraseLabel.setText("Playing Phrase: " + currentHost.winningPhrase.playingPhraseStringBuilder);
     }
 
