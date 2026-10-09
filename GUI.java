@@ -39,8 +39,12 @@ public class GUI extends JFrame {
 
         gameMenu.add(addPlayerMenuItem);
         gameMenu.add(addHostMenuItem);
-
         menuBar.add(gameMenu);
+        setJMenuBar(menuBar);
+
+        //Requirement 4b - enable Alt-G to access the Game menu
+        gameMenu.setMnemonic('G');
+        
 
 
 
