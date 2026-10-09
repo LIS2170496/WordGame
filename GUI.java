@@ -26,7 +26,9 @@ public class GUI extends JFrame {
 
         setSize(frameWidth, frameHeight);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(new FlowLayout());
+
+        //FIXME - review later
+        setLayout(null);
 
         //Requirement 4a - Add a Menu Bar
         JMenuBar menuBar = new JMenuBar();
@@ -51,7 +53,7 @@ public class GUI extends JFrame {
 
 
         //add(addNewPlayerButton);
-        add(currentPlayersLabel);
+        
         //add(openHostPhrasePaneButton);
         add(currentHostLabel);
         add(playingPhraseLabel);
@@ -66,6 +68,21 @@ public class GUI extends JFrame {
 
         addHostMenuItem.setEnabled(false);
         addHostMenuItem.setVisible(false);
+
+
+
+
+
+        //Panels
+        JPanel topPanel = new JPanel();
+        topPanel.setBackground(Color.pink);
+        topPanel.setBounds(0,0,500,50);
+        topPanel.add(currentPlayersLabel);
+        add(topPanel);
+
+
+
+
 
 
     }
