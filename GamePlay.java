@@ -49,6 +49,10 @@ public class GamePlay extends GUI implements ActionListener{
         startGameButton.addActionListener(this);
 
         
+        addPlayerMenuItem.addActionListener(this);
+        addHostMenuItem.addActionListener(this);
+
+        
     }
 
 
@@ -58,12 +62,12 @@ public class GamePlay extends GUI implements ActionListener{
 
         Object source = event.getSource();
 
-
-        //IF Add Player button was pressed
-        if(source == addNewPlayerButton) {
+        //Requirement 4c - This is now a menu Item with action listener
+        //IF Add Player menu option was pressed
+        if(source == addPlayerMenuItem) {
         
             //Adding Player1
-            if (addPlayer1String.equals(addNewPlayerButton.getText())) {
+            if (addPlayer1String.equals(addPlayerMenuItem.getText())) {
                 while (player1FirstName == null  ||  player1FirstName.equals("")) {
                     player1FirstName = JOptionPane.showInputDialog(null, "Enter your first name: ");
 
@@ -96,11 +100,12 @@ public class GamePlay extends GUI implements ActionListener{
                 }
                 GamePlay.addNewPlayer(0, player1FirstName, player1LastName);
                 
-                addNewPlayerButton.setText(addPlayer2String);
+                
+                addPlayerMenuItem.setText(addPlayer2String);
             }
 
             //Adding Player2
-            else if (addPlayer2String.equals(addNewPlayerButton.getText())) {
+            else if (addPlayer2String.equals(addPlayerMenuItem.getText())) {
                 while (player2FirstName == null  ||  player2FirstName.equals("")) {
                     player2FirstName = JOptionPane.showInputDialog(null, "Enter your first name: ");
 
@@ -128,11 +133,11 @@ public class GamePlay extends GUI implements ActionListener{
                     currentPlayersLabel.setText(currentPlayersLabel.getText() + " " + player2LastName);
                 }
                 GamePlay.addNewPlayer(1, player2FirstName, player2LastName);
-                addNewPlayerButton.setText(addPlayer3String);
+                addPlayerMenuItem.setText(addPlayer3String);
             }
 
             //Adding Player3
-            else if (addPlayer3String.equals(addNewPlayerButton.getText())) {
+            else if (addPlayer3String.equals(addPlayerMenuItem.getText())) {
                 while (player3FirstName == null  ||  player3FirstName.equals("")) {
                     player3FirstName = JOptionPane.showInputDialog(null, "Enter your first name: ");
 
@@ -161,11 +166,11 @@ public class GamePlay extends GUI implements ActionListener{
                 }
                 GamePlay.addNewPlayer(2, player3FirstName, player3LastName);
                 allPlayersAdded = true;
-                addNewPlayerButton.setEnabled(false);
-                addNewPlayerButton.setVisible(false);
+                addPlayerMenuItem.setEnabled(false);
+                addPlayerMenuItem.setVisible(false);
 
-                openHostPhrasePaneButton.setEnabled(true);
-                openHostPhrasePaneButton.setVisible(true);
+                addHostMenuItem.setEnabled(true);
+                addHostMenuItem.setVisible(true);
             }
 
             else {
@@ -175,9 +180,9 @@ public class GamePlay extends GUI implements ActionListener{
 
         }
 
-
-        //IF Open Host Phrase Pane button was pressed
-        if(source == openHostPhrasePaneButton) {
+        //Requirement 4c - This is now a menu Item with action listener
+        //IF Open Host Phrase Pane menu option was pressed
+        if(source == addHostMenuItem) {
             while (hostFirstName == null  ||  hostFirstName.equals("")) {
                 hostFirstName = JOptionPane.showInputDialog(null, "Enter your first name: ");
 
@@ -219,8 +224,8 @@ public class GamePlay extends GUI implements ActionListener{
             currentHostLabel.setText(currentHostLabel.getText() + hostFirstName + " " + hostLastName);
             //Set JLabel to display playingPhrase
             playingPhraseLabel.setText("Playing Phrase: " + currentHost.winningPhrase.playingPhraseStringBuilder);
-            openHostPhrasePaneButton.setEnabled(false);
-            openHostPhrasePaneButton.setVisible(false);
+            addHostMenuItem.setEnabled(false);
+            addHostMenuItem.setVisible(false);
 
             
 
@@ -311,8 +316,8 @@ public class GamePlay extends GUI implements ActionListener{
                             playAgain = true;
 
                             phraseToWin = null;
-                            openHostPhrasePaneButton.setEnabled(true);
-                            openHostPhrasePaneButton.setVisible(true);
+                            addHostMenuItem.setEnabled(true);
+                            addHostMenuItem.setVisible(true);
 
                             while (phraseToWin == null  || phraseToWin.equals("")) {
                                 phraseToWin = JOptionPane.showInputDialog(null, "Enter the winning phrase: ");
@@ -325,8 +330,8 @@ public class GamePlay extends GUI implements ActionListener{
                             GamePlay.addNewHost(hostFirstName, hostLastName, phraseToWin);
                             //Set JLabel to display playingPhrase
                             playingPhraseLabel.setText("Playing Phrase: " + currentHost.winningPhrase.playingPhraseStringBuilder);
-                            openHostPhrasePaneButton.setEnabled(false);
-                            openHostPhrasePaneButton.setVisible(false);
+                            addHostMenuItem.setEnabled(false);
+                            addHostMenuItem.setVisible(false);
 
 
                         }

@@ -17,6 +17,9 @@ public class GUI extends JFrame {
     public static JLabel playingPhraseLabel = new JLabel("Playing Phrase: ");
     JButton startGameButton = new JButton("Start Game");
 
+    JMenuItem addPlayerMenuItem;
+    JMenuItem addHostMenuItem;
+
     public GUI () {
 
         super("Wheel of Wonder");
@@ -28,40 +31,41 @@ public class GUI extends JFrame {
         //Requirement 4a - Add a Menu Bar
         JMenuBar menuBar = new JMenuBar();
 
-        //Requirement 4b - Create a Menu called Game and 
-        //FIXME - make it so that the user can use Alt-G to access that menu
+        //Requirement 4b - Create a Menu called Game
         JMenu gameMenu = new JMenu("Game");
 
         //Requirement 4c - Add Player and Add Host buttons are menu items under the Game menu 
-        //FIXME - instead of buttons
-        JMenuItem addPlayerMenuItem = new JMenuItem("Add Player");
-        JMenuItem addHostMenuItem = new JMenuItem("Add Host");
+        addPlayerMenuItem = new JMenuItem("Add Player1");
+        addHostMenuItem = new JMenuItem("Add Host");
 
         gameMenu.add(addPlayerMenuItem);
         gameMenu.add(addHostMenuItem);
         menuBar.add(gameMenu);
         setJMenuBar(menuBar);
 
-        //Requirement 4b - enable Alt-G to access the Game menu
+        //Requirement 4b - Enable Alt-G to access the Game menu
         gameMenu.setMnemonic('G');
         
 
 
 
 
-        add(addNewPlayerButton);
+        //add(addNewPlayerButton);
         add(currentPlayersLabel);
-        add(openHostPhrasePaneButton);
+        //add(openHostPhrasePaneButton);
         add(currentHostLabel);
         add(playingPhraseLabel);
         add(startGameButton);
         setVisible(true);
 
-        openHostPhrasePaneButton.setEnabled(false);
-        openHostPhrasePaneButton.setVisible(false);
+        //openHostPhrasePaneButton.setEnabled(false);
+        //openHostPhrasePaneButton.setVisible(false);
 
         startGameButton.setEnabled(false);
         startGameButton.setVisible(false);
+
+        addHostMenuItem.setEnabled(false);
+        addHostMenuItem.setVisible(false);
 
 
     }
