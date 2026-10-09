@@ -223,9 +223,7 @@ public class GamePlay extends GUI implements ActionListener{
                 openHostPhrasePaneButton.setVisible(true);
             }
 
-            //extra else
             else {
-                //System.out.println("Problem in GUI class at ActionPerformed on Add Player button");
                 JOptionPane.showMessageDialog(null,
                     "Problem in GUI class at ActionPerformed on Add Player button");
             }
@@ -312,13 +310,10 @@ public class GamePlay extends GUI implements ActionListener{
                 startGameButton.setEnabled(false);
                 startGameButton.setVisible(false);
 
-                //System.out.println("You each have $1,000 in your piggy bank");
                 JOptionPane.showMessageDialog(null,"You each have $1,000 in your piggy bank");
 
 
-                //Now guessing incorrectly on a possible Physical prize loses $0 instead of $10?
-                //System.out.println("Each guess will bet $" + Money.betAmount);
-                //System.out.println("If you guess correctly, you will win $" + Money.winAmount + " or a random physical prize.");
+                //guessing incorrectly on a possible Physical prize loses $0 instead of $10?
                 JOptionPane.showMessageDialog(null,
                     "If you guess correctly, you will win $" + 
                     Money.winAmount + 
@@ -357,8 +352,6 @@ public class GamePlay extends GUI implements ActionListener{
                 
                     //prevent invalid entry
                     while (!playAgainDecision.equals("Y")  &&  !playAgainDecision.equals("N")) {
-                        //System.out.println("\nWould you like to play again? (Y / N)");
-                        //playAgainDecision = scan.nextLine();
 
                         //Requirement 4i - JOptionPane with Yes/No to let the user decide if they want to play again
                         dialogChoice = JOptionPane.showConfirmDialog(
@@ -394,7 +387,6 @@ public class GamePlay extends GUI implements ActionListener{
                         }
                         else {
                             playAgainDecision = "N";
-                            //System.out.println("Thanks for playing!");
                             playAgain = false;
                             JOptionPane.showMessageDialog(null,"Thanks for playing!");
                         }

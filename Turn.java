@@ -33,11 +33,9 @@ public class Turn {
                 continuePlaying = true;
             }
             catch(MultipleLettersException mle) {
-                //System.out.println(mle.getMessage() + ", please try again.");
                 JOptionPane.showMessageDialog(null, mle.getMessage() + ", please try again.");
             }
             catch(InputMismatchException ime) {
-                //System.out.println("Input should be a letter character, please try again.");
                 JOptionPane.showMessageDialog(null, "Input should be a letter character, please try again.");
             }
             //Requirement 4f - Set playingPhraseLabel each time playingPhrase updates
@@ -71,7 +69,6 @@ public class Turn {
                 //If player wins, add 5 times the bet amount to their piggy bank
                 playerName.setPiggyBank(playerName.getPiggyBank() + 
                     cashPrize.displayWinnings(playerName, guessWasRight));
-                //System.out.println(playerName.toString());
 
                 //Requirement 4h  -JOptionPane to give player the message of 
                 // whether they were correct and/or won any prizes, 
@@ -86,7 +83,6 @@ public class Turn {
                 //If player loses, subtract the bet amount from their piggy bank
                 playerName.setPiggyBank(playerName.getPiggyBank() + 
                     cashPrize.displayWinnings(playerName, guessWasRight));
-                //System.out.println(playerName.toString());
 
                 //Requirement 4h  -JOptionPane to give player the message of 
                 // whether they were correct and/or won any prizes, 
@@ -107,8 +103,6 @@ public class Turn {
                 //Winning output for physical prize
                 playerName.setPiggyBank(playerName.getPiggyBank() + 
                     physicalPrize.displayWinnings(playerName, guessWasRight));
-                //System.out.println("Congratulations, " + playerName.getFullName() + ", you guessed the number!");
-                //System.out.println(playerName.toString());
 
                 //Requirement 4h  -JOptionPane to give player the message of 
                 // whether they were correct and/or won any prizes, 
@@ -121,8 +115,6 @@ public class Turn {
                 //Losing output for physical prize
                 playerName.setPiggyBank(playerName.getPiggyBank() + 
                     physicalPrize.displayWinnings(playerName, guessWasRight));
-                //System.out.println("I'm sorry, " + playerName.getFullName() + ", you lose.");
-                //System.out.println(playerName.toString());
 
                 //Requirement 4h  -JOptionPane to give player the message of 
                 // whether they were correct and/or won any prizes, 

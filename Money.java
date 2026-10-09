@@ -13,7 +13,6 @@ public class Money implements Award {
         
         //Parameter true, win money 
         if (guessCorrect) {
-            //System.out.println("Congratulations, " + playerPlayers.getFullName() + " that letter is in the phrase!");
 
             //Requirement 4h  -JOptionPane to give player the message of 
             // whether they were correct and/or won any prizes, 
@@ -28,7 +27,6 @@ public class Money implements Award {
 
         //Parameter false, lose money
         else {
-            //System.out.println("I'm sorry, " + playerPlayers.getFullName() + " that letter is not in the phrase.");
         
             //Requirement 4h  -JOptionPane to give player the message of 
             // whether they were correct and/or won any prizes, 

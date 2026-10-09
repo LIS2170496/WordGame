@@ -35,8 +35,6 @@ public class Physical implements Award {
 
         //Parameter true, win a prize
         if (guessCorrect) {
-            //System.out.println("Congratulations, " + playerPlayers.getFullName() + " that letter is in the phrase!");
-            //System.out.println("You have won a " + prizes[getRandomPrize()] + "!");
 
             //Requirement 4h  -JOptionPane to give player the message of 
             // whether they were correct and/or won any prizes, 
@@ -49,8 +47,6 @@ public class Physical implements Award {
 
         //Parameter false, win nothing
         else {
-            //System.out.println("I'm sorry, " + playerPlayers.getFullName() + " that letter is not in the phrase.");
-            //System.out.println("You could have won a " + prizes[getRandomPrize()] + ".");
 
             //Requirement 4h  -JOptionPane to give player the message of 
             // whether they were correct and/or won any prizes, 

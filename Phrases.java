@@ -45,14 +45,12 @@ public class Phrases {
 
 
         if (guessString.length() <= 0) {
-            //System.out.println("guessString length = " + guessString.length());
             throw(new InputMismatchException());
         }
 
     
         //If string longer than 1 letter, throw multi letter exception
         if (guessString.length() > 1) {
-            //System.out.println("guessString length = " + guessString.length());
             throw(new MultipleLettersException());
         }
 
@@ -62,7 +60,6 @@ public class Phrases {
         //Catch and handle the possibility of the user 
         //                entering numbers or symbols instead of letters
         if (! Character.isLetter(guessChar)) {
-            //System.out.println("in the else if for InputMismatchException, you entered guessString: " + guessString);
             throw(new InputMismatchException());
         }
 
@@ -85,36 +82,17 @@ public class Phrases {
             //If no more underscores, then player won
             //if playingPhrase contains an underscore, keep playing
             if (playingPhrase.indexOf(underscoreChar) != -1) {
-                //System.out.println("There are still more guesses to make");
-                //JOptionPane.showMessageDialog(null, "There are still more guesses to make");
                 GamePlay.setPlayingPhraseLabel();
                 return true;
             }
             //if playingPhrase NOT contains an underscore, game over
             else if (!(playingPhrase.indexOf(underscoreChar) != -1)) {
                 GamePlay.setPlayingPhraseLabel();
-                
-                //System.out.println("You won! Answer: " + playingPhrase);
                 JOptionPane.showMessageDialog(null, "You won! Answer: " + playingPhrase);
                 phraseSolved = true;
                 return true;
             }
 
-            //for (x = 0; x < playingPhrase.length(); ++x) {
-            //    if (playingPhrase.charAt(x) == '_') {
-            //        underscoresLeft = underscoresLeft + 1;
-            //    }
-            //}
-            //System.out.print("There are __" + underscoresLeft + "__ remaining spaces to guess");
-            //if (underscoresLeft == 0) {
-            //    System.out.println("You won! Answer: " + playingPhrase);
-            //    return true;
-            //}
-
-
-
-
-            
             else {
                 return true;
             }
