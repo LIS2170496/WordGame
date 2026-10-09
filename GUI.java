@@ -38,7 +38,7 @@ public class GUI extends JFrame {
         super("Wheel of Wonder");
 
         setSize(frameWidth, frameHeight);
-        setVisible(true);
+        
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         setLayout(new FlowLayout());
@@ -55,6 +55,8 @@ public class GUI extends JFrame {
         add(playingPhraseLabel);
 
         add(startGameButton);
+
+        setVisible(true);
 
 
         openHostPhrasePaneButton.setEnabled(false);
