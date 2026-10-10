@@ -110,7 +110,9 @@ public class GamePlay extends GUI implements ActionListener{
                 
                 
                 addPlayerMenuItem.setText(addPlayer2String);
-                textArea.append("\nOpen the Game menu to add Player 2");
+
+
+                setTextArea("\nOpen the Game menu to add Player 2");
                 textArea.setCaretPosition(textArea.getDocument().getLength());
             }
 
@@ -144,7 +146,9 @@ public class GamePlay extends GUI implements ActionListener{
                 }
                 GamePlay.addNewPlayer(1, player2FirstName, player2LastName);
                 addPlayerMenuItem.setText(addPlayer3String);
-                textArea.append("\nOpen the Game menu to add Player 3");
+
+
+                setTextArea("\nOpen the Game menu to add Player 3");
                 textArea.setCaretPosition(textArea.getDocument().getLength());
             }
 
@@ -184,7 +188,7 @@ public class GamePlay extends GUI implements ActionListener{
                 addHostMenuItem.setEnabled(true);
                 addHostMenuItem.setVisible(true);
 
-                textArea.append("\nOpen the Game menu to add a host");
+                setTextArea("\nOpen the Game menu to add a host");
                 textArea.setCaretPosition(textArea.getDocument().getLength());
             }
 
@@ -275,19 +279,12 @@ public class GamePlay extends GUI implements ActionListener{
                 startGameButton.setEnabled(false);
                 startGameButton.setVisible(false);
 
-                //JOptionPane.showMessageDialog(null,"You each have $1,000 in your piggy bank");
-                textArea.append("\n\nWelcome, players!");
-                textArea.setCaretPosition(textArea.getDocument().getLength());
-                textArea.append("\nYou each have $1,000 in your piggy bank");
+                setTextArea("\n\nWelcome, players!" + "\nYou each have $1,000 in your piggy bank");
                 textArea.setCaretPosition(textArea.getDocument().getLength());
 
 
                 //guessing incorrectly on a possible Physical prize loses $0 instead of $10?
-                //JOptionPane.showMessageDialog(null,
-                //    "If you guess correctly, you will win $" + 
-                //   Money.winAmount + 
-                //    " or a random physical prize.");
-                textArea.append("\n" + 
+                setTextArea("\n" + 
                     "If you guess correctly, you will win $" + 
                     Money.winAmount + 
                     " or a random physical prize.");
@@ -416,7 +413,7 @@ public class GamePlay extends GUI implements ActionListener{
     public static void main(String[] args) {
         GamePlay myGame = new GamePlay();
         myGame.setVisible(true);
-        
+
         //open frame in center of screen
         myGame.setLocationRelativeTo(null);
 

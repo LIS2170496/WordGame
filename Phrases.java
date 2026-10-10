@@ -86,7 +86,7 @@ public class Phrases {
             //if playingPhrase NOT contains an underscore, game over
             else if (!(playingPhrase.indexOf(underscoreChar) != -1)) {
                 GamePlay.setPlayingPhraseLabel();
-                GamePlay.textArea.append("\n\nYou won! Answer: " + playingPhrase);
+                GamePlay.setTextArea("\n\nYou won! Answer: " + playingPhrase);
                 GamePlay.textArea.setCaretPosition(GamePlay.textArea.getDocument().getLength());
                 phraseSolved = true;
                 return true;

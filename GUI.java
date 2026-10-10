@@ -158,4 +158,16 @@ public class GUI extends JFrame {
 
 
     } 
+
+    //FIXME - add requirement #
+    public static void setTextArea(String message) {
+        if (textAreaCheckbox.isSelected()) {
+            textArea.append(message);
+        }
+        else {
+            textArea.setText(message);
+        }
+    }
+
+
 }

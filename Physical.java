@@ -37,7 +37,7 @@ public class Physical implements Award {
             //Text area message to give player the message of 
             // whether they were correct and/or won any prizes, 
             // how much money they currently have, etc.
-            GamePlay.textArea.append(
+            GamePlay.setTextArea(
                 "\n\nCongratulations, " + playerPlayers.getFullName() + ", that letter is in the phrase!" + 
                 "\nYou have won a " + prizes[getRandomPrize()] + "!");
             GamePlay.textArea.setCaretPosition(GamePlay.textArea.getDocument().getLength());
@@ -50,7 +50,7 @@ public class Physical implements Award {
             //Text area message to give player the message of 
             // whether they were correct and/or won any prizes, 
             // how much money they currently have, etc.
-            GamePlay.textArea.append(
+            GamePlay.setTextArea(
                 "\n\nI'm sorry, " + playerPlayers.getFullName() + ", that letter is not in the phrase." + 
                 "\nYou could have won a " + prizes[getRandomPrize()] + ".");
             GamePlay.textArea.setCaretPosition(GamePlay.textArea.getDocument().getLength());
