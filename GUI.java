@@ -48,23 +48,9 @@ public class GUI extends JFrame {
         //Requirement 4b - Enable Alt-G to access the Game menu
         gameMenu.setMnemonic('G');
         
-
-
-
-
-        //add(addNewPlayerButton);
-        
-        //add(openHostPhrasePaneButton);
-        add(currentHostLabel);
-        add(playingPhraseLabel);
-        add(startGameButton);
         setVisible(true);
-
-        //openHostPhrasePaneButton.setEnabled(false);
-        //openHostPhrasePaneButton.setVisible(false);
-
-        startGameButton.setEnabled(false);
-        startGameButton.setVisible(false);
+        
+        
 
         addHostMenuItem.setEnabled(false);
         addHostMenuItem.setVisible(false);
@@ -74,11 +60,35 @@ public class GUI extends JFrame {
 
 
         //Panels
+        //Requirement 4d - Use JPanels
+
         JPanel topPanel = new JPanel();
-        topPanel.setBackground(Color.pink);
-        topPanel.setBounds(0,0,500,50);
+        //topPanel.setBackground(Color.pink);
+        topPanel.setBounds(0,10,500,50);
         topPanel.add(currentPlayersLabel);
         add(topPanel);
+
+        JPanel middlePanel = new JPanel();
+        //middlePanel.setBackground(Color.lightGray);
+        middlePanel.setBounds(0,65,500,50);
+        middlePanel.add(currentHostLabel);
+        add(middlePanel);
+
+        JPanel bottomPanel = new JPanel();
+        //bottomPanel.setBackground(Color.pink);
+        bottomPanel.setBounds(0,120,500,50);
+        bottomPanel.add(playingPhraseLabel);
+        add(bottomPanel);
+
+        JPanel buttonHolder = new JPanel();
+        buttonHolder.setBounds(0,175,500,50);
+        buttonHolder.add(startGameButton);
+        add(buttonHolder);
+
+
+        startGameButton.setEnabled(false);
+        startGameButton.setVisible(false);
+
 
 
 
