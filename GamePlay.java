@@ -339,6 +339,7 @@ public class GamePlay extends GUI implements ActionListener{
                             playAgainDecision = "N";
                             playAgain = false;
                             JOptionPane.showMessageDialog(null,"Thanks for playing!");
+                            System.exit(0);
                         }
                     }
                 }
