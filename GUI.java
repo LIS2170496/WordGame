@@ -127,6 +127,13 @@ public class GUI extends JFrame {
         JPanel textAreaOptionsContainer = new JPanel(new FlowLayout(FlowLayout.LEFT));
         textAreaOptionsContainer.setBounds(10,555,480,50);
         textAreaCheckbox = new JCheckBox("Save Messages", true);
+        //Requirement 4i - Tooltip for checkbox
+        textAreaCheckbox.setToolTipText(
+            "<html>If the box is checked, " + 
+            "each new message will be added below the previous message." +
+            "<br> If the box is unchecked, " +
+            "each new message will replace the previous message."
+        );
         textAreaOptionsContainer.add(textAreaCheckbox);
         add(textAreaOptionsContainer);
 
