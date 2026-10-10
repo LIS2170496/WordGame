@@ -4,7 +4,8 @@ import javax.swing.*;
 public class GUI extends JFrame {
 
     int frameWidth = 500;
-    int frameHeight = 500;
+    int frameHeight = 700;
+    
 
     String addPlayer1String = "Add Player1";
     String addPlayer2String = "Add Player2";
@@ -107,7 +108,7 @@ public class GUI extends JFrame {
 
         //Requirement 4g - Area for text with scrollbars
         JPanel textAreaContainer = new JPanel(new BorderLayout());
-        textAreaContainer.setBounds(10,230,480,100);
+        textAreaContainer.setBounds(10,500,480,100);
 
         textArea = new JTextArea(10,50);
         textArea.setLineWrap(true);

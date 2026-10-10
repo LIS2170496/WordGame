@@ -416,6 +416,9 @@ public class GamePlay extends GUI implements ActionListener{
     public static void main(String[] args) {
         GamePlay myGame = new GamePlay();
         myGame.setVisible(true);
+        
+        //open frame in center of screen
+        myGame.setLocationRelativeTo(null);
 
     }
 
