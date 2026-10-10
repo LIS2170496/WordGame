@@ -319,6 +319,13 @@ public class GamePlay extends GUI implements ActionListener{
 
                             //to get out after number guessed correctly
                             if (playerWins) {
+
+                                //This message is appended to the textArea instead of using
+                                // the setTextArea method so that the player can read it.
+                                //If the setTextArea were used at this point, the messages
+                                // from the player's toString method and the messages
+                                // from the Money or Physical prize class would be overridden
+                                // too quickly for the player to read it.
                                 GamePlay.textArea.append("\n\nYou won! Answer: " + currentHost.winningPhrase.getPlayingPhrase());
                                 GamePlay.textArea.setCaretPosition(GamePlay.textArea.getDocument().getLength());
                                 break;

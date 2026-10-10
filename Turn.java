@@ -73,6 +73,12 @@ public class Turn {
                 //Text area message to give player the message of 
                 // whether they were correct and/or won any prizes, 
                 // how much money they currently have, etc.
+
+                //This message is appended to the textArea instead of using
+                // the setTextArea method so that the player can read it.
+                //If the setTextArea were used at this point, the message
+                // from the Money or Physical prize class would be overridden
+                // too quickly for the player to read it.
                 GamePlay.textArea.append("\n" + playerName.toString());
                 GamePlay.textArea.setCaretPosition(GamePlay.textArea.getDocument().getLength());
 
@@ -88,6 +94,12 @@ public class Turn {
                 //Text area message to give player the message of 
                 // whether they were correct and/or won any prizes, 
                 // how much money they currently have, etc.
+
+                //This message is appended to the textArea instead of using
+                // the setTextArea method so that the player can read it.
+                //If the setTextArea were used at this point, the message
+                // from the Money or Physical prize class would be overridden
+                // too quickly for the player to read it.
                 GamePlay.textArea.append("\n" + playerName.toString());
                 GamePlay.textArea.setCaretPosition(GamePlay.textArea.getDocument().getLength());
                 //return false;
@@ -109,6 +121,12 @@ public class Turn {
                 //Text area message to give player the message of 
                 // whether they were correct and/or won any prizes, 
                 // how much money they currently have, etc.
+
+                //This message is appended to the textArea instead of using
+                // the setTextArea method so that the player can read it.
+                //If the setTextArea were used at this point, the message
+                // from the Money or Physical prize class would be overridden
+                // too quickly for the player to read it.
                 GamePlay.textArea.append("\n" + playerName.toString());
                 GamePlay.textArea.setCaretPosition(GamePlay.textArea.getDocument().getLength());
                 //return false;
@@ -122,6 +140,12 @@ public class Turn {
                 //Text area message to give player the message of 
                 // whether they were correct and/or won any prizes, 
                 // how much money they currently have, etc.
+
+                //This message is appended to the textArea instead of using
+                // the setTextArea method so that the player can read it.
+                //If the setTextArea were used at this point, the message
+                // from the Money or Physical prize class would be overridden
+                // too quickly for the player to read it.
                 GamePlay.textArea.append("\n" + playerName.toString());
                 GamePlay.textArea.setCaretPosition(GamePlay.textArea.getDocument().getLength());
                 //return false;
