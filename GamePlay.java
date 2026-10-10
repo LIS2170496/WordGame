@@ -51,6 +51,7 @@ public class GamePlay extends GUI implements ActionListener{
         
         addPlayerMenuItem.addActionListener(this);
         addHostMenuItem.addActionListener(this);
+        layoutMenuItem.addActionListener(this);
 
         
     }
@@ -61,6 +62,13 @@ public class GamePlay extends GUI implements ActionListener{
     public void actionPerformed(ActionEvent event) {
 
         Object source = event.getSource();
+
+        //Requirement 4f - When this menu item is clicked, create a popup message that 
+        // describes why you chose the particular layout you chose for your application.
+        //FIXME - add message text
+        if(source == layoutMenuItem) {
+            JOptionPane.showMessageDialog(null, "Add message here");
+        }
 
         //Requirement 4c - This is now a menu Item with action listener
         //IF Add Player menu option was pressed

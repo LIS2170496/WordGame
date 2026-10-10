@@ -19,6 +19,7 @@ public class GUI extends JFrame {
 
     JMenuItem addPlayerMenuItem;
     JMenuItem addHostMenuItem;
+    JMenuItem layoutMenuItem;
 
     public GUI () {
 
@@ -47,7 +48,22 @@ public class GUI extends JFrame {
 
         //Requirement 4b - Enable Alt-G to access the Game menu
         gameMenu.setMnemonic('G');
-        
+
+
+        //Requirement 4e - Add About menu
+        JMenu aboutMenu = new JMenu("About");
+        //Requirement 4e - Enable use Alt-A to access
+        aboutMenu.setMnemonic('A');
+
+        //Requirement 4f - Add a menu item to the About menu called Layout. 
+        layoutMenuItem = new JMenuItem("Layout");
+        aboutMenu.add(layoutMenuItem);
+        menuBar.add(aboutMenu);
+
+
+
+
+
         setVisible(true);
         
         
