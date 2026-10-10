@@ -247,7 +247,7 @@ public class GamePlay extends GUI implements ActionListener{
             addHostMenuItem.setVisible(false);
 
             
-
+            textArea.setText("");
             startGameButton.setEnabled(true);
             startGameButton.setVisible(true);
 
@@ -279,12 +279,11 @@ public class GamePlay extends GUI implements ActionListener{
                 startGameButton.setEnabled(false);
                 startGameButton.setVisible(false);
 
-                setTextArea("\n\nWelcome, players!" + "\nYou each have $1,000 in your piggy bank");
-                textArea.setCaretPosition(textArea.getDocument().getLength());
-
-
                 //guessing incorrectly on a possible Physical prize loses $0 instead of $10?
-                setTextArea("\n" + 
+                setTextArea(
+                    "\n\nWelcome, players!" + 
+                    "\nYou each have $1,000 in your piggy bank" + 
+                    "\n" + 
                     "If you guess correctly, you will win $" + 
                     Money.winAmount + 
                     " or a random physical prize.");
@@ -315,6 +314,8 @@ public class GamePlay extends GUI implements ActionListener{
 
                             //to get out after number guessed correctly
                             if (playerWins) {
+                                GamePlay.textArea.append("\n\nYou won! Answer: " + currentHost.winningPhrase.getPlayingPhrase());
+                                GamePlay.textArea.setCaretPosition(GamePlay.textArea.getDocument().getLength());
                                 break;
                             }
                         }

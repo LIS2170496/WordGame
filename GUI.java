@@ -114,7 +114,7 @@ public class GUI extends JFrame {
         textArea = new JTextArea(10,50);
         textArea.setLineWrap(true);
         textArea.setMargin(new Insets(10,10,10,10));
-        textArea.append("Open the Game menu to add Player 1");
+        textArea.append("\nOpen the Game menu to add Player 1");
         GamePlay.textArea.setCaretPosition(GamePlay.textArea.getDocument().getLength());
 
         JScrollPane scrollBar = new JScrollPane(textArea);

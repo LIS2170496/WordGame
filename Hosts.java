@@ -21,6 +21,7 @@ public class Hosts extends Person {
 
         if (winningPhrase.findLetters(gamePhrase)) {
             GamePlay.setPlayingPhraseLabel();
+
             return true;
         }
         else {
