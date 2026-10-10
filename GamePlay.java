@@ -263,20 +263,20 @@ public class GamePlay extends GUI implements ActionListener{
             //Button that starts the player turns when clicked
 
             if (currentHost == null) {
-                JOptionPane.showMessageDialog(null,"Cannot play without a host!");
+                setTextArea("\nCannot play without a host!");
             }
 
             else if (currentPlayers[0] == null) {
-                JOptionPane.showMessageDialog(null,"Cannot play without Player1!");
+                setTextArea("\nCannot play without Player1!");
             }
             else if (currentPlayers[1] == null) {
-                JOptionPane.showMessageDialog(null,"Cannot play without Player2!");
+                setTextArea("\nCannot play without Player2!");
             }
             else if (currentPlayers[2] == null) {
-                JOptionPane.showMessageDialog(null,"Cannot play without Player3!");
+                setTextArea("\nCannot play without Player3!");
             }
             else if (phraseToWin == null  ||  phraseToWin.equals("")) {
-                JOptionPane.showMessageDialog(null,"Cannot play without a winning phrase!");
+                setTextArea("\nCannot play without a winning phrase!");
             }
 
             else {
