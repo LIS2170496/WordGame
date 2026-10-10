@@ -1,5 +1,3 @@
-import javax.swing.JOptionPane;
-
 public class Money implements Award {
     
     //Bet amounts moved from Players.java to Money.java
@@ -14,13 +12,14 @@ public class Money implements Award {
         //Parameter true, win money 
         if (guessCorrect) {
 
-            //JOptionPane to give player the message of 
+            //Text area message to give player the message of 
             // whether they were correct and/or won any prizes, 
             // how much money they currently have, etc.
-            JOptionPane.showMessageDialog(null, 
-                "Congratulations, " + playerPlayers.getFullName() + 
-                " that letter is in the phrase!" + 
+            GamePlay.textArea.append(
+                "\n\nCongratulations, " + playerPlayers.getFullName() + 
+                ", that letter is in the phrase!" + 
                 "\nYou have won $" + winAmount);
+            GamePlay.textArea.setCaretPosition(GamePlay.textArea.getDocument().getLength());
 
             return winAmount;
         }
@@ -28,13 +27,14 @@ public class Money implements Award {
         //Parameter false, lose money
         else {
         
-            //JOptionPane to give player the message of 
+            //Text area message to give player the message of 
             // whether they were correct and/or won any prizes, 
             // how much money they currently have, etc.
-            JOptionPane.showMessageDialog(null, 
-                "I'm sorry, " + playerPlayers.getFullName() + 
-                " that letter is not in the phrase." + 
+            GamePlay.textArea.append(
+                "\n\nI'm sorry, " + playerPlayers.getFullName() + 
+                ", that letter is not in the phrase." + 
                 "\nYou have lost $" + betAmount);
+            GamePlay.textArea.setCaretPosition(GamePlay.textArea.getDocument().getLength());
             return (betAmount * -1);
         }
 

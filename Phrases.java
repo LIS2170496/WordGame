@@ -1,7 +1,5 @@
 import java.util.InputMismatchException;
 
-import javax.swing.JOptionPane;
-
 public class Phrases {
     //String gamePhrase which is set on instantiation
     static String gamePhrase = new String();
@@ -88,7 +86,8 @@ public class Phrases {
             //if playingPhrase NOT contains an underscore, game over
             else if (!(playingPhrase.indexOf(underscoreChar) != -1)) {
                 GamePlay.setPlayingPhraseLabel();
-                JOptionPane.showMessageDialog(null, "You won! Answer: " + playingPhrase);
+                GamePlay.textArea.append("\n\nYou won! Answer: " + playingPhrase);
+                GamePlay.textArea.setCaretPosition(GamePlay.textArea.getDocument().getLength());
                 phraseSolved = true;
                 return true;
             }

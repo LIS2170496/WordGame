@@ -21,7 +21,7 @@ public class GUI extends JFrame {
     JMenuItem addHostMenuItem;
     JMenuItem layoutMenuItem;
 
-    JTextArea textArea;
+    public static JTextArea textArea;
 
     public GUI () {
 
@@ -112,13 +112,17 @@ public class GUI extends JFrame {
         textArea = new JTextArea(10,50);
         textArea.setLineWrap(true);
         textArea.setMargin(new Insets(10,10,10,10));
-        textArea.setText("Welcome!");
+        textArea.append("Open the Game menu to add Player 1");
+        GamePlay.textArea.setCaretPosition(GamePlay.textArea.getDocument().getLength());
 
         JScrollPane scrollBar = new JScrollPane(textArea);
         scrollBar.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         
         textAreaContainer.add(scrollBar, BorderLayout.CENTER);
         add(textAreaContainer);
+
+        //DefaultCaret caret = (DefaultCaret) textArea.getCaret();
+        //caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
 
         
 
@@ -142,5 +146,5 @@ public class GUI extends JFrame {
 
 
 
-    }
+    } 
 }
