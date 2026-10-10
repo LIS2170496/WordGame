@@ -21,6 +21,8 @@ public class GUI extends JFrame {
     JMenuItem addHostMenuItem;
     JMenuItem layoutMenuItem;
 
+    JTextArea textArea;
+
     public GUI () {
 
         super("Wheel of Wonder");
@@ -64,7 +66,7 @@ public class GUI extends JFrame {
 
 
 
-        setVisible(true);
+        
         
         
 
@@ -97,9 +99,38 @@ public class GUI extends JFrame {
         add(playingPhraseLabelContainer);
 
         JPanel buttonsContainer = new JPanel();
+        //currentHostLabelContainer.setBackground(Color.lightGray);
         buttonsContainer.setBounds(0,175,500,50);
         buttonsContainer.add(startGameButton);
         add(buttonsContainer);
+
+
+        //Requirement 4g - Area for text with scrollbars
+        JPanel textAreaContainer = new JPanel(new BorderLayout());
+        textAreaContainer.setBounds(10,230,480,100);
+
+        textArea = new JTextArea(10,50);
+        textArea.setLineWrap(true);
+        textArea.setMargin(new Insets(10,10,10,10));
+        textArea.setText("Welcome!");
+
+        JScrollPane scrollBar = new JScrollPane(textArea);
+        scrollBar.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        
+        textAreaContainer.add(scrollBar, BorderLayout.CENTER);
+        add(textAreaContainer);
+
+        
+
+        
+
+
+
+
+
+
+
+        setVisible(true);
 
 
         startGameButton.setEnabled(false);
