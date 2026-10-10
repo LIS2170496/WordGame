@@ -65,9 +65,14 @@ public class GamePlay extends GUI implements ActionListener{
 
         //Requirement 4f - When this menu item is clicked, create a popup message that 
         // describes why you chose the particular layout you chose for your application.
-        //FIXME - add message text
         if(source == layoutMenuItem) {
-            JOptionPane.showMessageDialog(null, "Add message here");
+            JOptionPane.showMessageDialog(null, 
+                "I chose a null layout for the main frame and " + 
+                "\nFlowLayout.LEFT for each panel in the frame. " + 
+                "\nThis allowed me to line up each panel where I " + 
+                "\nwanted it and then the content within each panel " + 
+                "\nis aligned to the left side of the panel."
+            );
         }
 
         //Requirement 4c - This is now a menu Item with action listener

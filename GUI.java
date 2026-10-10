@@ -32,7 +32,6 @@ public class GUI extends JFrame {
         setSize(frameWidth, frameHeight);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        //FIXME - review later
         setLayout(null);
 
         //Requirement 4a - Add a Menu Bar
@@ -159,7 +158,7 @@ public class GUI extends JFrame {
 
     } 
 
-    //FIXME - add requirement #
+    //Requirement 4h - If the box is not checked, make each new message erase any previous message.
     public static void setTextArea(String message) {
         if (textAreaCheckbox.isSelected()) {
             textArea.append(message);
