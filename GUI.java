@@ -78,28 +78,28 @@ public class GUI extends JFrame {
         //Panels
         //Requirement 4d - Use JPanels
 
-        JPanel topPanel = new JPanel();
-        //topPanel.setBackground(Color.pink);
-        topPanel.setBounds(0,10,500,50);
-        topPanel.add(currentPlayersLabel);
-        add(topPanel);
+        JPanel currentPlayersLabelContainer = new JPanel();
+        //currentPlayersLabelContainer.setBackground(Color.pink);
+        currentPlayersLabelContainer.setBounds(0,10,500,50);
+        currentPlayersLabelContainer.add(currentPlayersLabel);
+        add(currentPlayersLabelContainer);
 
-        JPanel middlePanel = new JPanel();
-        //middlePanel.setBackground(Color.lightGray);
-        middlePanel.setBounds(0,65,500,50);
-        middlePanel.add(currentHostLabel);
-        add(middlePanel);
+        JPanel currentHostLabelContainer = new JPanel();
+        //currentHostLabelContainer.setBackground(Color.lightGray);
+        currentHostLabelContainer.setBounds(0,65,500,50);
+        currentHostLabelContainer.add(currentHostLabel);
+        add(currentHostLabelContainer);
 
-        JPanel bottomPanel = new JPanel();
-        //bottomPanel.setBackground(Color.pink);
-        bottomPanel.setBounds(0,120,500,50);
-        bottomPanel.add(playingPhraseLabel);
-        add(bottomPanel);
+        JPanel playingPhraseLabelContainer = new JPanel();
+        //playingPhraseLabelContainer.setBackground(Color.pink);
+        playingPhraseLabelContainer.setBounds(0,120,500,50);
+        playingPhraseLabelContainer.add(playingPhraseLabel);
+        add(playingPhraseLabelContainer);
 
-        JPanel buttonHolder = new JPanel();
-        buttonHolder.setBounds(0,175,500,50);
-        buttonHolder.add(startGameButton);
-        add(buttonHolder);
+        JPanel buttonsContainer = new JPanel();
+        buttonsContainer.setBounds(0,175,500,50);
+        buttonsContainer.add(startGameButton);
+        add(buttonsContainer);
 
 
         startGameButton.setEnabled(false);
