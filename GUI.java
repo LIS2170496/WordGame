@@ -23,6 +23,7 @@ public class GUI extends JFrame {
     JMenuItem layoutMenuItem;
 
     public static JTextArea textArea;
+    public static JCheckBox textAreaCheckbox;
 
     public GUI () {
 
@@ -81,19 +82,19 @@ public class GUI extends JFrame {
         //Panels
         //Requirement 4d - Use JPanels
 
-        JPanel currentPlayersLabelContainer = new JPanel();
+        JPanel currentPlayersLabelContainer = new JPanel(new FlowLayout(FlowLayout.LEFT));
         //currentPlayersLabelContainer.setBackground(Color.pink);
         currentPlayersLabelContainer.setBounds(0,10,500,50);
         currentPlayersLabelContainer.add(currentPlayersLabel);
         add(currentPlayersLabelContainer);
 
-        JPanel currentHostLabelContainer = new JPanel();
+        JPanel currentHostLabelContainer = new JPanel(new FlowLayout(FlowLayout.LEFT));
         //currentHostLabelContainer.setBackground(Color.lightGray);
         currentHostLabelContainer.setBounds(0,65,500,50);
         currentHostLabelContainer.add(currentHostLabel);
         add(currentHostLabelContainer);
 
-        JPanel playingPhraseLabelContainer = new JPanel();
+        JPanel playingPhraseLabelContainer = new JPanel(new FlowLayout(FlowLayout.LEFT));
         //playingPhraseLabelContainer.setBackground(Color.pink);
         playingPhraseLabelContainer.setBounds(0,120,500,50);
         playingPhraseLabelContainer.add(playingPhraseLabel);
@@ -108,7 +109,7 @@ public class GUI extends JFrame {
 
         //Requirement 4g - Area for text with scrollbars
         JPanel textAreaContainer = new JPanel(new BorderLayout());
-        textAreaContainer.setBounds(10,500,480,100);
+        textAreaContainer.setBounds(10,450,465,100);
 
         textArea = new JTextArea(10,50);
         textArea.setLineWrap(true);
@@ -122,8 +123,17 @@ public class GUI extends JFrame {
         textAreaContainer.add(scrollBar, BorderLayout.CENTER);
         add(textAreaContainer);
 
-        //DefaultCaret caret = (DefaultCaret) textArea.getCaret();
-        //caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
+
+        //Requirement 4h - Checkbox for "Save Messages"
+        JPanel textAreaOptionsContainer = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        textAreaOptionsContainer.setBounds(10,555,480,50);
+        textAreaCheckbox = new JCheckBox("Save Messages", true);
+        textAreaOptionsContainer.add(textAreaCheckbox);
+        add(textAreaOptionsContainer);
+
+
+
+
 
         
 
