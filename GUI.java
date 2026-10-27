@@ -4,7 +4,7 @@ import javax.swing.*;
 public class GUI extends JFrame {
 
     int frameWidth = 500;
-    int frameHeight = 700;
+    int frameHeight = 800;
     
 
     String addPlayer1String = "Add Player1";
@@ -108,7 +108,8 @@ public class GUI extends JFrame {
 
         //Requirement 4g - Area for text with scrollbars
         JPanel textAreaContainer = new JPanel(new BorderLayout());
-        textAreaContainer.setBounds(10,385,465,100);
+        //textAreaContainer.setBackground(Color.pink);
+        textAreaContainer.setBounds(10,435,470,100);
 
         textArea = new JTextArea(10,50);
         textArea.setLineWrap(true);
@@ -125,7 +126,8 @@ public class GUI extends JFrame {
 
         //Requirement 4h - Checkbox for "Save Messages"
         JPanel textAreaOptionsContainer = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        textAreaOptionsContainer.setBounds(10,500,425,50);
+        //textAreaOptionsContainer.setBackground(Color.lightGray);
+        textAreaOptionsContainer.setBounds(10,530,470,35);
         textAreaCheckbox = new JCheckBox("Save Messages", true);
         //Requirement 4i - Tooltip for checkbox
         textAreaCheckbox.setToolTipText(
@@ -138,7 +140,8 @@ public class GUI extends JFrame {
         add(textAreaOptionsContainer);
 
         JPanel physicalPrizeImageContainer = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        physicalPrizeImageContainer.setBounds(10,550,425,50);
+        //physicalPrizeImageContainer.setBackground(Color.pink);
+        physicalPrizeImageContainer.setBounds(10,570,470,150);
         JLabel physicalPrizeImageLabel = new JLabel("IMAGE AREA TEST");
         physicalPrizeImageContainer.add(physicalPrizeImageLabel);
         add(physicalPrizeImageContainer);
