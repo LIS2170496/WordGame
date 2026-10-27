@@ -8,15 +8,27 @@ import javax.swing.JOptionPane;
 
 public class Images {
 
-    BufferedImage image0 = null;
-    BufferedImage image1 = null;
-    BufferedImage image2 = null;
-    BufferedImage image3 = null;
-    BufferedImage image4 = null;
-    BufferedImage image5 = null;
-    BufferedImage image6 = null;
+    static File[] files = {
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+    };
 
-    String[] imageList = {
+    static BufferedImage[] bufferedImages = {
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+    };
+
+    static String[] imageURLs = {
         //new car
         "https://cdn.pixabay.com/photo/2020/05/19/10/05/opel-5190050_1280.jpg",
 
@@ -40,23 +52,15 @@ public class Images {
     };
 
 
-
-    public static BufferedImage readFromFile(BufferedImage image) {
+    public void readFromFile(int i) {
         try {
-            File file = new File("https://cdn.pixabay.com/photo/2020/05/19/10/05/opel-5190050_1280.jpg");
-
-            image = new BufferedImage(500,300, BufferedImage.TYPE_INT_ARGB);
-
-            image = ImageIO.read(file);
-
-
-            JOptionPane.showMessageDialog(null, "Image complete.");
-
+            files[i] = new File(imageURLs[i]);
+            bufferedImages[i] = new BufferedImage(500,300, BufferedImage.TYPE_INT_RGB);
+            bufferedImages[i] = ImageIO.read(files[i]);
         }
-        catch (IOException e) {
+        catch(IOException e) {
             JOptionPane.showMessageDialog(null, e.getMessage() + ", please try again.");
         }
-        return image;
     }
 
 
