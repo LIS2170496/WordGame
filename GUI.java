@@ -108,7 +108,7 @@ public class GUI extends JFrame {
 
         //Requirement 4g - Area for text with scrollbars
         JPanel textAreaContainer = new JPanel(new BorderLayout());
-        textAreaContainer.setBounds(10,450,465,100);
+        textAreaContainer.setBounds(10,385,465,100);
 
         textArea = new JTextArea(10,50);
         textArea.setLineWrap(true);
@@ -125,7 +125,7 @@ public class GUI extends JFrame {
 
         //Requirement 4h - Checkbox for "Save Messages"
         JPanel textAreaOptionsContainer = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        textAreaOptionsContainer.setBounds(10,555,480,50);
+        textAreaOptionsContainer.setBounds(10,500,425,50);
         textAreaCheckbox = new JCheckBox("Save Messages", true);
         //Requirement 4i - Tooltip for checkbox
         textAreaCheckbox.setToolTipText(
@@ -136,6 +136,13 @@ public class GUI extends JFrame {
         );
         textAreaOptionsContainer.add(textAreaCheckbox);
         add(textAreaOptionsContainer);
+
+        JPanel physicalPrizeImageContainer = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        physicalPrizeImageContainer.setBounds(10,550,425,50);
+        JLabel physicalPrizeImageLabel = new JLabel("IMAGE AREA TEST");
+        physicalPrizeImageContainer.add(physicalPrizeImageLabel);
+        add(physicalPrizeImageContainer);
+
 
 
 
