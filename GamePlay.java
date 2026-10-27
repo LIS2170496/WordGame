@@ -63,7 +63,7 @@ public class GamePlay extends GUI implements ActionListener{
 
         Object source = event.getSource();
 
-        //Requirement 4f - When this menu item is clicked, create a popup message that 
+        //When this menu item is clicked, create a popup message that 
         // describes why you chose the particular layout you chose for your application.
         if(source == layoutMenuItem) {
             JOptionPane.showMessageDialog(null, 
@@ -75,7 +75,7 @@ public class GamePlay extends GUI implements ActionListener{
             );
         }
 
-        //Requirement 4c - This is now a menu Item with action listener
+        //This is now a menu Item with action listener
         //IF Add Player menu option was pressed
         if(source == addPlayerMenuItem) {
         
@@ -204,7 +204,7 @@ public class GamePlay extends GUI implements ActionListener{
 
         }
 
-        //Requirement 4c - This is now a menu Item with action listener
+        //This is now a menu Item with action listener
         //IF Open Host Phrase Pane menu option was pressed
         if(source == addHostMenuItem) {
             while (hostFirstName == null  ||  hostFirstName.equals("")) {

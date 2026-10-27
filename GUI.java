@@ -34,13 +34,13 @@ public class GUI extends JFrame {
 
         setLayout(null);
 
-        //Requirement 4a - Add a Menu Bar
+        //Add a Menu Bar
         JMenuBar menuBar = new JMenuBar();
 
-        //Requirement 4b - Create a Menu called Game
+        //Create a Menu called Game
         JMenu gameMenu = new JMenu("Game");
 
-        //Requirement 4c - Add Player and Add Host buttons are menu items under the Game menu 
+        //Add Player and Add Host buttons are menu items under the Game menu 
         addPlayerMenuItem = new JMenuItem("Add Player1");
         addHostMenuItem = new JMenuItem("Add Host");
 
@@ -49,16 +49,16 @@ public class GUI extends JFrame {
         menuBar.add(gameMenu);
         setJMenuBar(menuBar);
 
-        //Requirement 4b - Enable Alt-G to access the Game menu
+        //Enable Alt-G to access the Game menu
         gameMenu.setMnemonic('G');
 
 
-        //Requirement 4e - Add About menu
+        //Add About menu
         JMenu aboutMenu = new JMenu("About");
-        //Requirement 4e - Enable use Alt-A to access
+        //Enable use Alt-A to access
         aboutMenu.setMnemonic('A');
 
-        //Requirement 4f - Add a menu item to the About menu called Layout. 
+        //Add a menu item to the About menu called Layout. 
         layoutMenuItem = new JMenuItem("Layout");
         aboutMenu.add(layoutMenuItem);
         menuBar.add(aboutMenu);
@@ -78,8 +78,7 @@ public class GUI extends JFrame {
 
 
 
-        //Panels
-        //Requirement 4d - Use JPanels
+        //JPanels
 
         JPanel currentPlayersLabelContainer = new JPanel(new FlowLayout(FlowLayout.LEFT));
         //currentPlayersLabelContainer.setBackground(Color.pink);
@@ -106,7 +105,7 @@ public class GUI extends JFrame {
         add(buttonsContainer);
 
 
-        //Requirement 4g - Area for text with scrollbars
+        //Area for text with scrollbars
         JPanel textAreaContainer = new JPanel(new BorderLayout());
         //textAreaContainer.setBackground(Color.pink);
         textAreaContainer.setBounds(10,435,470,100);
@@ -124,12 +123,12 @@ public class GUI extends JFrame {
         add(textAreaContainer);
 
 
-        //Requirement 4h - Checkbox for "Save Messages"
+        //Checkbox for "Save Messages"
         JPanel textAreaOptionsContainer = new JPanel(new FlowLayout(FlowLayout.LEFT));
         //textAreaOptionsContainer.setBackground(Color.lightGray);
         textAreaOptionsContainer.setBounds(10,530,470,35);
         textAreaCheckbox = new JCheckBox("Save Messages", true);
-        //Requirement 4i - Tooltip for checkbox
+        //Tooltip for checkbox
         textAreaCheckbox.setToolTipText(
             "<html>If the box is checked, " + 
             "each new message will be added below the previous message." +
@@ -175,7 +174,7 @@ public class GUI extends JFrame {
 
     } 
 
-    //Requirement 4h - If the box is not checked, make each new message erase any previous message.
+    //If the box is not checked, make each new message erase any previous message.
     public static void setTextArea(String message) {
         if (textAreaCheckbox.isSelected()) {
             textArea.append(message);
