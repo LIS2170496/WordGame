@@ -21,7 +21,12 @@ public class Turn {
                 while (playerGuessString == null  ||  playerGuessString.equals("")) {
 
                     playerGuessString = JOptionPane.showInputDialog(null, playerName.getFullName() + ", enter your guess: ");
-                    
+
+                    //LESSON10 - once next player has entered their guess, 
+                    //           remove the previous player's prize image and 
+                    //           continue with turns
+
+                    GamePlay.removePrizeImage();
                     if (playerGuessString == null) {
                         return false;
                     }
