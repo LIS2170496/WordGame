@@ -2,7 +2,7 @@ import java.util.Random;
 
 public class Physical implements Award {
     
-    //String array of 5 prizes
+    //String array of 7 prizes
     String[] prizes = {
         "new car", 
         "Hawaii vacation", 
@@ -19,8 +19,11 @@ public class Physical implements Award {
 
         Random random = new Random();
 
-        //Bound 5 creates random int 0, 1, 2, 3, or 4
-        randomPrize = random.nextInt(5);
+        //Bound 7 creates random int 0, 1, 2, 3, 4, 5, or 6
+        randomPrize = random.nextInt(7);
+
+        //LESSON10 - draw the image
+        GamePlay.displayPrizeImage(randomPrize);
 
         return randomPrize;
     }

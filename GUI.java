@@ -1,5 +1,10 @@
 import java.awt.*;
 import javax.swing.*;
+//import javax.imageio.ImageIO;
+//import java.awt.image.BufferedImage;
+//import java.io.IOException;
+
+
 
 public class GUI extends JFrame {
 
@@ -24,6 +29,11 @@ public class GUI extends JFrame {
 
     public static JTextArea textArea;
     public static JCheckBox textAreaCheckbox;
+
+    //LESSON10 instantiate Images
+    public static JLabel physicalPrizeImageLabel;
+    public static Images myImages = new Images();
+
 
     public GUI () {
 
@@ -138,10 +148,13 @@ public class GUI extends JFrame {
         textAreaOptionsContainer.add(textAreaCheckbox);
         add(textAreaOptionsContainer);
 
+
+
+        //LESSON10 - Container for prize image
         JPanel physicalPrizeImageContainer = new JPanel(new FlowLayout(FlowLayout.CENTER));
         //physicalPrizeImageContainer.setBackground(Color.pink);
         physicalPrizeImageContainer.setBounds(10,570,470,150);
-        JLabel physicalPrizeImageLabel = new JLabel("IMAGE AREA TEST");
+        JLabel physicalPrizeImageLabel = new JLabel("");
         physicalPrizeImageContainer.add(physicalPrizeImageLabel);
         add(physicalPrizeImageContainer);
 
@@ -182,6 +195,12 @@ public class GUI extends JFrame {
         else {
             textArea.setText(message);
         }
+    }
+
+
+    //LESSON10 
+    public static void displayPrizeImage(int i) {
+        physicalPrizeImageLabel.setIcon(new ImageIcon(Images.bufferedImages[i]));
     }
 
 
