@@ -26,6 +26,8 @@ public class GUI extends JFrame {
     JMenuItem addPlayerMenuItem;
     JMenuItem addHostMenuItem;
     JMenuItem layoutMenuItem;
+    //LESSON10 -
+    JMenuItem attributionMenuItem;
 
     public static JTextArea textArea;
     public static JCheckBox textAreaCheckbox;
@@ -71,7 +73,15 @@ public class GUI extends JFrame {
         //Add a menu item to the About menu called Layout. 
         layoutMenuItem = new JMenuItem("Layout");
         aboutMenu.add(layoutMenuItem);
+        
+        //LESSON10
+        attributionMenuItem = new JMenuItem("Attribution");
+        aboutMenu.add(attributionMenuItem);
+
         menuBar.add(aboutMenu);
+
+
+
 
 
 

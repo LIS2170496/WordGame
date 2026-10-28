@@ -52,6 +52,7 @@ public class GamePlay extends GUI implements ActionListener{
         addPlayerMenuItem.addActionListener(this);
         addHostMenuItem.addActionListener(this);
         layoutMenuItem.addActionListener(this);
+        attributionMenuItem.addActionListener(this);
 
         
     }
@@ -74,6 +75,34 @@ public class GamePlay extends GUI implements ActionListener{
                 "\nis aligned to the left side of the panel."
             );
         }
+
+        //LESSON10
+        if(source == attributionMenuItem) {
+            JOptionPane.showMessageDialog(null, 
+                "New Car" + 
+                "\nhttps://cdn.pixabay.com/photo/2020/05/19/10/05/opel-5190050_1280.jpg" + 
+                "\n" + 
+                "\nHawaii Vacation" + 
+                "\nhttps://media.istockphoto.com/id/117211856/photo/where-coconuts-grow.jpg" + 
+                "\n" + 
+                "\nFlat Screen TV" + 
+                "\nhttps://media.istockphoto.com/id/1395191574/photo/black-led-tv-television-screen-blank-isolated.jpg" + 
+                "\n" + 
+                "\nLifetime Supply of Ice Cream" + 
+                "\nhttps://media.istockphoto.com/id/2153490093/photo/three-glasses-of-ice-cream-with-balls-decorated-on-table.jpg" + 
+                "\n" + 
+                "\nOne-Year Movie Theater Membership" + 
+                "\nhttps://cdn.pixabay.com/photo/2024/06/23/20/54/ai-generated-8848753_1280.jpg" + 
+                "\n" + 
+                "\nFruit Basket" + 
+                "\nhttps://cdn.pixabay.com/photo/2018/05/14/12/31/fruit-3399834_1280.jpg" + 
+                "\n" + 
+                "\nGolden Ticket" + 
+                "\nhttps://cdn.pixabay.com/photo/2017/08/06/04/06/gold-2588578_1280.jpg"
+            );
+        }
+
+
 
         //This is now a menu Item with action listener
         //IF Add Player menu option was pressed
