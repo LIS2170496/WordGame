@@ -31,7 +31,7 @@ public class GUI extends JFrame {
     public static JCheckBox textAreaCheckbox;
 
     //LESSON10 instantiate Images
-    public static JLabel physicalPrizeImageLabel;
+    public static JLabel physicalPrizeImageLabel = new JLabel("");
     public static Images myImages = new Images();
 
 
@@ -154,7 +154,6 @@ public class GUI extends JFrame {
         JPanel physicalPrizeImageContainer = new JPanel(new FlowLayout(FlowLayout.CENTER));
         //physicalPrizeImageContainer.setBackground(Color.pink);
         physicalPrizeImageContainer.setBounds(10,570,470,150);
-        JLabel physicalPrizeImageLabel = new JLabel("");
         physicalPrizeImageContainer.add(physicalPrizeImageLabel);
         add(physicalPrizeImageContainer);
 
