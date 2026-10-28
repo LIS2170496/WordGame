@@ -202,5 +202,11 @@ public class GUI extends JFrame {
         physicalPrizeImageLabel.setIcon(new ImageIcon(Images.bufferedImages[i]));
     }
 
+    public static void removePrizeImage() {
+        physicalPrizeImageLabel.setIcon(new ImageIcon());
+    }
+
+    
+
 
 }
