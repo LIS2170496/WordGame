@@ -116,6 +116,7 @@ public class GamePlay extends GUI implements ActionListener{
                 "\n" + 
                 "\nGolden Ticket Image" + 
                 "\nhttps://cdn.pixabay.com/photo/2017/08/06/04/06/gold-2588578_1280.jpg" + 
+                "\n" + 
                 "\nStar Image" + 
                 "\nhttps://pixabay.com/illustrations/stars-tail-christmas-advent-1076611/"
             );
