@@ -19,7 +19,7 @@ public class WinAnimationPanel extends JPanel implements ActionListener {
     WinAnimationPanel() {
         this.setPreferredSize(new Dimension(PANEL_WIDTH, PANEL_HEIGHT));
         winImage = new ImageIcon(Images.bufferedImages[7]).getImage();
-        timer = new Timer(1000, this);
+        timer = new Timer(100, this);
         timer.start();
     }
 
@@ -35,10 +35,10 @@ public class WinAnimationPanel extends JPanel implements ActionListener {
 
     @Override 
     public void actionPerformed(ActionEvent e) {
-        while (x < PANEL_WIDTH) {
-            x = x + xVelocity;
-            repaint();
-        }
+        
+        x = x + xVelocity;
+        repaint();
+        
 
 
     }

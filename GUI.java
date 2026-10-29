@@ -242,7 +242,9 @@ public class GUI extends JFrame {
 
     public void removeWinAnimation() {
         remove(myWinAnimationPanel);
+        
         add(imageContainer);
+        repaint();
     }
 
 
