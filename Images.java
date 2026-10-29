@@ -27,6 +27,7 @@ public class Images {
         null,
         null,
         null,
+        null,
         null
     };
 
@@ -34,33 +35,37 @@ public class Images {
     
 
     static String[] imageURLs = {
-        //new car
+        //0 new car
         //https://cdn.pixabay.com/photo/2020/05/19/10/05/opel-5190050_1280.jpg
         "https://raw.githubusercontent.com/LIS2170496/WordGameImages/refs/heads/main/newCarSmall.jpg",
 
-        //Hawaii vacation
+        //1 Hawaii vacation
         //https://media.istockphoto.com/id/117211856/photo/where-coconuts-grow.jpg
         "https://raw.githubusercontent.com/LIS2170496/WordGameImages/refs/heads/main/hawaiiSmall.jpg",
 
-        //flat screen TV
+        //2 flat screen TV
         //https://media.istockphoto.com/id/1395191574/photo/black-led-tv-television-screen-blank-isolated.jpg
         "https://raw.githubusercontent.com/LIS2170496/WordGameImages/refs/heads/main/tvSmall.jpg",
 
-        //lifetime supply of ice cream
+        //3 lifetime supply of ice cream
         //https://media.istockphoto.com/id/2153490093/photo/three-glasses-of-ice-cream-with-balls-decorated-on-table.jpg
         "https://raw.githubusercontent.com/LIS2170496/WordGameImages/refs/heads/main/icecreamSmall.jpg",
 
-        //one-year movie theater membership
+        //4 one-year movie theater membership
         //https://cdn.pixabay.com/photo/2024/06/23/20/54/ai-generated-8848753_1280.jpg
         "https://raw.githubusercontent.com/LIS2170496/WordGameImages/refs/heads/main/moviesSmall.jpg",
 
-        //fruit basket
+        //5 fruit basket
         //https://cdn.pixabay.com/photo/2018/05/14/12/31/fruit-3399834_1280.jpg
         "https://raw.githubusercontent.com/LIS2170496/WordGameImages/refs/heads/main/fruitSmall.jpg",
 
-        //golden ticket
+        //6 golden ticket
         //https://cdn.pixabay.com/photo/2017/08/06/04/06/gold-2588578_1280.jpg
-        "https://raw.githubusercontent.com/LIS2170496/WordGameImages/refs/heads/main/goldSmall.jpg"
+        "https://raw.githubusercontent.com/LIS2170496/WordGameImages/refs/heads/main/goldSmall.jpg",
+
+        //7 star
+        //https://pixabay.com/illustrations/stars-tail-christmas-advent-1076611/
+        "https://raw.githubusercontent.com/LIS2170496/WordGameImages/refs/heads/main/star.png"
     };
 
 

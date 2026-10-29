@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.event.*;
+import java.awt.*;
 
 //main application uses GUI as exension of JFrame
 public class GamePlay extends GUI implements ActionListener{
@@ -36,6 +37,16 @@ public class GamePlay extends GUI implements ActionListener{
     boolean playerWins = false;
     boolean playAgain = true;
     String playAgainDecision;
+
+
+
+    //LESSON10
+    Timer timer;
+    int xVelocity = 1;
+    int yVelocity = 1;
+    int x = 10;
+    int y = 570;
+
 
 
 
@@ -80,31 +91,33 @@ public class GamePlay extends GUI implements ActionListener{
         if(source == attributionMenuItem) {
             JOptionPane.showMessageDialog(null, 
 
-                "Sounds: \n" + 
-                "\nCorrect Sound" + 
+                
+                "Correct Sound" + 
                 "\nhttps://freesound.org/s/791980/" + 
                 "\n\n" + 
-                "\nImages: \n" + 
-                "\nNew Car" + 
+
+                "\nNew Car Image" + 
                 "\nhttps://cdn.pixabay.com/photo/2020/05/19/10/05/opel-5190050_1280.jpg" + 
                 "\n" + 
-                "\nHawaii Vacation" + 
+                "\nHawaii Vacation Image" + 
                 "\nhttps://media.istockphoto.com/id/117211856/photo/where-coconuts-grow.jpg" + 
                 "\n" + 
-                "\nFlat Screen TV" + 
+                "\nFlat Screen TV Image" + 
                 "\nhttps://media.istockphoto.com/id/1395191574/photo/black-led-tv-television-screen-blank-isolated.jpg" + 
                 "\n" + 
-                "\nLifetime Supply of Ice Cream" + 
+                "\nLifetime Supply of Ice Cream Image" + 
                 "\nhttps://media.istockphoto.com/id/2153490093/photo/three-glasses-of-ice-cream-with-balls-decorated-on-table.jpg" + 
                 "\n" + 
-                "\nOne-Year Movie Theater Membership" + 
+                "\nOne-Year Movie Theater Membership Image" + 
                 "\nhttps://cdn.pixabay.com/photo/2024/06/23/20/54/ai-generated-8848753_1280.jpg" + 
                 "\n" + 
-                "\nFruit Basket" + 
+                "\nFruit Basket Image" + 
                 "\nhttps://cdn.pixabay.com/photo/2018/05/14/12/31/fruit-3399834_1280.jpg" + 
                 "\n" + 
-                "\nGolden Ticket" + 
-                "\nhttps://cdn.pixabay.com/photo/2017/08/06/04/06/gold-2588578_1280.jpg"
+                "\nGolden Ticket Image" + 
+                "\nhttps://cdn.pixabay.com/photo/2017/08/06/04/06/gold-2588578_1280.jpg" + 
+                "\nStar Image" + 
+                "\nhttps://pixabay.com/illustrations/stars-tail-christmas-advent-1076611/"
             );
         }
 
@@ -372,6 +385,11 @@ public class GamePlay extends GUI implements ActionListener{
                     //prevent invalid entry
                     while (!playAgainDecision.equals("Y")  &&  !playAgainDecision.equals("N")) {
 
+                        
+                        JOptionPane.showMessageDialog(null,"Congratulations! You won!");
+
+                        displayWinAnimation();
+
                         //JOptionPane with Yes/No to let the user decide if they want to play again
                         dialogChoice = JOptionPane.showConfirmDialog(
                             null, 
@@ -383,6 +401,9 @@ public class GamePlay extends GUI implements ActionListener{
                         if(dialogChoice == JOptionPane.YES_OPTION) {
                             playAgainDecision = "Y";
                             playAgain = true;
+
+                            removeWinAnimation();
+                            removePrizeImage();
 
                             phraseToWin = null;
                             addHostMenuItem.setEnabled(true);
@@ -414,19 +435,28 @@ public class GamePlay extends GUI implements ActionListener{
                 }
             }
         }
+
+        else {
+            x = x + xVelocity;
+            imageLabel.repaint();
+        }
     }
 
 
 
 
+    
 
 
+    public void repaint(Graphics g) {
 
+        Graphics2D g2D = (Graphics2D) g;
 
+        g2D.drawImage(Images.bufferedImages[7], x, y, null);
 
-
-
-
+        //FIXME- idk if this is right
+        g2D.dispose();
+    }
 
 
 

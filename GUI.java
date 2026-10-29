@@ -33,11 +33,16 @@ public class GUI extends JFrame {
     public static JCheckBox textAreaCheckbox;
 
     //LESSON10 instantiate Images
-    public static JLabel physicalPrizeImageLabel = new JLabel("");
+    public static JLabel imageLabel = new JLabel("");
     public static Images myImages = new Images();
+    public static JPanel imageContainer;
+    
+    public static WinAnimationPanel myWinAnimationPanel;
 
     //LESSON10
     public static Sounds mySounds = new Sounds();
+
+    
 
 
     public GUI () {
@@ -164,11 +169,15 @@ public class GUI extends JFrame {
 
 
         //LESSON10 - Container for prize image
-        JPanel physicalPrizeImageContainer = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        //physicalPrizeImageContainer.setBackground(Color.pink);
-        physicalPrizeImageContainer.setBounds(10,570,470,150);
-        physicalPrizeImageContainer.add(physicalPrizeImageLabel);
-        add(physicalPrizeImageContainer);
+        //   reusing this container for win animation
+        imageContainer = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        //imageContainer.setBackground(Color.pink);
+        imageContainer.setBounds(10,570,470,150);
+        imageContainer.add(imageLabel);
+        add(imageContainer);
+
+
+        
 
 
 
@@ -212,12 +221,34 @@ public class GUI extends JFrame {
 
     //LESSON10 
     public static void displayPrizeImage(int i) {
-        physicalPrizeImageLabel.setIcon(new ImageIcon(Images.bufferedImages[i]));
+        imageLabel.setIcon(new ImageIcon(Images.bufferedImages[i]));
     }
 
     public static void removePrizeImage() {
-        physicalPrizeImageLabel.setIcon(new ImageIcon());
+        imageLabel.setIcon(new ImageIcon());
     }
+
+
+
+    //LESSON10
+    public void displayWinAnimation() {
+        //imageLabel.setIcon(new ImageIcon(Images.bufferedImages[7]));
+        remove(imageContainer);
+        myWinAnimationPanel = new WinAnimationPanel();
+        myWinAnimationPanel.setBackground(Color.yellow);
+        myWinAnimationPanel.setBounds(10,570,470,150);
+        add(myWinAnimationPanel);
+    }
+
+    public void removeWinAnimation() {
+        remove(myWinAnimationPanel);
+        add(imageContainer);
+    }
+
+
+    
+
+    
 
 
     //LESSON10
@@ -229,6 +260,9 @@ public class GUI extends JFrame {
     public static void stopSound() {
         mySounds.stop();
     }
+
+
+
 
     
 
