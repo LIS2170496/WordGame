@@ -20,6 +20,9 @@ public class Money implements Award {
                 ", that letter is in the phrase!" + 
                 "\nYou have won $" + winAmount);
             GamePlay.textArea.setCaretPosition(GamePlay.textArea.getDocument().getLength());
+            
+            //LESSON10 - play sound for win
+            GamePlay.playSound(0);
 
             return winAmount;
         }

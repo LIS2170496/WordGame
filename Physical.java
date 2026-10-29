@@ -22,9 +22,6 @@ public class Physical implements Award {
         //Bound 7 creates random int 0, 1, 2, 3, 4, 5, or 6
         randomPrize = random.nextInt(7);
 
-        //LESSON10 - draw the image
-        GamePlay.displayPrizeImage(randomPrize);
-
         return randomPrize;
     }
 
@@ -36,14 +33,22 @@ public class Physical implements Award {
 
         //Parameter true, win a prize
         if (guessCorrect) {
+            int prizeNumber = getRandomPrize();
 
             //Text area message to give player the message of 
             // whether they were correct and/or won any prizes, 
             // how much money they currently have, etc.
             GamePlay.setTextArea(
                 "\n\nCongratulations, " + playerPlayers.getFullName() + ", that letter is in the phrase!" + 
-                "\nYou have won a " + prizes[getRandomPrize()] + "!");
+                "\nYou have won a " + prizes[prizeNumber] + "!");
             GamePlay.textArea.setCaretPosition(GamePlay.textArea.getDocument().getLength());
+            
+            //LESSON10 - draw the image
+            GamePlay.displayPrizeImage(prizeNumber);
+
+            //LESSON10 - play sound for win
+            GamePlay.playSound(0);
+
             return 0;
         }
 

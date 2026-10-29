@@ -79,7 +79,13 @@ public class GamePlay extends GUI implements ActionListener{
         //LESSON10
         if(source == attributionMenuItem) {
             JOptionPane.showMessageDialog(null, 
-                "New Car" + 
+
+                "Sounds: \n" + 
+                "\nCorrect Sound" + 
+                "\nhttps://freesound.org/s/791980/" + 
+                "\n\n" + 
+                "\nImages: \n" + 
+                "\nNew Car" + 
                 "\nhttps://cdn.pixabay.com/photo/2020/05/19/10/05/opel-5190050_1280.jpg" + 
                 "\n" + 
                 "\nHawaii Vacation" + 

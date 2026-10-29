@@ -74,7 +74,7 @@ public class Images {
             }
         }
         catch(IOException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage() + " for file # " + i + ", please try again.");
+            JOptionPane.showMessageDialog(null, e.getMessage() + " for image file # " + i + ", please try again.");
         }
     }
 

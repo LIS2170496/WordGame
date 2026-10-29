@@ -36,6 +36,9 @@ public class GUI extends JFrame {
     public static JLabel physicalPrizeImageLabel = new JLabel("");
     public static Images myImages = new Images();
 
+    //LESSON10
+    public static Sounds mySounds = new Sounds();
+
 
     public GUI () {
 
@@ -214,6 +217,17 @@ public class GUI extends JFrame {
 
     public static void removePrizeImage() {
         physicalPrizeImageLabel.setIcon(new ImageIcon());
+    }
+
+
+    //LESSON10
+    public static void playSound(int i) {
+        mySounds.setFile(i);
+        mySounds.play();
+    }
+
+    public static void stopSound() {
+        mySounds.stop();
     }
 
     
