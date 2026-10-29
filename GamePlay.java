@@ -1,6 +1,6 @@
 import javax.swing.*;
 import java.awt.event.*;
-import java.awt.*;
+//import java.awt.*;
 
 //main application uses GUI as exension of JFrame
 public class GamePlay extends GUI implements ActionListener{
@@ -448,15 +448,6 @@ public class GamePlay extends GUI implements ActionListener{
     
 
 
-    public void repaint(Graphics g) {
-
-        Graphics2D g2D = (Graphics2D) g;
-
-        g2D.drawImage(Images.bufferedImages[7], x, y, null);
-
-        //FIXME- idk if this is right
-        g2D.dispose();
-    }
 
 
 
