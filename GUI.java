@@ -234,10 +234,12 @@ public class GUI extends JFrame {
     public void displayWinAnimation() {
         //imageLabel.setIcon(new ImageIcon(Images.bufferedImages[7]));
         remove(imageContainer);
+        repaint();
         myWinAnimationPanel = new WinAnimationPanel();
-        myWinAnimationPanel.setBackground(Color.yellow);
-        myWinAnimationPanel.setBounds(10,570,470,150);
+        //myWinAnimationPanel.setBackground(Color.yellow);
+        myWinAnimationPanel.setBounds(-200,570,680,150);
         add(myWinAnimationPanel);
+        repaint();
     }
 
     public void removeWinAnimation() {
