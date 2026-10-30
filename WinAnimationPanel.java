@@ -25,7 +25,7 @@ public class WinAnimationPanel extends JPanel implements ActionListener {
 
 
     public void paint(Graphics g) {
-        //FIXME - this was used to paint the background, may not be necessary
+        //prevents distorted animation
         super.paint(g);
 
         Graphics2D g2D = (Graphics2D) g;
